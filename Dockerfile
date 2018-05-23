@@ -8,11 +8,14 @@ RUN npm install hexo-cli -g
 # set workdir
 WORKDIR /public
 
+# copy context into workdir
 COPY . .
 
-RUN npm install
+# install dependency
+RUN yarn install
 
 # hexo default port
 EXPOSE 4000
 
+# start the built in hexo server
 CMD ["hexo", "server"]
