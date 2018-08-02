@@ -97,12 +97,15 @@ spec:
         - name: PORT
           value: "80"
         - name: MICROSOFT_APP_ID
-          value: MYAPPID
+          valueFrom:
+            secretKeyRef:
+              name: microsoft-bot-app
+              key: app-id
         - name: MICROSOFT_APP_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: microsoft-app-password
-              key: key
+              name: microsoft-bot-app
+              key: app-password
 ---
 kind: Service
 apiVersion: v1
@@ -115,16 +118,16 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: microsoft-app-password
-type: Opaque
-data:
-  key: your-app-secret
 ```
 
+Create the secret:
+
+```bash
+cd /your/secrets/directory
+echo -n 'your-id' > ./app-id
+echo -n 'your-password' > ./app-password
+kubectl create secret generic microsoft-bot-app --from-file=./app-password --from-file=./app-id
+```
 
 ## Enable Cluster HTTPS Ingress
 
