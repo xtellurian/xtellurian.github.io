@@ -52,7 +52,7 @@ BotFrameworkAdapter.processActivity(): 500 ERROR - FetchError: request to http:/
 
 That's because the Emulator opens a localhost port to listen for messages from the bot, but that address is not actually accessible from inside the container, hence the connection refused. You need to disable 'Bypass ngrok for local addresses'.
 
-![/images/botsinkube/bypass-ngrok.png](Screenshot of bypass ngrok on localhost setting disabled)
+![Screenshot of bypass ngrok on localhost setting disabled](/images/botsinkube/bypass-ngrok.png)
 
 ### Publish the image
 
