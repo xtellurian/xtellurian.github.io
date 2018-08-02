@@ -171,7 +171,7 @@ You can see a full sample [on github](https://github.com/xtellurian/halp-bot)
 
 ## Troubleshooting
 
-### By bot doesn't respond at all...
+### The bot doesn't respond at all...
 
 Check the validity of the certificate by navigating to your https url in a browser. If the browser doesn't trust the certificate, your ingress isn't configured properly. Check the issuer of the certificate.
 
