@@ -190,3 +190,8 @@ Yes, this service is alive
 recieved a message
 Replying: [conversationUpdate event detected]
 ```
+
+# Halp Bot
+
+Halp doesn't do much, but you can speak to him here:
+<iframe height=350 src='https://webchat.botframework.com/embed/halp?s=J4FrH6ac8m4.cwA.YBc.IMgxznyR9lq3lw3cjZWd2MQe8JlVegBoLFXc7iMbfnA'></iframe>
