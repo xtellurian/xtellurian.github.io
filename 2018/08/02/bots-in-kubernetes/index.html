@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>bots in kubernetes | Rian Finnegan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Bots in KubeSo you’ve built for first bot with Microsoft BotBuilder SDK, deployed it to Azure App Service or GCloud App Engine, and everything is just swell. Then along comes your company’s CTO, who s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bots in Kubernetes">
+<meta property="og:url" content="https://monsoon.cloud/2018/08/02/bots-in-kubernetes/index.html">
+<meta property="og:site_name" content="Rian Finnegan">
+<meta property="og:description" content="Bots in KubeSo you’ve built for first bot with Microsoft BotBuilder SDK, deployed it to Azure App Service or GCloud App Engine, and everything is just swell. Then along comes your company’s CTO, who s">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://monsoon.cloud/images/botsinkube/bypass-ngrok.png">
+<meta property="article:published_time" content="2018-08-02T01:11:00.000Z">
+<meta property="article:modified_time" content="2020-08-26T05:54:37.348Z">
+<meta property="article:author" content="Rian Finnegan">
+<meta property="article:tag" content="rian, finnegan, blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://monsoon.cloud/images/botsinkube/bypass-ngrok.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Rian Finnegan" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="border-width: 0;">
+                <p>Rian Finnegan</p>
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="index.search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="https://monsoon.cloud"></form>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-bots-in-kubernetes" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Bots in Kubernetes
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/02/bots-in-kubernetes/" class="article-date">
+	  <time datetime="2018-08-02T01:11:00.000Z" itemprop="datePublished">2018-08-02</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Bots-in-Kube"><a href="#Bots-in-Kube" class="headerlink" title="Bots in Kube"></a>Bots in Kube</h1><p>So you’ve built for first bot with Microsoft <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0">BotBuilder SDK</a>, deployed it to <a target="_blank" rel="noopener" href="https://azure.microsoft.com/en-au/services/app-service/">Azure App Service</a> or <a target="_blank" rel="noopener" href="https://cloud.google.com/appengine/">GCloud App Engine</a>, and everything is just swell. Then along comes your company’s CTO, who says they’ve committed to all their services having zero downtime (best effort of course). On the same day, your friend had the great idea to start doing A/B testing. What do you do?</p>
+<p>You’ve outgrown the App Service platform. Hello Kubernetes.</p>
+<h2 id="What-to-do"><a href="#What-to-do" class="headerlink" title="What to do"></a>What to do</h2><p>There’s three things we have to do to get our bot into k8s.</p>
+<ol>
+<li>Containerise the bot code</li>
+<li>Provision a Kubernetes Cluster</li>
+<li>Enable cluster HTTPS Ingress</li>
+</ol>
+<h2 id="Containerising-a-Bot"><a href="#Containerising-a-Bot" class="headerlink" title="Containerising a Bot"></a>Containerising a Bot</h2><p>Lucky for us, bots look mostly like web servers, and we’re pretty good at containerising web servers. Create a <code>Dockerfile</code> that builds your bot image. It should look something like this one, which uses the <a target="_blank" rel="noopener" href="https://docs.docker.com/develop/develop-images/multistage-build/">builder pattern</a> to reduce the size of the output image.</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this file builds a bot built in Typescript.</span></span><br><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">16.04</span> as builder</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt-get install -y curl &amp;&amp; \</span></span><br><span class="line"><span class="bash">    curl -sL https://deb.nodesource.com/setup_10.x | bash &amp;&amp; \</span></span><br><span class="line"><span class="bash">    apt-get install -y git nodejs build-essential</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> npm install -g node-gyp &amp;&amp; \</span></span><br><span class="line"><span class="bash">    npm install -g typescript</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /build</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> my-bot/package.json .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> npm install <span class="comment"># this helps reduce build times during dev iteration</span></span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> my-bot .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> npm run build</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">10</span>-alpine</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> --from=builder /build .</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [ <span class="string">&quot;node&quot;</span>, <span class="string">&quot;js/app.js&quot;</span> ]</span></span><br></pre></td></tr></table></figure>
+<p>Running the container locally and connecting with the <a target="_blank" rel="noopener" href="https://github.com/Microsoft/BotFramework-Emulator">Bot Framework Emulator</a>, you might see this error </p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BotFrameworkAdapter.processActivity(): 500 ERROR - FetchError: request to http://localhost:60321/v3/conversations/1dk6m0la5ji6/activities/bcmfna2mfjmf failed, reason: connect ECONNREFUSED 127.0.0.1:60321</span><br></pre></td></tr></table></figure>
+<p>That’s because the Emulator opens a localhost port to listen for messages from the bot, but that address is not actually accessible from inside the container, hence the connection refused. You need to disable ‘Bypass ngrok for local addresses’.</p>
+<p><img src="/images/botsinkube/bypass-ngrok.png" alt="Screenshot of bypass ngrok on localhost setting disabled"></p>
+<h3 id="Publish-the-image"><a href="#Publish-the-image" class="headerlink" title="Publish the image"></a>Publish the image</h3><p>Once you’ve built the image, publish it to the repository of your choice, e.g. <a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker Hub</a>. Now it’s ready to be deployed into the cluster.</p>
+<h2 id="Provision-a-Kubernetes-Cluster"><a href="#Provision-a-Kubernetes-Cluster" class="headerlink" title="Provision a Kubernetes Cluster"></a>Provision a Kubernetes Cluster</h2><p>Now creating a kubernetes cluster from scratch is hard. If your like me, you’d prefer if someone else did the hard work for you. Well they have!</p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough">Azure Kubernetes Service (AKS)</a> is the fasted way to get a cluster up and running. Just spin it up via Azure CLI. Then run this command - <code>az aks get-credentials</code> - and kubectl now interacts with the cluster. Almost too easy.</p>
+<blockquote>
+<p>Side note: It’s important to have a stateless bot (i.e. state remains in a remote database like CosmosDB and not memory) because Kubernetes deployments work best this way.</p>
+</blockquote>
+<h3 id="Deploy-the-bot"><a href="#Deploy-the-bot" class="headerlink" title="Deploy the bot"></a>Deploy the bot</h3><p>Your bot will need three kubernetes objects: a <code>deployment</code>, a <code>service</code>, and a <code>secret</code>.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">my-bot-deployment</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">my-bot</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">my-bot</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">my-bot</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">my-bot</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">dockerhubrepo/my-bot:tag</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">PORT</span></span><br><span class="line">          <span class="attr">value:</span> <span class="string">&quot;80&quot;</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">MICROSOFT_APP_ID</span></span><br><span class="line">          <span class="attr">valueFrom:</span></span><br><span class="line">            <span class="attr">secretKeyRef:</span></span><br><span class="line">              <span class="attr">name:</span> <span class="string">microsoft-bot-app</span></span><br><span class="line">              <span class="attr">key:</span> <span class="string">app-id</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">MICROSOFT_APP_PASSWORD</span></span><br><span class="line">          <span class="attr">valueFrom:</span></span><br><span class="line">            <span class="attr">secretKeyRef:</span></span><br><span class="line">              <span class="attr">name:</span> <span class="string">microsoft-bot-app</span></span><br><span class="line">              <span class="attr">key:</span> <span class="string">app-password</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">my-bot-service</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">my-bot</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>Create the secret:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /your/secrets/directory</span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&#x27;your-id&#x27;</span> &gt; ./app-id</span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&#x27;your-password&#x27;</span> &gt; ./app-password</span><br><span class="line">kubectl create secret generic microsoft-bot-app --from-file=./app-password --from-file=./app-id</span><br></pre></td></tr></table></figure>
+<h2 id="Enable-Cluster-HTTPS-Ingress"><a href="#Enable-Cluster-HTTPS-Ingress" class="headerlink" title="Enable Cluster HTTPS Ingress"></a>Enable Cluster HTTPS Ingress</h2><p>This step is probably the most convoluted, but once you’re up and running, it should require much intervention. I’m not going to rewrite all the steps (there are many) but follow <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/aks/ingress">this walkthrough</a> for enabling HTTPS ingress on AKS.</p>
+<blockquote>
+<p>Note: Be sure to use <code>letsencrypt-prod</code> - the Bot Emulator and Azure Bot Service will not work unless the bot is hosted under a trusted certificate.</p>
+</blockquote>
+<p>If you’re following the anove walkthrough, you’ll need to customise your http ingress routes.</p>
+<p>Modify the K8s Ingress object to look something like this:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">my-bot-ingress</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">kubernetes.io/ingress.class:</span> <span class="string">nginx</span></span><br><span class="line">    <span class="attr">certmanager.k8s.io/cluster-issuer:</span> <span class="string">letsencrypt-prod</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/rewrite-target:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">my-dns-name.australiaeast.cloudapp.azure.com</span></span><br><span class="line">    <span class="attr">secretName:</span> <span class="string">tls-secret</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">my-dns-name.australiaeast.cloudapp.azure.com</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/bot</span></span><br><span class="line">        <span class="attr">backend:</span></span><br><span class="line">          <span class="attr">serviceName:</span> <span class="string">my-bot-service</span></span><br><span class="line">          <span class="attr">servicePort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>That’s it, you’re done. You should be able to connect to your bot at <code>https://my-dns-name.australiaeast.cloudapp.azure.com/bot/api/messages</code></p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p>You can see a full sample <a target="_blank" rel="noopener" href="https://github.com/xtellurian/halp-bot">on github</a></p>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h3 id="The-bot-doesn’t-respond-at-all…"><a href="#The-bot-doesn’t-respond-at-all…" class="headerlink" title="The bot doesn’t respond at all…"></a>The bot doesn’t respond at all…</h3><p>Check the validity of the certificate by navigating to your https url in a browser. If the browser doesn’t trust the certificate, your ingress isn’t configured properly. Check the issuer of the certificate.</p>
+<h3 id="The-bot-says-I’m-unauthorized…"><a href="#The-bot-says-I’m-unauthorized…" class="headerlink" title="The bot says I’m unauthorized…"></a>The bot says I’m unauthorized…</h3><p>Check the values of MICROSOFT_APP_ID and MICROSOFT_APP_PASSWORD. They should be the same in the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-concepts?view=azure-bot-service-3.0#bot-connector-service">Bot Service Connector</a> and in your code. The password is hidden inside a kubernetes secret.</p>
+<h3 id="Something-is-wrong…"><a href="#Something-is-wrong…" class="headerlink" title="Something is wrong…"></a>Something is wrong…</h3><p>You can get the logs from your container with the following command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl logs --selector=app=my-bot</span><br><span class="line">restify listening to http://[::]:80</span><br><span class="line">Yes, this service is alive</span><br><span class="line">recieved a message</span><br><span class="line">Replying: [conversationUpdate event detected]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/23/smarter-npcs-with-natural-language-processing/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Smarter NPCs with Natural Language Processing</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bots-in-Kube"><span class="nav-number">1.</span> <span class="nav-text">Bots in Kube</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-to-do"><span class="nav-number">1.1.</span> <span class="nav-text">What to do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Containerising-a-Bot"><span class="nav-number">1.2.</span> <span class="nav-text">Containerising a Bot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Publish-the-image"><span class="nav-number">1.2.1.</span> <span class="nav-text">Publish the image</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Provision-a-Kubernetes-Cluster"><span class="nav-number">1.3.</span> <span class="nav-text">Provision a Kubernetes Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-the-bot"><span class="nav-number">1.3.1.</span> <span class="nav-text">Deploy the bot</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enable-Cluster-HTTPS-Ingress"><span class="nav-number">1.4.</span> <span class="nav-text">Enable Cluster HTTPS Ingress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample"><span class="nav-number">1.5.</span> <span class="nav-text">Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Troubleshooting"><span class="nav-number">1.6.</span> <span class="nav-text">Troubleshooting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-bot-doesn%E2%80%99t-respond-at-all%E2%80%A6"><span class="nav-number">1.6.1.</span> <span class="nav-text">The bot doesn’t respond at all…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-bot-says-I%E2%80%99m-unauthorized%E2%80%A6"><span class="nav-number">1.6.2.</span> <span class="nav-text">The bot says I’m unauthorized…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Something-is-wrong%E2%80%A6"><span class="nav-number">1.6.3.</span> <span class="nav-text">Something is wrong…</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 Rian Finnegan All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Rian Finnegan
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Rian Finnegan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

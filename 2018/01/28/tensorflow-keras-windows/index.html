@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>installing tensorflow and keras on windows | Rian Finnegan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Installing Tensorflow was once challenging, bordering on impossible. Now… not so much. Install AnacondaAnaconda is a data science ecosystem, giving users access to all sorts of toolkits and frameworks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Installing Tensorflow and Keras on Windows">
+<meta property="og:url" content="https://monsoon.cloud/2018/01/28/tensorflow-keras-windows/index.html">
+<meta property="og:site_name" content="Rian Finnegan">
+<meta property="og:description" content="Installing Tensorflow was once challenging, bordering on impossible. Now… not so much. Install AnacondaAnaconda is a data science ecosystem, giving users access to all sorts of toolkits and frameworks">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://monsoon.cloud/content/images/2017/08/Capture.PNG">
+<meta property="article:published_time" content="2018-01-28T01:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-26T05:54:37.348Z">
+<meta property="article:author" content="Rian Finnegan">
+<meta property="article:tag" content="rian, finnegan, blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://monsoon.cloud/content/images/2017/08/Capture.PNG">
+  
+    <link rel="alternate" href="/atom.xml" title="Rian Finnegan" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="border-width: 0;">
+                <p>Rian Finnegan</p>
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="index.search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="https://monsoon.cloud"></form>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-tensorflow-keras-windows" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Installing Tensorflow and Keras on Windows
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/01/28/tensorflow-keras-windows/" class="article-date">
+	  <time datetime="2018-01-28T01:00:00.000Z" itemprop="datePublished">2018-01-28</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Installing Tensorflow was once challenging, bordering on impossible. Now… not so much.</p>
+<h2 id="Install-Anaconda"><a href="#Install-Anaconda" class="headerlink" title="Install Anaconda"></a>Install Anaconda</h2><p><a target="_blank" rel="noopener" href="https://www.continuum.io/what-is-anaconda">Anaconda</a> is a data science ecosystem, giving users access to all sorts of toolkits and frameworks. <a target="_blank" rel="noopener" href="https://www.continuum.io/downloads">Download</a> the Anaconda installer for Windows (it’s ~500MB) and install. See, that was easy!</p>
+<h2 id="Install-C-Build-Tools"><a href="#Install-C-Build-Tools" class="headerlink" title="Install C++ Build Tools"></a>Install C++ Build Tools</h2><p>If you don’t already have them installed, you’ll need to download and install the <a target="_blank" rel="noopener" href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Visual C++ Build Tools</a>.</p>
+<h2 id="TF-amp-Keras"><a href="#TF-amp-Keras" class="headerlink" title="TF &amp; Keras"></a>TF &amp; Keras</h2><p>Anaconda provides a simple tool for installing TF in a virtual environment. Open up a terminal prompt and type <code>conda create -n tensorflow python=3.5</code> . This will create a virtual environment for called tensorflow that you’ll use to encapsulate all your tensorflow libraries!</p>
+<p><a target="_blank" rel="noopener" href="https://conda-forge.org/">Conda Forge</a> is a community led source for conda packages. It provides a simple way to install the packages we’re looking for!</p>
+<p>Activate your environment using <code>activate tensorflow</code>.</p>
+<p>Now, we’re going to install tf and keras into our virtual anaconda environment using packages from Conda Forge. With your tensorflow env active:<br><code>conda install -c conda-forge keras tensorflow</code></p>
+<p>Now use <code>conda list</code> to see all packages installed in your env.</p>
+<p><img src="/content/images/2017/08/Capture.PNG" alt="an image"></p>
+<p>Look at that! Tensorflow and Keras are both installed!</p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Copy the following code into a new file called kerastest.py</p>
+<pre><code>from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation
+from keras.optimizers import SGD
+model = Sequential()
+model.add(Dense(64, input_dim=20, init=&apos;uniform&apos;))
+model.add(Activation(&apos;tanh&apos;))
+model.add(Dropout(0.5))
+model.add(Dense(64, init=&apos;uniform&apos;))
+model.add(Activation(&apos;tanh&apos;))
+model.add(Dropout(0.5))
+model.add(Dense(10, init=&apos;uniform&apos;))
+model.add(Activation(&apos;softmax&apos;))
+sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss=&apos;categorical_crossentropy&apos;,
+          optimizer=sgd,
+          metrics=[&apos;accuracy&apos;])
+print(&apos;done&apos;)
+</code></pre><p>If it works, then your environment is ready to go.</p>
+<p>Get Learning!</p>
+<h3 id="More-Info"><a href="#More-Info" class="headerlink" title="More Info"></a>More Info</h3><p><a target="_blank" rel="noopener" href="https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/">Conda Environments</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/install_windows">Installing TF on Windows</a></p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/#installation">Installing Keras</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/07/openai-windows/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OpenAI Gym on Windows
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/23/what-happened-to-the-internet/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">What happened to the decentralised internet?</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Anaconda"><span class="nav-number">1.</span> <span class="nav-text">Install Anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-C-Build-Tools"><span class="nav-number">2.</span> <span class="nav-text">Install C++ Build Tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TF-amp-Keras"><span class="nav-number">3.</span> <span class="nav-text">TF &amp; Keras</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test"><span class="nav-number">4.</span> <span class="nav-text">Test</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Info"><span class="nav-number">4.1.</span> <span class="nav-text">More Info</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 Rian Finnegan All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Rian Finnegan
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Rian Finnegan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>digital assistants &amp; azure event grid | Rian Finnegan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="The Digital WorldThe digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Digital Assistants &amp; Azure Event Grid">
+<meta property="og:url" content="https://monsoon.cloud/2018/03/04/digital-assistants-azure-eventgrid/index.html">
+<meta property="og:site_name" content="Rian Finnegan">
+<meta property="og:description" content="The Digital WorldThe digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and e">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://monsoon.cloud/images/robot.jpg">
+<meta property="og:image" content="https://docs.microsoft.com/en-us/azure/event-grid/media/overview/functional-model.png">
+<meta property="og:image" content="https://monsoon.cloud/content/images/2017/10/boteventgridarchitecture.png">
+<meta property="og:image" content="https://monsoon.cloud/content/images/2017/10/eventgridportal.PNG">
+<meta property="og:image" content="https://monsoon.cloud/content/images/2017/10/ngrokexample.PNG">
+<meta property="og:image" content="https://monsoon.cloud/content/images/2017/10/PaymentRequest.PNG">
+<meta property="article:published_time" content="2018-03-04T05:13:00.000Z">
+<meta property="article:modified_time" content="2020-08-26T05:54:37.348Z">
+<meta property="article:author" content="Rian Finnegan">
+<meta property="article:tag" content="rian, finnegan, blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://monsoon.cloud/images/robot.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Rian Finnegan" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="border-width: 0;">
+                <p>Rian Finnegan</p>
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="index.search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="https://monsoon.cloud"></form>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-digital-assistants-azure-eventgrid" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Digital Assistants &amp; Azure Event Grid
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/04/digital-assistants-azure-eventgrid/" class="article-date">
+	  <time datetime="2018-03-04T05:13:00.000Z" itemprop="datePublished">2018-03-04</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/robot.jpg" alt="Robot Assistant Cartoon"></p>
+<h2 id="The-Digital-World"><a href="#The-Digital-World" class="headerlink" title="The Digital World"></a>The Digital World</h2><p>The digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds to events in the digital world, helping you that pervasive yet ephemeral environment. </p>
+<p>As the digital world becomes busier and noisier, we need cloud-scale technologies that allow us to respond to events in real time. Azure event grid proves exactly that type of medium, for events on the web and in the cloud. Using event grid and bot framework, we can build bots that observe events in the grid, let you know when important things are happening, and provide options for responding.</p>
+<h2 id="Azure-Event-Grid"><a href="#Azure-Event-Grid" class="headerlink" title="Azure Event Grid"></a>Azure Event Grid</h2><p>Azure Event Grid allows you to easily build applications with event-based architectures. You select the Azure resource you would like to subscribe to, and give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has custom support for application and third-party events, using custom topics and custom webhooks.</p>
+<p><img src="https://docs.microsoft.com/en-us/azure/event-grid/media/overview/functional-model.png" alt="Azure Event Grid Sources and Handers Diagram"></p>
+<p>More publishers and handlers are being added. Event Grid is currently in preview, but is expected to be in GA by the end of 2017.</p>
+<p>The best features of event grid are:</p>
+<ul>
+<li>Cloud Scale: Can support millions of events per second</li>
+<li>Cloud Pricing: GA pricing will be $0.60 / million events</li>
+<li>Low Latency: Events are delivered usually within a second</li>
+<li>Flexible Schema: Arbitrary JSON payloads</li>
+<li>Guaranteed Delivery: Retry policy and eventual consistency</li>
+</ul>
+<h2 id="Bots-in-the-Grid"><a href="#Bots-in-the-Grid" class="headerlink" title="Bots in the Grid"></a>Bots in the Grid</h2><p>Conversations are growing in popularity as an interface with the digital world. Conversations naturally morph between the synchronous and asynchronous, making them a perfect fit for how we interact with modern applications. </p>
+<h3 id="Responding-to-Digital-Events"><a href="#Responding-to-Digital-Events" class="headerlink" title="Responding to Digital Events"></a>Responding to Digital Events</h3><p>The following shows how to listen for events with Microsoft Bot Framework. In this example, I’ll be using an ASP.NET bot, so this code will work for any ASP.NET application, and the same pattern holds for most web applications.</p>
+<h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><p>Subscribing your bot to events is actually very simple. Just implement an http endpoint that receives incoming webhooks.</p>
+<p><img src="/content/images/2017/10/boteventgridarchitecture.png" alt="Architecture Diagram for Connecting Bots to Event Grid"></p>
+<h4 id="Incoming-Event-Data-Structure"><a href="#Incoming-Event-Data-Structure" class="headerlink" title="Incoming Event Data Structure"></a>Incoming Event Data Structure</h4><p>Incoming events, via webhook, are delivered by the body of an HTTP Post. The following is an example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;Data&quot;: &#123;</span><br><span class="line">      &quot;Correlation&quot;: &#123;</span><br><span class="line">        &quot;ExternalReferenceId&quot;: &quot;9c551c4f-9a73-4565-8590-b4b81b074dfb&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;To&quot;: &#123;</span><br><span class="line">        &quot;Id&quot;: &quot;myUserId&quot;,</span><br><span class="line">        &quot;DisplayName&quot;: &quot;Rian&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;Amount&quot;: 150.0,</span><br><span class="line">      &quot;Message&quot;: &quot;Whatever you like&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;Id&quot;: &quot;fbfaab9e-a328-4c77-bee7-8fb95264d4fd&quot;,</span><br><span class="line">    &quot;Subject&quot;: &quot;custom\\value&quot;,</span><br><span class="line">    &quot;EventType&quot;: 0,</span><br><span class="line">    &quot;EventTime&quot;: &quot;2017-10-25T23:01:37.3456283Z&quot;,</span><br><span class="line">    &quot;topic&quot;: &quot;&#x2F;SUBSCRIPTIONS&#x2F;XXXXXXXX-XXXX-XXXX-XXXX-XX&#x2F;RESOURCEGROUPS&#x2F;YOUR-GROUP&#x2F;PROVIDERS&#x2F;MICROSOFT.EVENTGRID&#x2F;TOPICS&#x2F;YOUR_TOPIC&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]&#125;</span><br></pre></td></tr></table></figure>
+<p>Since this is a custom event, everything in the <em>Data</em> field is yours to play with. The other top level fields define how the event is processed within event grid.</p>
+<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>Event Grid can provide up to a million events per second, which could be the biggest DDOS cannon on the public cloud! Luckily, when you register a webhook subscriber, the first request contains a challenge that must be responded to correctly, else the subscription fails. The challenge request has the same structure as a normal event, however the <em>data</em> field contains a validation code that must be returned in the HTTP response.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line">  &quot;id&quot;: &quot;2d1781af-3a4c-4d7c-bd0c-e34b19da4e66&quot;,</span><br><span class="line">  &quot;topic&quot;: &quot;&#x2F;subscriptions&#x2F;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;,</span><br><span class="line">  &quot;subject&quot;: &quot;&quot;,</span><br><span class="line">  &quot;data&quot;: &#123;</span><br><span class="line">    &quot;validationCode&quot;: &quot;512d38b6-c7b8-40c8-89fe-f46f9e9622b6&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;eventType&quot;: &quot;Microsoft.EventGrid.SubscriptionValidationEvent&quot;,</span><br><span class="line">  &quot;eventTime&quot;: &quot;2017-08-06T22:09:30.740323Z&quot;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>You must return the validation code as a validation response:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;validationResponse&quot;: &quot;512d38b6-c7b8-40c8-89fe-f46f9e9622b6&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Its also best practice to protect your webhook endpoint with a secret key. Its quite simple: just provide that key when setting up the subscription, and the request path contains that key before processing any event. Your webhook path should look like:</p>
+<p><code>https://&lt;base_url&gt;/api/events?secret=YOUR_SECRET_KEY</code></p>
+<h3 id="Handling-Incoming-Events-with-ASP-NET"><a href="#Handling-Incoming-Events-with-ASP-NET" class="headerlink" title="Handling Incoming Events with ASP.NET"></a>Handling Incoming Events with ASP.NET</h3><p>The key method on your controller accepts an HTTP Post and should return a 200 or 202, to ensure that event grid knows that the event has been received, and won’t retry.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public async Task&lt;HttpResponseMessage&gt; Post([FromBody]dynamic e)</span><br><span class="line">&#123;</span><br><span class="line">  foreach ( var azEvent in e)</span><br><span class="line">  &#123;</span><br><span class="line">    if (azEvent?.data?.validationCode !&#x3D; null)</span><br><span class="line">    &#123;</span><br><span class="line">      return Request.CreateResponse(HttpStatusCode.OK, new &#123; validationResponse &#x3D; x.data.validationCode &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">      HandleEvent(azEvent);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return Request.CreateResponse(HttpStatusCode.OK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><a target="_blank" rel="noopener" href="https://gist.github.com/xtellurian/1ee357452668d7c3f46b83410c84435c">See this gist for the full controller code</a></p>
+<h3 id="Creating-and-Subscribing-to-Topics-and-Events"><a href="#Creating-and-Subscribing-to-Topics-and-Events" class="headerlink" title="Creating and Subscribing to Topics and Events"></a>Creating and Subscribing to Topics and Events</h3><p>Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.</p>
+<p>Follow these steps in the Azure Portal to use custom topics:</p>
+<p><img src="/content/images/2017/10/eventgridportal.PNG" alt="Creating Topics and Subs in the Azure Portal"></p>
+<ol start="0">
+<li>Create an Azure Resource Group if you don’t have one already.</li>
+<li>Under <em>More Services</em> search for event grid, and select <strong>Event Grid Topics</strong></li>
+<li>Create a new topic</li>
+<li>Under <em>More Services</em> search for event grid, and select <strong>Event Grid Subscriptions</strong></li>
+<li>Create a new subscription, and enter the endpoint you created as a webhook.</li>
+</ol>
+<p>You can follow detailed steps <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal">here</a></p>
+<h3 id="Dev-amp-Test-using-Ngrok"><a href="#Dev-amp-Test-using-Ngrok" class="headerlink" title="Dev &amp; Test using Ngrok"></a>Dev &amp; Test using Ngrok</h3><p>You can also get events directly to your local machine using <a target="_blank" rel="noopener" href="https://ngrok.com/">ngrok</a>. When you run a local server, there are listeners on local ports e.g. <code>localhost:44313/api/events</code>. Using ngrok, you can expose your local server to the web. After installing ngrok, run the following command: <code>ngrok http 44313 -host-header=&quot;localhost:44313&quot;</code> and you’ll have a public url you can then set as a new subscription.</p>
+<p><img src="/content/images/2017/10/ngrokexample.PNG" alt="Ngrok Screenshot"></p>
+<p>Add your public ngrok url, with events path and key, as a new event subscription: <code>https://xxxxxx.ngrok.io/api/events?key=YOUR_SECRET_KEY</code></p>
+<h3 id="Proactive-Bot-Messages"><a href="#Proactive-Bot-Messages" class="headerlink" title="Proactive Bot Messages"></a>Proactive Bot Messages</h3><p>Now your bot web server is receiving events, you can use that power to send proactive messages to users affected by that event. For example, you may generate an event every time users post a comment. You can <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-proactive-messages">read the documentation</a> of proactive messages on Microsoft Bot Framework, or there are <a target="_blank" rel="noopener" href="https://github.com/MicrosoftDX/botFramework-proactiveMessages">several samples on GitHub</a>.</p>
+<p>A great use case for proactive messages is billing and payment requests. Every service provider wants a fast, reliable and easy billing experience for their customers. Imagine if your company’s digital assistant could proactively reach out to your customers, let them know their bill’s are almost due, and provide them simple ways to pay.</p>
+<p><img src="/content/images/2017/10/PaymentRequest.PNG" alt="Example of a Proactive Message for a Payment Request"></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Azure Event Grid is a great way to trigger proactive messages from intelligent bots - but there’s so much more it can do. It’s designed for modern applications, particularly those using serverless, because of its ability to scale. It lets you connect on-premises and cloud infrastructure via a fast and reliable messaging. It’s really fast, and super easy to use. 10/10 - would use again.</p>
+<h3 id="Further-Reading"><a href="#Further-Reading" class="headerlink" title="Further Reading"></a>Further Reading</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/xtellurian/1ee357452668d7c3f46b83410c84435c">ASP.NET Controller for Event Grid Webhooks</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/event-grid/">Event Grid</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal">Event Grid - Quickstart on the Azure Portal</a></li>
+<li><a target="_blank" rel="noopener" href="https://ngrok.com/">ngrok</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/bot-framework/">Bot Framework</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-proactive-messages">Proactive Messages Documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/MicrosoftDX/botFramework-proactiveMessages">Proactive Messages Samples</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+      
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/11/xamarin-chatbots/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Building Xamarin.Forms Chatbots with Bot Framework Direct Line API
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/02/07/openai-windows/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OpenAI Gym on Windows</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Digital-World"><span class="nav-number">1.</span> <span class="nav-text">The Digital World</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Azure-Event-Grid"><span class="nav-number">2.</span> <span class="nav-text">Azure Event Grid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bots-in-the-Grid"><span class="nav-number">3.</span> <span class="nav-text">Bots in the Grid</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Responding-to-Digital-Events"><span class="nav-number">3.1.</span> <span class="nav-text">Responding to Digital Events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Architecture"><span class="nav-number">3.2.</span> <span class="nav-text">Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Incoming-Event-Data-Structure"><span class="nav-number">3.2.1.</span> <span class="nav-text">Incoming Event Data Structure</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Security"><span class="nav-number">3.3.</span> <span class="nav-text">Security</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Handling-Incoming-Events-with-ASP-NET"><span class="nav-number">3.4.</span> <span class="nav-text">Handling Incoming Events with ASP.NET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-and-Subscribing-to-Topics-and-Events"><span class="nav-number">3.5.</span> <span class="nav-text">Creating and Subscribing to Topics and Events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dev-amp-Test-using-Ngrok"><span class="nav-number">3.6.</span> <span class="nav-text">Dev &amp; Test using Ngrok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proactive-Bot-Messages"><span class="nav-number">3.7.</span> <span class="nav-text">Proactive Bot Messages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">3.8.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Further-Reading"><span class="nav-number">3.9.</span> <span class="nav-text">Further Reading</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 Rian Finnegan All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Rian Finnegan
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 Rian Finnegan All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
