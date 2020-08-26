@@ -13,10 +13,12 @@ timezone: Australia/Melbourne
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://monsoon.cloud
+url: https://rian.xyz
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+pretty_urls:
+  trailing_index: false
 
 # Directory
 source_dir: source
