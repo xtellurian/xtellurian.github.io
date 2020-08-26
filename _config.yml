@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Drops
-subtitle:
-description: Streams of Thought
-keywords: software, technology, microsoft 
+title: Rian Finnegan
+subtitle: Notes and Thoughts
+description: A blog and some other things
+keywords: rian, finnegan, blog
 author: Rian Finnegan
 language: en
-timezone:
+timezone: Australia/Melbourne
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
