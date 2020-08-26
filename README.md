@@ -2,6 +2,10 @@
 
 Congratulations! You've discovered this readme, which probably means you've been stalking me for too long.
 
+Currently deployed at [rian.xyz](https://rian.xyz)
+
+![Pages](https://github.com/xtellurian/xtellurian.github.io/workflows/Pages/badge.svg)
+
 
 ## Install
 
@@ -19,4 +23,8 @@ yarn start
 
 ```sh
 yarn build
-``
+```
+
+## Publishing
+
+Via Github Pages
