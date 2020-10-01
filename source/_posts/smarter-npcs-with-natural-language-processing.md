@@ -45,7 +45,7 @@ LUIS is a web service, invoked via a REST endpoint, that converts sentences (cal
 
 into data structures like this:
 
-```json
+```js
 {
    "query": "Order me 2 pizzas",
    "topScoringIntent": {
