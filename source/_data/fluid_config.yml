@@ -1,0 +1,66 @@
+# full sybntax: https://github.com/fluid-dev/hexo-theme-fluid/blob/release/_config.yml
+
+navbar:
+  blog_title: Rian
+  menu:
+    - { key: 'home', link: '/', icon: 'iconfont icon-home-fill' }
+    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: 'About Me' }
+lazyload:
+  enable: true
+  onlypost: false
+
+force_https: true
+index:
+  banner_img: /images/bg/rian_onbench.jpg
+  slogan:
+    enable: true
+    text: Some thoughts of mine - written down.
+
+
+about:
+  banner_img: /images/bg/rian_buffalo.jpg
+  banner_img_height: 60  # available: 0 - 100
+  banner_mask_alpha: 0.3  # available: 0 - 1.0
+  subtitle: Hey, I'm Rian 
+  avatar: /images/avatars/Rian_lookingaway2020.png
+  name: Rian Finnegan
+  introduce: 'Engineer, Creator, and Speaker' 
+  icons:
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com/xellurian', tip: 'GitHub' }
+    - { class: 'iconfont icon-twitter-fill', link: 'https://twitter.com/rianfinnegan', tip: 'Twitter' }
+
+post:
+  banner_img: /images/bg/rain.jpg 
+  copyright:
+    enable: false
+    content: All content is mine
+  meta:
+    author:  # post author, first according to `author` in front-matter, then according to `author` in Hexo config
+      enable: false
+    date:  # post date, first according to `date` in front-matter, then according to date of md file
+      enable: true
+      format: "dddd, MMMM Do YYYY, h:mm a"  # format ISO-8601
+    wordcount:  # word count
+      enable: true
+      format: "{} words"  # placeholder
+    min2read:  # Time required to read
+      enable: false
+      format: "{} minute"
+    views:  # views count
+      enable: false
+      source: "leancloud"
+      format: "{} times"
+  footnote:
+    enable: true
+
+code:  
+  copy_btn: false  
+  highlight: 
+    enable: true
+    lib: 'highlightjs'  #highlightjs | prismjs
+    highlightjs:
+      style: 'Github Gist'  
+      bg_color: false  
+    prismjs:
+      style: 'default' 
+      preprocess: true 

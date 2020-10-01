@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Rian Finnegan
-subtitle: Notes and Thoughts
-description: A blog and some other things
+title: Thoughts of Rian
+subtitle: Creative Engineer and Speaker
+description: I write here sometimes
 keywords: rian, finnegan, blog
 author: Rian Finnegan
 language: en
@@ -75,7 +75,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hiker
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

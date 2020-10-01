@@ -631,6 +631,11 @@ hexo-server@^0.3.3:
     opn "^5.3.0"
     serve-static "^1.13.2"
 
+hexo-theme-fluid@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/hexo-theme-fluid/-/hexo-theme-fluid-1.8.3.tgz#6cc7afe01ed582e5ba0e2f90b5756947e32d4e70"
+  integrity sha512-/psTfZEuqNmw7muEoDagjri4i9O/lnuLibCuTcEPiSlBcfSa1zIxa4LOMamOrhQ3ym6Dxeah9a5IkJX4UQn/wQ==
+
 hexo-util@^0.6.2:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/hexo-util/-/hexo-util-0.6.3.tgz#16a2ade457bef955af0dfd22a3fe6f0a49a9137c"
