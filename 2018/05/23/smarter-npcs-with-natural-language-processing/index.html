@@ -1,173 +1,186 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>smarter npcs with natural language processing | Rian Finnegan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
-  
-  
-  
-  <meta name="description" content="What happened in Pokemon?I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Smarter NPCs with Natural Language Processing">
-<meta property="og:url" content="https://rian.xyz/2018/05/23/smarter-npcs-with-natural-language-processing/">
-<meta property="og:site_name" content="Rian Finnegan">
-<meta property="og:description" content="What happened in Pokemon?I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://rian.xyz/images/NLU/Pokemonconversationscreenshot.png">
-<meta property="og:image" content="https://rian.xyz/images/NLU/fallout3multiplechoice.jpg">
-<meta property="og:image" content="https://rian.xyz/images/NLU/vkaiwadesigner.gif">
-<meta property="og:image" content="https://rian.xyz/images/NLU/vkaiwaarchitecture.png">
-<meta property="article:published_time" content="2018-05-23T03:53:49.000Z">
-<meta property="article:modified_time" content="2020-08-26T23:23:13.106Z">
-<meta property="article:author" content="Rian Finnegan">
-<meta property="article:tag" content="rian, finnegan, blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://rian.xyz/images/NLU/Pokemonconversationscreenshot.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Rian Finnegan" type="application/atom+xml">
-  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="I write here sometimes">
+  <meta name="author" content="Rian Finnegan">
+  <meta name="keywords" content="rian, finnegan, blog">
+  <title>Smarter NPCs with Natural Language Processing - Thoughts of Rian</title>
 
-  
-
-  <link rel="icon" href="/css/images/mylogo.jpg">
-  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  
-<link rel="stylesheet" href="/css/style.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  
-<script src="/js/jquery-3.1.1.min.js"></script>
-
-  
-<script src="/js/bootstrap.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-<link rel="stylesheet" href="/css/dialog.css">
-
-  
-
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css" >
-  
-
-  
-  
-  
-    <link rel="stylesheet" href="/css/vdonate.css" >
-  
-
-<meta name="generator" content="Hexo 5.1.1"></head>
-
-
-
-  <body data-spy="scroll" data-target="#toc" data-offset="50">
-
-
-  
-  <div id="container">
-    <div id="wrap">
+    
       
-        <header>
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
 
-    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="navbar-inner">
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Rian</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
           
-          <div class="container"> 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            
-              <a class="brand" style="border-width: 0;">
-                <p>Rian Finnegan</p>
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
               </a>
-            
-            
-            <div class="navbar-collapse collapse">
-              <ul class="hnav navbar-nav">
-                
-                  <li> <a class="main-nav-link" href="/">Home</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
-                
-                  <li><div id="search-form-wrap">
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About Me
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="index.search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="https://rian.xyz"></form>
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/images/bg/rain.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-</div></li>
-            </div>
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-05-23 13:53" pubdate>
+        Wednesday, May 23rd 2018, 1:53 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      909 words
+    </span>
+  
+
+  
+
+  
+  
+</div>
+
+            
           </div>
-                
+
+          
+        </div>
       </div>
     </div>
+  </header>
 
-</header>
-
-
-
+  <main>
+    
       
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Smarter NPCs with Natural Language Processing</h1>
             
-      <div id="content" class="outer">
-        
-          <section id="main" style="float:none;"><article id="post-smarter-npcs-with-natural-language-processing" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" class="article-title" itemprop="name">
-      Smarter NPCs with Natural Language Processing
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/05/23/smarter-npcs-with-natural-language-processing/" class="article-date">
-	  <time datetime="2018-05-23T03:53:49.000Z" itemprop="datePublished">2018-05-23</time>
-	</a>
-
-      
-      
-	<a class="article-views">
-	<span id="busuanzi_container_page_pv">
-		PV:<span id="busuanzi_value_page_pv"></span>
-	</span>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="What-happened-in-Pokemon"><a href="#What-happened-in-Pokemon" class="headerlink" title="What happened in Pokemon?"></a>What happened in Pokemon?</h2><p>I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning. Almost all my interactions with non-player chracters (NPC) involved multiple choice answers at best, and pre-canned conversations at worst.</p>
-<p><img src="/images/NLU/Pokemonconversationscreenshot.png" alt="Screenshot of a simple Yes or No answer to a question in Pokemon for Gameboy"></p>
+            <div class="markdown-body" id="post-body">
+              <h2 id="What-happened-in-Pokemon"><a href="#What-happened-in-Pokemon" class="headerlink" title="What happened in Pokemon?"></a>What happened in Pokemon?</h2><p>I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning. Almost all my interactions with non-player chracters (NPC) involved multiple choice answers at best, and pre-canned conversations at worst.</p>
+<p><img src="/images/NLU/Pokemonconversationscreenshot.png" srcset="/img/loading.gif" alt="Screenshot of a simple Yes or No answer to a question in Pokemon for Gameboy"></p>
 <h2 id="Games-have-Evolved"><a href="#Games-have-Evolved" class="headerlink" title="Games have Evolved"></a>Games have Evolved</h2><p>A decade after Pokemon was first released on Gameboy, Fallout 3 was one of the most popular games in the world. For all its quality graphics and cool story, the NPC interations remain remarkably unchanged.</p>
-<p><img src="/images/NLU/fallout3multiplechoice.jpg" alt="Screenshot from Fallout 3 showing multiple choice answers"></p>
+<p><img src="/images/NLU/fallout3multiplechoice.jpg" srcset="/img/loading.gif" alt="Screenshot from Fallout 3 showing multiple choice answers"></p>
 <h2 id="We-have-the-technology-We-can-do-better"><a href="#We-have-the-technology-We-can-do-better" class="headerlink" title="We have the technology. We can do better"></a>We have the technology. We can do better</h2><p>What if you could actually talk to NPCs? Well, now you can!</p>
 <h3 id="What-is-Natural-Language-Understanding"><a href="#What-is-Natural-Language-Understanding" class="headerlink" title="What is Natural Language Understanding?"></a>What is Natural Language Understanding?</h3><blockquote>
 <p>the application of computational techniques to the analysis and synthesis of natural language and speech.</p>
@@ -181,264 +194,304 @@
 <h3 id="What’s-LUIS-the-quick-version"><a href="#What’s-LUIS-the-quick-version" class="headerlink" title="What’s LUIS - the quick version"></a>What’s LUIS - the quick version</h3><p>LUIS is a web service, invoked via a REST endpoint, that converts sentences (called ‘utterances’) like this:</p>
 <p><code>Order me 2 pizzas</code></p>
 <p>into data structures like this:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">&quot;query&quot;</span>: <span class="string">&quot;Order me 2 pizzas&quot;</span>,</span><br><span class="line">   <span class="attr">&quot;topScoringIntent&quot;</span>: &#123;</span><br><span class="line">       <span class="attr">&quot;intent&quot;</span>: <span class="string">&quot;FoodOrder&quot;</span>,</span><br><span class="line">       <span class="attr">&quot;score&quot;</span>: <span class="number">0.9999981</span></span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="attr">&quot;intents&quot;</span>: [</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="attr">&quot;intent&quot;</span>: <span class="string">&quot;FoodOrder&quot;</span>,</span><br><span class="line">           <span class="attr">&quot;score&quot;</span>: <span class="number">0.9999981</span></span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="attr">&quot;intent&quot;</span>: <span class="string">&quot;None&quot;</span>,</span><br><span class="line">           <span class="attr">&quot;score&quot;</span>: <span class="number">0.0604290478</span></span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="attr">&quot;intent&quot;</span>: <span class="string">&quot;Reminder&quot;</span>,</span><br><span class="line">           <span class="attr">&quot;score&quot;</span>: <span class="number">0.00177723425</span></span><br><span class="line">       &#125;</span><br><span class="line">   ],</span><br><span class="line">   <span class="attr">&quot;entities&quot;</span>: [</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="attr">&quot;entity&quot;</span>: <span class="string">&quot;2&quot;</span>,</span><br><span class="line">           <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;builtin.number&quot;</span>,</span><br><span class="line">           <span class="attr">&quot;startIndex&quot;</span>: <span class="number">9</span>,</span><br><span class="line">           <span class="attr">&quot;endIndex&quot;</span>: <span class="number">9</span>,</span><br><span class="line">           <span class="attr">&quot;resolution&quot;</span>: &#123;</span><br><span class="line">               <span class="attr">&quot;value&quot;</span>: <span class="string">&quot;2&quot;</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="attr">&quot;entity&quot;</span>: <span class="string">&quot;pizzas&quot;</span>,</span><br><span class="line">           <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;FoodType&quot;</span>,</span><br><span class="line">           <span class="attr">&quot;startIndex&quot;</span>: <span class="number">11</span>,</span><br><span class="line">           <span class="attr">&quot;endIndex&quot;</span>: <span class="number">16</span>,</span><br><span class="line">           <span class="attr">&quot;score&quot;</span>: <span class="number">0.8928091</span></span><br><span class="line">       &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">&#123;
+   <span class="hljs-string">&quot;query&quot;</span>: <span class="hljs-string">&quot;Order me 2 pizzas&quot;</span>,
+   <span class="hljs-string">&quot;topScoringIntent&quot;</span>: &#123;
+       <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;FoodOrder&quot;</span>,
+       <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">0.9999981</span>
+   &#125;,
+   <span class="hljs-string">&quot;intents&quot;</span>: [
+       &#123;
+           <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;FoodOrder&quot;</span>,
+           <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">0.9999981</span>
+       &#125;,
+       &#123;
+           <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;None&quot;</span>,
+           <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">0.0604290478</span>
+       &#125;,
+       &#123;
+           <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;Reminder&quot;</span>,
+           <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">0.00177723425</span>
+       &#125;
+   ],
+   <span class="hljs-string">&quot;entities&quot;</span>: [
+       &#123;
+           <span class="hljs-string">&quot;entity&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>,
+           <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;builtin.number&quot;</span>,
+           <span class="hljs-string">&quot;startIndex&quot;</span>: <span class="hljs-number">9</span>,
+           <span class="hljs-string">&quot;endIndex&quot;</span>: <span class="hljs-number">9</span>,
+           <span class="hljs-string">&quot;resolution&quot;</span>: &#123;
+               <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>
+           &#125;
+       &#125;,
+       &#123;
+           <span class="hljs-string">&quot;entity&quot;</span>: <span class="hljs-string">&quot;pizzas&quot;</span>,
+           <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;FoodType&quot;</span>,
+           <span class="hljs-string">&quot;startIndex&quot;</span>: <span class="hljs-number">11</span>,
+           <span class="hljs-string">&quot;endIndex&quot;</span>: <span class="hljs-number">16</span>,
+           <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">0.8928091</span>
+       &#125;
+   ]
+&#125;</code></pre>
 <p>If you’re making a game or an app, and you can make web requests, then you can have NPCs that respond to natural language!</p>
 <h2 id="Now-for-the-good-part"><a href="#Now-for-the-good-part" class="headerlink" title="Now for the good part"></a>Now for the good part</h2><p>Modern games are much more sophisticated than Gameboy Pokemon and Fallout 3. Cutting edge games are now in virtual reality (VR) on platforms like <a target="_blank" rel="noopener" href="https://www.vive.com/">Vive</a>, <a target="_blank" rel="noopener" href="https://www.oculus.com/">Oculus</a>, and <a target="_blank" rel="noopener" href="https://www.microsoft.com/en-au/windows/windows-mixed-reality">Windows Mixed Reality</a>. But we’re starting to use VR for other interesting applications.</p>
 <h3 id="Experience-a-New-Language-in-VR-with-V-KAIWA"><a href="#Experience-a-New-Language-in-VR-with-V-KAIWA" class="headerlink" title="Experience a New Language in VR with V-KAIWA"></a>Experience a New Language in VR with V-KAIWA</h3><p><a target="_blank" rel="noopener" href="http://www.v-kaiwa.com/en/home/">V-KAIWA</a> are building an amazing tool for students to experience language learning in VR. Beyond building stylised worlds and engaging story lines, V-KAIWA are building customisable conversational NPCs. Let’s break that down.</p>
 <h4 id="Conversational-NPCs"><a href="#Conversational-NPCs" class="headerlink" title="Conversational NPCs"></a>Conversational NPCs</h4><p>As the name suggests, a conversational NPC is a character with which you can converse. OK, so they aren’t going to pass a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Turing_test">Turing test</a>, but they can respond to natural language. Ask the hot dog vendor on the street for a hot dog, and you’ll get one! Ask a stranger for directions, and they’ll help! But if you ask a stranger for the meaning of life - of course you’ll get a silly answer (actually that’s kind of realistic).</p>
 <h4 id="Customisable-NPCs"><a href="#Customisable-NPCs" class="headerlink" title="Customisable NPCs"></a>Customisable NPCs</h4><p>V-KAIWA let’s language teachers customise the way their students can converse with NPCs. How does this work in practice? Imagine a language class on recognising descriptions of people and objects. The teacher can describe a person (a woman in a jacket) and name an item (a newspaper) and the students must complete a scenario in the virtual world. The teacher can build precisely that conversation scenario in V-KAIWA’s designer tool!</p>
-<p><img src="/images/NLU/vkaiwadesigner.gif" alt="Creating an NPC interaction definition in the V-KAIWA interaction designer"></p>
+<p><img src="/images/NLU/vkaiwadesigner.gif" srcset="/img/loading.gif" alt="Creating an NPC interaction definition in the V-KAIWA interaction designer"></p>
 <p>When the student find the newspaper, he can talk with the woman.</p>
 <blockquote>
 <p><em>Student</em>: Here’s the newspaper you asked for.<br><em>Woman in Jacket</em>: Thanks, I was looking for one of those.</p>
 </blockquote>
 <p>It’s almost too easy.</p>
 <h4 id="Sugar-on-top"><a href="#Sugar-on-top" class="headerlink" title="Sugar on top"></a>Sugar on top</h4><p>By using speech-to-text and speech synthesis tools, V-KAIWA make every NPC interaction aural. You can speak directly to NPCs, and they speak back. LUIS means you can speak naturally. <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/mixed-reality/gaze-targeting">Gaze</a> means you speak to the NPC you’re looking at.</p>
-<p><img src="/images/NLU/vkaiwaarchitecture.png" alt="System design of V-KAIWAs customisable conversational NPCs"></p>
+<p><img src="/images/NLU/vkaiwaarchitecture.png" srcset="/img/loading.gif" alt="System design of V-KAIWAs customisable conversational NPCs"></p>
 <h3 id="I-want-that"><a href="#I-want-that" class="headerlink" title="I want that!"></a>I want that!</h3><p>Well you can have it! There’s a great blog written by some of my collegues at <a target="_blank" rel="noopener" href="http://www.roadtomr.com/2018/05/08/2508/natural-language-for-simulations/">Road to MR</a> describing how to use LUIS in your Unity project. They’ve created a great Unity Package you can use to get started quickly. </p>
 <p>What about the designer? It’s also open source and <a target="_blank" rel="noopener" href="https://github.com/xtellurian/v-kaiwa-designer">available on github</a></p>
 <h2 id="CSE-Hacks"><a href="#CSE-Hacks" class="headerlink" title="CSE Hacks"></a>CSE Hacks</h2><p>This work was a collaboration between Microsoft and V-KAIWA. Big thanks to them for letting me work on their exciting product.</p>
 <p><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Seiya presenting at <a target="_blank" rel="noopener" href="https://twitter.com/Microsoft?ref_src=twsrc%5Etfw">@Microsoft</a> <a target="_blank" rel="noopener" href="https://twitter.com/Microsoft?ref_src=twsrc%5Etfw">@microsoft</a> Mixed Reality Hackfest - our beginners product did a complete 180 (in a good way!) - full demo video coming soon 😉 <br><br>And special props <a target="_blank" rel="noopener" href="https://twitter.com/xtellurian?ref_src=twsrc%5Etfw">@xtellurian</a> for being part of V-KAIWA for the week 🤓 <a target="_blank" rel="noopener" href="https://t.co/bmhUpQItKC">pic.twitter.com/bmhUpQItKC</a></p>&mdash; V-KAIWA (@v_kaiwa) <a target="_blank" rel="noopener" href="https://twitter.com/v_kaiwa/status/997417548852310017?ref_src=twsrc%5Etfw">May 18, 2018</a></blockquote></p>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div id="donation_div"></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/08/02/bots-in-kubernetes/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Bots in Kubernetes</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/03/11/xamarin-chatbots/">
+                        <span class="hidden-mobile">Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-
-<script src="/js/vdonate.js"></script>
-
-<script>
-var a = new Donate({
-  title: '', // 可选参数，打赏标题
-  btnText: 'Donate', // 可选参数，打赏按钮文字
-  el: document.getElementById('donation_div'),
-  wechatImage: '',
-  alipayImage: ''
-});
-</script>
-      
-      
-      
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/08/02/bots-in-kubernetes/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Bots in Kubernetes
-        
+            
+          </article>
+        </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
-  
-    <a href="/2018/03/11/xamarin-chatbots/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</div>
-    </a>
-  
-</nav>
 
   
-</article>
-
-<!-- Table of Contents -->
-
-  <aside id="toc-sidebar">
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
-    
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-happened-in-Pokemon"><span class="nav-number">1.</span> <span class="nav-text">What happened in Pokemon?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Games-have-Evolved"><span class="nav-number">2.</span> <span class="nav-text">Games have Evolved</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#We-have-the-technology-We-can-do-better"><span class="nav-number">3.</span> <span class="nav-text">We have the technology. We can do better</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Natural-Language-Understanding"><span class="nav-number">3.1.</span> <span class="nav-text">What is Natural Language Understanding?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sounds-hard%E2%80%A6"><span class="nav-number">3.2.</span> <span class="nav-text">Sounds hard…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What%E2%80%99s-LUIS-the-quick-version"><span class="nav-number">3.3.</span> <span class="nav-text">What’s LUIS - the quick version</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Now-for-the-good-part"><span class="nav-number">4.</span> <span class="nav-text">Now for the good part</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Experience-a-New-Language-in-VR-with-V-KAIWA"><span class="nav-number">4.1.</span> <span class="nav-text">Experience a New Language in VR with V-KAIWA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Conversational-NPCs"><span class="nav-number">4.1.1.</span> <span class="nav-text">Conversational NPCs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Customisable-NPCs"><span class="nav-number">4.1.2.</span> <span class="nav-text">Customisable NPCs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sugar-on-top"><span class="nav-number">4.1.3.</span> <span class="nav-text">Sugar on top</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-want-that"><span class="nav-number">4.2.</span> <span class="nav-text">I want that!</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSE-Hacks"><span class="nav-number">5.</span> <span class="nav-text">CSE Hacks</span></a></li></ol>
-    
-    </div>
-  </aside>
-</section>
-        
-      </div>
-      
-      <footer id="footer">
-  
-
-  <div class="container">
-      	<div class="row">
-	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 Rian Finnegan All Rights Reserved.</p>
-	      
-	      
-    		<p class="busuanzi_uv">
-				UV : <span id="busuanzi_value_site_uv"></span> |  
-				PV : <span id="busuanzi_value_site_pv"></span>
-		    </p>
-  		   
-		</div>
-
-		
-  </div>
-</footer>
-
-
-<!-- min height -->
-
-<script>
-    var wrapdiv = document.getElementById("wrap");
-    var contentdiv = document.getElementById("content");
-    var allheader = document.getElementById("allheader");
-
-    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
-    if (allheader != null) {
-      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    } else {
-      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    }
-</script>
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav> -->
-    
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/scripts.js"></script>
-
-
-
-
-
-  
-<script src="/js/dialog.js"></script>
-
-
-
-
-
-
-
-
-
-
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-	</script>
-
-
-
-
-
-
-  </div>
-
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog">
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-
-
-      <div class="modal-body">
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
-              正文字号大小
-            </a>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            您已调整页面字体大小
-          </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
         </div>
-      
-
-
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
-              夜间护眼模式
-            </a>
-        </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-            夜间模式已经开启，再次单击按钮即可关闭 
-          </div>
-        </div>
-
-        <div>
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        </div>
-         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="panel-body">
-            Rian Finnegan
-          </div>
-          <div class="panel-body">
-            Copyright © 2020 Rian Finnegan All Rights Reserved.
-          </div>
-        </div>
-      </div>
-
-
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <div class="modal-footer">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
   
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+
   
-    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+
   
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Smarter NPCs with Natural Language Processing&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

@@ -1,851 +1,633 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>Rian Finnegan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
-  
-  
-  
-  <meta name="description" content="A blog and some other things">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rian Finnegan">
-<meta property="og:url" content="https://rian.xyz/">
-<meta property="og:site_name" content="Rian Finnegan">
-<meta property="og:description" content="A blog and some other things">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Rian Finnegan">
-<meta property="article:tag" content="rian, finnegan, blog">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Rian Finnegan" type="application/atom+xml">
-  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="I write here sometimes">
+  <meta name="author" content="Rian Finnegan">
+  <meta name="keywords" content="rian, finnegan, blog">
+  <title>Thoughts of Rian</title>
 
-  
-
-  <link rel="icon" href="/css/images/mylogo.jpg">
-  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
-<script src="/js/jquery-3.1.1.min.js"></script>
-
-  
-<script src="/js/bootstrap.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
-
-  
-    <link rel="stylesheet" href="/css/home.css" >
-  
-
-  
-
-  
-
-  
-  
-  
-    <link rel="stylesheet" href="/css/vdonate.css" >
-  
-
-<meta name="generator" content="Hexo 5.1.1"></head>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
 
-  <body>
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
 
 
-  
-    <header id="header">
 
-	<!-- 背景图模式 -->
-	
-
-    
-      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
-
-      <!-- Support rolling -->  
-        <!-- Don't rolling -->
-        <script>
-            var imgUrls = "css/images/background-with-rain.jpg".split(",");
-            var random = Math.floor((Math.random() * imgUrls.length ));
-            if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-              document.getElementById("intrologo").style.backgroundImage='url(' + imgUrls[random] + ')';
-            } else {
-              document.getElementById("intrologo").style.backgroundImage='url(/' + imgUrls[random] + ')';
-            }
-        </script>
-      
-
-    
- 
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
+<link  rel="stylesheet" href="/css/main.css" />
 
-      <!-- 折线Polyline背景 -->
-      
-    </script>
-    
+<!-- 自定义样式保持在最底部 -->
 
-    
-      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
-    
 
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Rian</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-          <div class="homelogoback"  style="border: 1px solid #404040;" >
-            <h1><a href="#content" id="logo">Rian Finnegan</a></h1>
-            <h3>A blog and some other things</h3>
-            <h5>Rian Finnegan</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About Me
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/images/bg/rian_onbench.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2018/08/02/bots-in-kubernetes/">Bots in Kubernetes</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/08/02/bots-in-kubernetes/">
+          
+          
+            
+          
+          Bots in KubeSo you’ve built for first bot with Microsoft BotBuilder SDK, deployed it to Azure App Service or GCloud App Engine, and everything is just swell. Then along comes your company’s CTO, who s
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-08-02 11:11" pubdate>
+              2018-08-02
+            </time>
           </div>
         
-    
-    </div>
+        
+        
+      </div>
+    </article>
   </div>
 
-  <!-- 自适应主页背景大图 -->
-  
-    <script>
-        var img = new Image();
-        var intrologodiv = document.getElementById("intrologo");
-        img.src = intrologodiv.style.backgroundImage.replace('url(','').replace(')','').replace(/\"/gi, "");
-        img.onload=function(){
-          if (img.width / img.height <= document.body.clientWidth / document.body.clientHeight) {
-            intrologodiv.style.backgroundSize = "100% auto";
-          } else {
-            intrologodiv.style.backgroundSize = "auto 100%";
-          }
-        };
-    </script>
- 
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="/">Home</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
-        
-      </p>
-  </div>
-
-</header>
-  
-  <div id="container">
-    <div id="wrap">
-      
-            
-      <div id="content" class="outer">
-        
-          <section id="main" style="float:none;">
-  
-    <article id="post-bots-in-kubernetes"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
+  <div class="row mx-auto index-card">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/08/02/bots-in-kubernetes/">Bots in Kubernetes</a>
-    </h1>
-  
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2018/05/23/smarter-npcs-with-natural-language-processing/">Smarter NPCs with Natural Language Processing</a>
+      </h1>
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/08/02/bots-in-kubernetes/" class="article-date">
-	  <time datetime="2018-08-02T01:11:00.000Z" itemprop="datePublished">2018-08-02</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Bots in KubeSo you’ve built for first bot with Microsoft BotBuilder SDK, deployed it to Azure App Service or GCloud App Engine, and everything is just swell. Then along comes your company’s CTO, who says they’ve committed to all their services hav...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/08/02/bots-in-kubernetes/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-smarter-npcs-with-natural-language-processing"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/05/23/smarter-npcs-with-natural-language-processing/">Smarter NPCs with Natural Language Processing</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/05/23/smarter-npcs-with-natural-language-processing/" class="article-date">
-	  <time datetime="2018-05-23T03:53:49.000Z" itemprop="datePublished">2018-05-23</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          What happened in Pokemon?I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning....
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/05/23/smarter-npcs-with-natural-language-processing/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-xamarin-chatbots"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/03/11/xamarin-chatbots/">Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/03/11/xamarin-chatbots/" class="article-date">
-	  <time datetime="2018-03-11T10:11:09.000Z" itemprop="datePublished">2018-03-11</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/03/11/xamarin-chatbots/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-digital-assistants-azure-eventgrid"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/03/04/digital-assistants-azure-eventgrid/">Digital Assistants &amp; Azure Event Grid</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/03/04/digital-assistants-azure-eventgrid/" class="article-date">
-	  <time datetime="2018-03-04T05:13:00.000Z" itemprop="datePublished">2018-03-04</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
+      <p class="index-excerpt">
+        <a href="/2018/05/23/smarter-npcs-with-natural-language-processing/">
           
-The Digital WorldThe digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/03/04/digital-assistants-azure-eventgrid/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
+          
+            
+          
+          What happened in Pokemon?I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative 
+        </a>
+      </p>
 
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-openai-windows"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
+      <div class="index-btm post-metas">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/02/07/openai-windows/">OpenAI Gym on Windows</a>
-    </h1>
-  
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-05-23 13:53" pubdate>
+              2018-05-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
 
-      </header>
+  <div class="row mx-auto index-card">
     
-    <div class="article-meta">
-      
-	<a href="/2018/02/07/openai-windows/" class="article-date">
-	  <time datetime="2018-02-07T00:29:13.000Z" itemprop="datePublished">2018-02-07</time>
-	</a>
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2018/03/11/xamarin-chatbots/">Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</a>
+      </h1>
 
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
+      <p class="index-excerpt">
+        <a href="/2018/03/11/xamarin-chatbots/">
+          
+          
+            
+          
+          One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook a
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-03-11 21:11" pubdate>
+              2018-03-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2018/03/04/digital-assistants-azure-eventgrid/">Digital Assistants &amp; Azure Event Grid</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/03/04/digital-assistants-azure-eventgrid/">
+          
+          
+            
+          
+          
+The Digital WorldThe digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and e
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-03-04 16:13" pubdate>
+              2018-03-04
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2018/02/07/openai-windows/">OpenAI Gym on Windows</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/02/07/openai-windows/">
+          
+          
+            
+          
           OpenAI’s Gym is officially only supported on Linux and OSX. Follow these steps to get up and running on Windows using Windows Subsystem for Linux
 
-Update to the latest version of Windows (&gt;version 1607, “Anniversary Update”)
+Update to the latest version of Windows (&gt;version 
+        </a>
+      </p>
 
-Enable Windows Sub...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/02/07/openai-windows/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-tensorflow-keras-windows"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
+      <div class="index-btm post-metas">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/01/28/tensorflow-keras-windows/">Installing Tensorflow and Keras on Windows</a>
-    </h1>
-  
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-02-07 11:29" pubdate>
+              2018-02-07
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
 
-      </header>
+  <div class="row mx-auto index-card">
     
-    <div class="article-meta">
-      
-	<a href="/2018/01/28/tensorflow-keras-windows/" class="article-date">
-	  <time datetime="2018-01-28T01:00:00.000Z" itemprop="datePublished">2018-01-28</time>
-	</a>
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2018/01/28/tensorflow-keras-windows/">Installing Tensorflow and Keras on Windows</a>
+      </h1>
 
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
+      <p class="index-excerpt">
+        <a href="/2018/01/28/tensorflow-keras-windows/">
+          
+          
+            
+          
           Installing Tensorflow was once challenging, bordering on impossible. Now… not so much.
-Install AnacondaAnaconda is a data science ecosystem, giving users access to all sorts of toolkits and frameworks. Download the Anaconda installer for Windows (...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/01/28/tensorflow-keras-windows/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
+Install AnacondaAnaconda is a data science ecosystem, giving users access to all sorts of toolkits and frameworks
+        </a>
+      </p>
 
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-what-happened-to-the-internet"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
+      <div class="index-btm post-metas">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/23/what-happened-to-the-internet/">What happened to the decentralised internet?</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/11/23/what-happened-to-the-internet/" class="article-date">
-	  <time datetime="2017-11-23T00:11:11.000Z" itemprop="datePublished">2017-11-23</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          In the late 20th century, the pioneers of the internet and a new generation of online radicals envisioned a future where free communication, access to information, and equality of access made people increasingly fair minded, intelligent, and empat...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/23/what-happened-to-the-internet/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-learning-to-trade"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-01-28 12:00" pubdate>
+              2018-01-28
+            </time>
+          </div>
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/11/learning-to-trade/">Learning to Trade</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/11/11/learning-to-trade/" class="article-date">
-	  <time datetime="2017-11-11T00:11:11.000Z" itemprop="datePublished">2017-11-11</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Australia’s energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are political interests for coal fired generation (CFG)...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/11/learning-to-trade/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-drake-and-trappist1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/08/21/drake-and-trappist1/">Drake &amp; Trappist-1</a>
-    </h1>
-  
+        
+      </div>
+    </article>
+  </div>
 
-      </header>
+  <div class="row mx-auto index-card">
     
-    <div class="article-meta">
-      
-	<a href="/2017/08/21/drake-and-trappist1/" class="article-date">
-	  <time datetime="2017-08-21T00:23:43.000Z" itemprop="datePublished">2017-08-21</time>
-	</a>
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2017/11/23/what-happened-to-the-internet/">What happened to the decentralised internet?</a>
+      </h1>
 
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
+      <p class="index-excerpt">
+        <a href="/2017/11/23/what-happened-to-the-internet/">
+          
+          
+            
+          
+          In the late 20th century, the pioneers of the internet and a new generation of online radicals envisioned a future where free communication, access to information, and equality of access made people i
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-11-23 11:11" pubdate>
+              2017-11-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2017/11/11/learning-to-trade/">Learning to Trade</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/11/11/learning-to-trade/">
+          
+          
+            
+          
+          Australia’s energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are poli
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-11-11 11:11" pubdate>
+              2017-11-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2017/08/21/drake-and-trappist1/">Drake &amp; Trappist-1</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/08/21/drake-and-trappist1/">
+          
+          
+            
+          
           NASA’s latest announcement is important because of Drake.
 
 Wait, not that Drake… this one, Dr Frank Drake:
 
-He’s most famous for the Drake Equation, which provides a method for estimating the number of active, intelligent and communicating civilis...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/08/21/drake-and-trappist1/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
+He’s most famous for the Drake Equation, which provides a method for estimating the number o
+        </a>
+      </p>
 
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-review-our-broken-steps"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
+      <div class="index-btm post-metas">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/10/review-our-broken-steps/">Review - Our Broken Steps</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/10/review-our-broken-steps/" class="article-date">
-	  <time datetime="2017-01-10T23:23:43.000Z" itemprop="datePublished">2017-01-11</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Our Broken Steps is a guide to responsible travel, written by my friend Tamshuk Saha. It’s words resonated with me, as it expressed many of my own thoughts and feelings. Tamshuk addresses both the socially and environmentally destructive practices...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/01/10/review-our-broken-steps/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-
-    </footer>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-08-21 10:23" pubdate>
+              2017-08-21
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
   </div>
-  
-</article>
 
-<!-- Table of Contents -->
-
-  
-
-
-  <nav id="page-nav">
+  <div class="row mx-auto index-card">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2017/01/10/review-our-broken-steps/">Review - Our Broken Steps</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/01/10/review-our-broken-steps/">
+          
+          
+            
+          
+          Our Broken Steps is a guide to responsible travel, written by my friend Tamshuk Saha. It’s words resonated with me, as it expressed many of my own thoughts and feelings. Tamshuk addresses both the soc
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-01-11 10:23" pubdate>
+              2017-01-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
   </nav>
-
-</section>
-        
-      </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
-      
-      <footer id="footer">
   
-
-  <div class="container">
-      	<div class="row">
-	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 Rian Finnegan All Rights Reserved.</p>
-	      
-	      
-    		<p class="busuanzi_uv">
-				UV : <span id="busuanzi_value_site_uv"></span> |  
-				PV : <span id="busuanzi_value_site_pv"></span>
-		    </p>
-  		   
-		</div>
-
-		
-  </div>
-</footer>
-
-
-<!-- min height -->
-
-<script>
-    var wrapdiv = document.getElementById("wrap");
-    var contentdiv = document.getElementById("content");
-    var allheader = document.getElementById("allheader");
-
-    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
-    if (allheader != null) {
-      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    } else {
-      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
     }
-</script>
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav> -->
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
+  </main>
 
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
 
   
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/scripts.js"></script>
-
-
-
-  
-<script src="/js/home.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-	</script>
-
-
-
-
-
-
-  </div>
-
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog">
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-
-
-      <div class="modal-body">
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
-              正文字号大小
-            </a>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            您已调整页面字体大小
-          </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
         </div>
-      
-
-
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
-              夜间护眼模式
-            </a>
-        </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-            夜间模式已经开启，再次单击按钮即可关闭 
-          </div>
-        </div>
-
-        <div>
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        </div>
-         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="panel-body">
-            Rian Finnegan
-          </div>
-          <div class="panel-body">
-            Copyright © 2020 Rian Finnegan All Rights Reserved.
-          </div>
-        </div>
-      </div>
-
-
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <div class="modal-footer">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
   
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+
   
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Some thoughts of mine - written down.&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

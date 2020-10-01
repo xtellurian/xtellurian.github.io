@@ -1,183 +1,190 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>building xamarin.forms chatbots with bot framework direct line api | Rian Finnegan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
-  
-  
-  
-  <meta name="description" content="One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook a">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Building Xamarin.Forms Chatbots with Bot Framework Direct Line API">
-<meta property="og:url" content="https://rian.xyz/2018/03/11/xamarin-chatbots/">
-<meta property="og:site_name" content="Rian Finnegan">
-<meta property="og:description" content="One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook a">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png">
-<meta property="og:image" content="https://docs.microsoft.com/en-us/bot-framework/media/direct-line-configure.png">
-<meta property="og:image" content="https://www.xamarin.com/content/images/pages/platform/code-sharing@2x.png">
-<meta property="og:image" content="https://rian.xyz/images/xamarinchatbots/botscreenshot.png">
-<meta property="og:image" content="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/17418.svg">
-<meta property="og:image" content="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18415.svg">
-<meta property="og:image" content="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16990.svg">
-<meta property="og:image" content="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18203.svg">
-<meta property="og:image" content="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16850.svg">
-<meta property="og:image" content="https://rian.xyz/images/xamarinchatbots/ATO_App.gif">
-<meta property="article:published_time" content="2018-03-11T10:11:09.000Z">
-<meta property="article:modified_time" content="2020-08-26T23:23:13.106Z">
-<meta property="article:author" content="Rian Finnegan">
-<meta property="article:tag" content="rian, finnegan, blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Rian Finnegan" type="application/atom+xml">
-  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="I write here sometimes">
+  <meta name="author" content="Rian Finnegan">
+  <meta name="keywords" content="rian, finnegan, blog">
+  <title>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API - Thoughts of Rian</title>
 
-  
-
-  <link rel="icon" href="/css/images/mylogo.jpg">
-  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  
-<link rel="stylesheet" href="/css/style.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  
-<script src="/js/jquery-3.1.1.min.js"></script>
-
-  
-<script src="/js/bootstrap.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-<link rel="stylesheet" href="/css/dialog.css">
-
-  
-
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css" >
-  
-
-  
-  
-  
-    <link rel="stylesheet" href="/css/vdonate.css" >
-  
-
-<meta name="generator" content="Hexo 5.1.1"></head>
-
-
-
-  <body data-spy="scroll" data-target="#toc" data-offset="50">
-
-
-  
-  <div id="container">
-    <div id="wrap">
+    
       
-        <header>
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
 
-    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="navbar-inner">
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Rian</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
           
-          <div class="container"> 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            
-              <a class="brand" style="border-width: 0;">
-                <p>Rian Finnegan</p>
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
               </a>
-            
-            
-            <div class="navbar-collapse collapse">
-              <ul class="hnav navbar-nav">
-                
-                  <li> <a class="main-nav-link" href="/">Home</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
-                
-                  <li><div id="search-form-wrap">
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About Me
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="index.search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="https://rian.xyz"></form>
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/images/bg/rain.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-</div></li>
-            </div>
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2018-03-11 21:11" pubdate>
+        Sunday, March 11th 2018, 9:11 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k words
+    </span>
+  
+
+  
+
+  
+  
+</div>
+
+            
           </div>
-                
+
+          
+        </div>
       </div>
     </div>
+  </header>
 
-</header>
-
-
-
+  <main>
+    
       
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</h1>
             
-      <div id="content" class="outer">
-        
-          <section id="main" style="float:none;"><article id="post-xamarin-chatbots" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" class="article-title" itemprop="name">
-      Building Xamarin.Forms Chatbots with Bot Framework Direct Line API
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/03/11/xamarin-chatbots/" class="article-date">
-	  <time datetime="2018-03-11T10:11:09.000Z" itemprop="datePublished">2018-03-11</time>
-	</a>
-
-      
-      
-	<a class="article-views">
-	<span id="busuanzi_container_page_pv">
-		PV:<span id="busuanzi_value_page_pv"></span>
-	</span>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts">Bot Framework DirectLine API</a>.</p>
-<p><img src="https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png" alt="Screenshot of the Bot Framework Dashboard"></p>
+            <div class="markdown-body" id="post-body">
+              <p>One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts">Bot Framework DirectLine API</a>.</p>
+<p><img src="https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png" srcset="/img/loading.gif" alt="Screenshot of the Bot Framework Dashboard"></p>
 <h2 id="Build-a-Bot"><a href="#Build-a-Bot" class="headerlink" title="Build a Bot"></a>Build a Bot</h2><p>There are lots of good tutorials on how to get started writing bots using the <a target="_blank" rel="noopener" href="https://github.com/Microsoft/BotBuilder">Microsoft Bot Builder SDK</a>. If you’re just getting started, try the excellent <a target="_blank" rel="noopener" href="https://github.com/MissionMarsFourthHorizon/operation-max">Mission Mars Tutorials</a>.</p>
 <p>Once you’ve got the basics, you should try the <a target="_blank" rel="noopener" href="https://github.com/MSFTAuDX/BotBoiler">Bot Boiler Framework</a> in NodeJS. It provides tools for dependency injection, testing, deployment to Azure Functions, and more. I won’t go into how to write a good chatbot - this article assumed that your bot code already exists.</p>
 <h3 id="Enable-Direct-Line"><a href="#Enable-Direct-Line" class="headerlink" title="Enable Direct Line"></a>Enable Direct Line</h3><p>Configure your channels in the <a target="_blank" rel="noopener" href="https://dev.botframework.com/">Bot Portal</a> and enable the Direct Line channel, then <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/bot-framework/portal-configure-channels">configure your Direct Line Channel</a>, and get your direct line secret. You’ll need that secret later on.</p>
-<p><img src="https://docs.microsoft.com/en-us/bot-framework/media/direct-line-configure.png" alt="Direct Line Config Sample"></p>
+<p><img src="https://docs.microsoft.com/en-us/bot-framework/media/direct-line-configure.png" srcset="/img/loading.gif" alt="Direct Line Config Sample"></p>
 <h3 id="Using-Xamarin-Forms-Project"><a href="#Using-Xamarin-Forms-Project" class="headerlink" title="Using Xamarin.Forms Project"></a>Using Xamarin.Forms Project</h3><h4 id="Why-Xamarin-and-Forms"><a href="#Why-Xamarin-and-Forms" class="headerlink" title="Why Xamarin and Forms?"></a>Why Xamarin and Forms?</h4><p>If you’ve never heard of <a target="_blank" rel="noopener" href="https://www.xamarin.com/">Xamarin</a>, then you’ve been missing out. Xamarin is a toolset, originally built using the Mono Framework, that allows developers to write common C# (and F#) and deploy applications to many operating systems and environments. The most popular are Android, iOS, and Windows.</p>
-<p>​<br><img src="https://www.xamarin.com/content/images/pages/platform/code-sharing@2x.png" alt="Xamarin Framework Overview"> </p>
+<p>​<br><img src="https://www.xamarin.com/content/images/pages/platform/code-sharing@2x.png" srcset="/img/loading.gif" alt="Xamarin Framework Overview"></p>
 <p>Xamarin Forms is a set of API’s written in Xamarin that let us write common user interface code. Basically, I can run exactly the same app on Android, iOS and Windows. Cool!</p>
 <h4 id="File-gt-New-Project-VS2017"><a href="#File-gt-New-Project-VS2017" class="headerlink" title="File &gt; New Project (VS2017)"></a>File &gt; New Project (VS2017)</h4><p>I’m going using Visual Studio 2017. You can <a target="_blank" rel="noopener" href="https://www.visualstudio.com/downloads/">download the community version</a> for free. DotNet Standard is supported in VS2015 but not in earlier versions.</p>
 <p><a target="_blank" rel="noopener" href="https://developer.xamarin.com/guides/xamarin-forms/getting-started/hello-xamarin-forms/quickstart/">This guide</a> can help you create your first Xamarin Forms project. The short version is:</p>
@@ -189,31 +196,129 @@
 <li><p>Create a blank app (not a master detail page)</p>
 </li>
 </ul>
-<h4 id="Move-to-dotnet-standard"><a href="#Move-to-dotnet-standard" class="headerlink" title="Move to dotnet standard"></a>Move to dotnet standard</h4><p>​<a target="_blank" rel="noopener" href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">Xamarin.Forms recently started supporting DotNet Standard</a> (hooray!). <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a> is the latest and greatest standard for writing cross platform C#. It provides a common set of API’s that <strong>work everywhere</strong>. Better yet, it improves dramatically over the previous standard (Portable Class Libraries, or PCL) as there’s no platform targets, just backwards compatible versions of .NET Standard. </p>
+<h4 id="Move-to-dotnet-standard"><a href="#Move-to-dotnet-standard" class="headerlink" title="Move to dotnet standard"></a>Move to dotnet standard</h4><p>​<a target="_blank" rel="noopener" href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">Xamarin.Forms recently started supporting DotNet Standard</a> (hooray!). <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a> is the latest and greatest standard for writing cross platform C#. It provides a common set of API’s that <strong>work everywhere</strong>. Better yet, it improves dramatically over the previous standard (Portable Class Libraries, or PCL) as there’s no platform targets, just backwards compatible versions of .NET Standard.</p>
 <p>​Before we get started, we’ve got to change the way we’re sharing code in our Xamarin project, by <a target="_blank" rel="noopener" href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">converting to .NET Standard</a>. We’ll change our PCL project (not the Android, iOS, or UWP projects) by deleting <code>packages.config</code> then unloading the project and replacing the contents of the .csproj file with the following code:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Project Sdk&#x3D;&quot;Microsoft.NET.Sdk&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;PropertyGroup&gt;</span><br><span class="line"></span><br><span class="line">        &lt;TargetFramework&gt;netstandard1.3&lt;&#x2F;TargetFramework&gt;</span><br><span class="line"></span><br><span class="line">        &lt;PackageTargetFallback&gt;$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8&lt;&#x2F;PackageTargetFallback&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;PropertyGroup&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;Project&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">Project</span> <span class="hljs-attr">Sdk</span>=<span class="hljs-string">&quot;Microsoft.NET.Sdk&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">PropertyGroup</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TargetFramework</span>&gt;</span>netstandard1.3<span class="hljs-tag">&lt;/<span class="hljs-name">TargetFramework</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">PackageTargetFallback</span>&gt;</span>$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8<span class="hljs-tag">&lt;/<span class="hljs-name">PackageTargetFallback</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">PropertyGroup</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Project</span>&gt;</span>
+</code></pre>
 <p>You’ll have to re-add and install any NuGet Packages, but at this stage it should only be the Xamarin.Forms package.</p>
 <h4 id="Import-DirectLine-Client"><a href="#Import-DirectLine-Client" class="headerlink" title="Import DirectLine Client"></a>Import DirectLine Client</h4><p>​The best thing about targetting .NET Standard is we can use the official NuGet package for interacting with the DirectLine API!</p>
 <p>​<code>Install-Package Microsoft.Bot.Connector.DirectLine -Version 3.0.2</code></p>
 <h4 id="Communicate-with-your-Bot"><a href="#Communicate-with-your-Bot" class="headerlink" title="Communicate with your Bot"></a>Communicate with your Bot</h4><p>Here’s a screenshot of what we expect our Bot UI to look like:</p>
-<p><img src="/images/xamarinchatbots/botscreenshot.png" alt="Chat Bot Sreenshot"></p>
+<p><img src="/images/xamarinchatbots/botscreenshot.png" srcset="/img/loading.gif" alt="Chat Bot Sreenshot"></p>
 <p>Before continuing, I suggest you read <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts">Key Concepts in DirectLine API 3.0</a></p>
 <p>First, we create a microservice class for interacting with the bot. We inject the direct line secret (from the portal) into the constructor.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">private DirectLineClient _client;</span><br><span class="line"></span><br><span class="line">public BotService(string directLineSecret)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    if (string.IsNullOrEmpty(directLineSecret)) &#123;</span><br><span class="line"></span><br><span class="line">        throw new ArgumentNullException(&quot;Direct Line Secret is required&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _client &#x3D; new DirectLineClient(directLineSecret);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs csharp">
+<span class="hljs-keyword">private</span> DirectLineClient _client;
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BotService</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> directLineSecret</span>)</span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">string</span>.IsNullOrEmpty(directLineSecret)) &#123;
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(<span class="hljs-string">&quot;Direct Line Secret is required&quot;</span>);
+    &#125;
+
+    _client = <span class="hljs-keyword">new</span> DirectLineClient(directLineSecret);
+&#125;
+</code></pre>
 <p>There are two important public methods: CreateConversation and SendMessage.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public async Task&lt;string&gt; StartConversation(bool isDefault &#x3D; true)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    var conversation &#x3D; await _client.Conversations.StartConversationAsync();</span><br><span class="line"></span><br><span class="line">    PollForMessages(conversation);</span><br><span class="line"></span><br><span class="line">    if(isDefault || _defaultConversation &#x3D;&#x3D; null)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        _defaultConversation &#x3D; conversation;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return conversation.ConversationId;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Poll the API every second to check for new messages</span><br><span class="line"></span><br><span class="line">private void PollForMessages(Conversation conversation)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    Device.StartTimer(new TimeSpan(0, 0, 1), () &#x3D;&gt;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        var activitySet &#x3D; _client.Conversations.GetActivities( conversation.ConversationId, _watermark);</span><br><span class="line"></span><br><span class="line">        var activities &#x3D; activitySet?.Activities.Where(_ &#x3D;&gt; _.From.Id !&#x3D; GetUserId());</span><br><span class="line"></span><br><span class="line">        _watermark &#x3D; activitySet.Watermark; &#x2F;&#x2F; watermark lets us only get new messages</span><br><span class="line"></span><br><span class="line">        if (activities !&#x3D; null)</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            foreach (var activity in activities)</span><br><span class="line"></span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line">            ActivityReceived?.Invoke(this, new ActivityEventArgs() &#123; Activity &#x3D; activity &#125;);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return true;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>​<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public async Task&lt;ResourceResponse&gt; SendMessage( string message, string conversationId &#x3D; null)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    if (conversationId &#x3D;&#x3D; null)&#123;</span><br><span class="line"></span><br><span class="line">        conversationId &#x3D; GetDefaultConversationId(); &#x2F;&#x2F; get default if not specified</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; create a new Activity to send to the Bot</span><br><span class="line"></span><br><span class="line">    SentActivity &#x3D; new Activity</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        From &#x3D; GetChannelAccount(),</span><br><span class="line"></span><br><span class="line">        Text &#x3D; message,</span><br><span class="line"></span><br><span class="line">        Type &#x3D; ActivityTypes.Message</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; invoke an event signalling an activity has been sent</span><br><span class="line"></span><br><span class="line">    ActivitySent?.Invoke(this, new ActivityEventArgs() &#123; Activity &#x3D; SentActivity &#125;);</span><br><span class="line"></span><br><span class="line">​</span><br><span class="line"></span><br><span class="line">    var response &#x3D; await _client.Conversations.PostActivityAsync(conversationId, SentActivity);</span><br><span class="line"></span><br><span class="line">    return response;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>​</p>
-<h4 id="Monitor-the-Conversation"><a href="#Monitor-the-Conversation" class="headerlink" title="Monitor the Conversation"></a>Monitor the Conversation</h4><p>​</p>
-<p>We need to make a user interface for chatting with the bot. We add these two events to our <a target="_blank" rel="noopener" href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/Implementations/BotService.cs">BotService class</a> in order to track when things happen.</p>
-<p>​<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public event EventHandler&lt;ActivityEventArgs&gt; ActivitySent;</span><br><span class="line"></span><br><span class="line">public event EventHandler&lt;ActivityEventArgs&gt; ActivityReceived;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<pre><code class="hljs csharp">
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">string</span>&gt; <span class="hljs-title">StartConversation</span>(<span class="hljs-params"><span class="hljs-keyword">bool</span> isDefault = <span class="hljs-literal">true</span></span>)</span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">var</span> conversation = <span class="hljs-keyword">await</span> _client.Conversations.StartConversationAsync();
+
+    PollForMessages(conversation);
+    <span class="hljs-keyword">if</span>(isDefault || _defaultConversation == <span class="hljs-literal">null</span>)
+    &#123;
+        _defaultConversation = conversation;
+    &#125;
+
+    <span class="hljs-keyword">return</span> conversation.ConversationId;
+&#125;
+
+
+<span class="hljs-comment">// Poll the API every second to check for new messages</span>
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PollForMessages</span>(<span class="hljs-params">Conversation conversation</span>)</span>
+<span class="hljs-function"></span>&#123;
+    Device.StartTimer(<span class="hljs-keyword">new</span> TimeSpan(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>), () =&gt;
+    &#123;
+        <span class="hljs-keyword">var</span> activitySet = _client.Conversations.GetActivities( conversation.ConversationId, _watermark);
+        <span class="hljs-keyword">var</span> activities = activitySet?.Activities.Where(_ =&gt; _.From.Id != GetUserId());
+        _watermark = activitySet.Watermark; <span class="hljs-comment">// watermark lets us only get new messages</span>
+
+        <span class="hljs-keyword">if</span> (activities != <span class="hljs-literal">null</span>)
+        &#123;
+            <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> activity <span class="hljs-keyword">in</span> activities)
+            &#123;
+                ActivityReceived?.Invoke(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> ActivityEventArgs() &#123; Activity = activity &#125;);
+            &#125;
+
+        &#125;
+
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;);
+&#125;
+</code></pre>
+<p>​</p>
+<pre><code class="hljs csharp">
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;ResourceResponse&gt; <span class="hljs-title">SendMessage</span>(<span class="hljs-params"> <span class="hljs-keyword">string</span> message, <span class="hljs-keyword">string</span> conversationId = <span class="hljs-literal">null</span></span>)</span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span> (conversationId == <span class="hljs-literal">null</span>)
+    &#123;
+        conversationId = GetDefaultConversationId(); <span class="hljs-comment">// get default if not specified</span>
+    &#125;
+
+<span class="hljs-comment">// create a new Activity to send to the Bot</span>
+
+    SentActivity = <span class="hljs-keyword">new</span> Activity
+    &#123;
+        From = GetChannelAccount(),
+        Text = message,
+        Type = ActivityTypes.Message
+
+    &#125;;
+
+    <span class="hljs-comment">// invoke an event signalling an activity has been sent</span>
+    ActivitySent?.Invoke(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> ActivityEventArgs() &#123; Activity = SentActivity &#125;);
+
+    <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> _client.Conversations.PostActivityAsync(conversationId, SentActivity);
+    <span class="hljs-keyword">return</span> response;
+&#125;
+</code></pre>
+<p>​</p>
+<h4 id="Monitor-the-Conversation"><a href="#Monitor-the-Conversation" class="headerlink" title="Monitor the Conversation"></a>Monitor the Conversation</h4><p>We need to make a user interface for chatting with the bot. We add these two events to our <a target="_blank" rel="noopener" href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/Implementations/BotService.cs">BotService class</a> in order to track when things happen.</p>
+<p>​</p>
+<pre><code class="hljs csharp">
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> EventHandler&lt;ActivityEventArgs&gt; ActivitySent;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> EventHandler&lt;ActivityEventArgs&gt; ActivityReceived;
+</code></pre>
 <p>​</p>
 <p>These two events are going to let us update our UI any time we send or receive a message from the Bot. We add every activity we send/ receive to an observable collection that we bind to a ListView. Actually, we’re going to use a custom UI element, described below, but it inherits from the standard Xamarin Forms ListView.</p>
 <p>The <a target="_blank" rel="noopener" href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/ViewModels/ConversationViewModel.cs">ConversationViewModel</a> class contains the following property:</p>
 <p><code>public ObservableCollection&lt;Activity&gt; Messages &#123; get; set; &#125;</code></p>
 <p>​</p>
 <p>and in our XAML view, we create a listview that binds to that collection.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;ListView x:Name&#x3D;&quot;ChatListView&quot;</span><br><span class="line"></span><br><span class="line">    ItemsSource&#x3D;&quot;&#123;Binding Messages&#125;&quot;</span><br><span class="line"></span><br><span class="line">    ItemTemplate&#x3D;&quot;&#123;StaticResource activityDataTemplateSelector&#125;&quot;</span><br><span class="line"></span><br><span class="line">    SeparatorVisibility&#x3D;&quot;None&quot;</span><br><span class="line"></span><br><span class="line">    HasUnevenRows&#x3D;&quot;True&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;customViews:ChatListView.Effects&gt;</span><br><span class="line"></span><br><span class="line">        &lt;effects:ListViewScrollToBottomEffect &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;effects:ListViewStackFromBottomEffect &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">   &lt;&#x2F;customViews:ChatListView.Effects&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;ListView&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>There are two interesting parts of this XAML: </p>
+<pre><code class="hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">ListView</span> <span class="hljs-attr">x:Name</span>=<span class="hljs-string">&quot;ChatListView&quot;</span></span>
+<span class="hljs-tag"></span>
+<span class="hljs-tag">    <span class="hljs-attr">ItemsSource</span>=<span class="hljs-string">&quot;&#123;Binding Messages&#125;&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">ItemTemplate</span>=<span class="hljs-string">&quot;&#123;StaticResource activityDataTemplateSelector&#125;&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">SeparatorVisibility</span>=<span class="hljs-string">&quot;None&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">HasUnevenRows</span>=<span class="hljs-string">&quot;True&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">customViews:ChatListView.Effects</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">effects:ListViewScrollToBottomEffect</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">effects:ListViewStackFromBottomEffect</span> /&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">customViews:ChatListView.Effects</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">ListView</span>&gt;</span>
+</code></pre>
+<p>There are two interesting parts of this XAML:</p>
 <p>​</p>
 <ul>
 <li><p><code>ItemTemplate=&quot;&#123;StaticResource activityDataTemplateSelector&#125;&quot;</code></p>
@@ -221,48 +326,164 @@
 <li><p><code>&lt;customViews:ChatListView.Effects&gt;</code></p>
 </li>
 </ul>
-<h4 id="Data-Templates"><a href="#Data-Templates" class="headerlink" title="Data Templates"></a>Data Templates</h4><p>We need to tell the difference between messages <em>to</em> and <em>from</em> the bot, and render those messages differently so the user can tell the difference. In order to do that, we use a Data Template Selector, which we referenced in the above XAML.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class ActivityDataTemplateSelector : DataTemplateSelector</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    public DataTemplate SenderTemplate &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    public DataTemplate ReceiverTemplate &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    public DataTemplate AdaptiveCardsTemplate &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">​</span><br><span class="line"></span><br><span class="line">    protected override DataTemplate OnSelectTemplate(object item, BindableObject container)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">       var activity &#x3D; (Activity)item;</span><br><span class="line"></span><br><span class="line">       if (activity.Attachments !&#x3D; null &amp;&amp;</span><br><span class="line"></span><br><span class="line">           activity.Attachments.Any(</span><br><span class="line"></span><br><span class="line">               m &#x3D;&gt; m.ContentType &#x3D;&#x3D; &quot;application&#x2F;vnd.microsoft.card.adaptive&quot;))</span><br><span class="line"></span><br><span class="line">           &#123;</span><br><span class="line"></span><br><span class="line">               return AdaptiveCardsTemplate;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           if (activity is SendPhotoActivity)</span><br><span class="line"></span><br><span class="line">           &#123;</span><br><span class="line"></span><br><span class="line">               if (((SendPhotoActivity)activity).Path !&#x3D; null &amp;&amp; ((SendPhotoActivity)activity).Path !&#x3D; string.Empty)</span><br><span class="line"></span><br><span class="line">               &#123;</span><br><span class="line"></span><br><span class="line">                   return SentPhotoAttachmentTemplate;</span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">        return ((Activity)item).From.Name &#x3D;&#x3D; &quot;MyName&quot; ? SenderTemplate : ReceiverTemplate;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="Data-Templates"><a href="#Data-Templates" class="headerlink" title="Data Templates"></a>Data Templates</h4><p>We need to tell the difference between messages _to_ and <em>from</em> the bot, and render those messages differently so the user can tell the difference. In order to do that, we use a Data Template Selector, which we referenced in the above XAML.</p>
+<pre><code class="hljs csharp">
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ActivityDataTemplateSelector</span> : <span class="hljs-title">DataTemplateSelector</span>
+&#123;
+    <span class="hljs-keyword">public</span> DataTemplate SenderTemplate &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;
+    <span class="hljs-keyword">public</span> DataTemplate ReceiverTemplate &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;
+    <span class="hljs-keyword">public</span> DataTemplate AdaptiveCardsTemplate &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> DataTemplate <span class="hljs-title">OnSelectTemplate</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> item, BindableObject container</span>)</span>
+<span class="hljs-function"></span>    &#123;
+       <span class="hljs-keyword">var</span> activity = (Activity)item;
+
+       <span class="hljs-keyword">if</span> (activity.Attachments != <span class="hljs-literal">null</span> &amp;&amp;
+           activity.Attachments.Any(
+               m =&gt; m.ContentType == <span class="hljs-string">&quot;application/vnd.microsoft.card.adaptive&quot;</span>))
+           &#123;
+               <span class="hljs-keyword">return</span> AdaptiveCardsTemplate;
+           &#125;
+
+           <span class="hljs-keyword">if</span> (activity <span class="hljs-keyword">is</span> SendPhotoActivity)
+           &#123;
+               <span class="hljs-keyword">if</span> (((SendPhotoActivity)activity).Path != <span class="hljs-literal">null</span> &amp;&amp; ((SendPhotoActivity)activity).Path != <span class="hljs-keyword">string</span>.Empty)
+               &#123;
+                   <span class="hljs-keyword">return</span> SentPhotoAttachmentTemplate;
+               &#125;
+          &#125;
+
+        <span class="hljs-keyword">return</span> ((Activity)item).From.Name == <span class="hljs-string">&quot;MyName&quot;</span> ? SenderTemplate : ReceiverTemplate;
+    &#125;
+&#125;
+</code></pre>
 <p>Then, in XAML, we bind those three public properties to views which will be rendered at runtime depending on the type of activity. For example, our receiver activity template looks like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;DataTemplate x:Key&#x3D;&quot;receiverActivityTemplate&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ViewCell&gt;</span><br><span class="line"></span><br><span class="line">        &lt;Grid Padding&#x3D;&quot;10, 2, 10, 2&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;Frame HasShadow&#x3D;&quot;True&quot; </span><br><span class="line"></span><br><span class="line">                   VerticalOptions&#x3D;&quot;FillAndExpand&quot; </span><br><span class="line"></span><br><span class="line">                   HorizontalOptions&#x3D;&quot;FillAndExpand&quot; </span><br><span class="line"></span><br><span class="line">                   Margin&#x3D;&quot;5&quot; </span><br><span class="line"></span><br><span class="line">                   CornerRadius&#x3D;&quot;15&quot;&gt;</span><br><span class="line"></span><br><span class="line">                 &lt;StackLayout </span><br><span class="line"></span><br><span class="line">                      Orientation&#x3D;&quot;Vertical&quot; </span><br><span class="line"></span><br><span class="line">                      VerticalOptions&#x3D;&quot;FillAndExpand&quot; </span><br><span class="line"></span><br><span class="line">                      HorizontalOptions&#x3D;&quot;FillAndExpand&quot;&gt;</span><br><span class="line"></span><br><span class="line">                      &lt;md:MarkdownView Markdown&#x3D;&quot;&#123;Binding Text&#125;&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">                      &lt;Label Text&#x3D;&quot;&#123;Binding From.Name&#125;&quot;  </span><br><span class="line"></span><br><span class="line">                          FontSize&#x3D;&quot;Micro&quot; </span><br><span class="line"></span><br><span class="line">                          HorizontalOptions&#x3D;&quot;EndAndExpand&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">                &lt;&#x2F;StackLayout&gt;</span><br><span class="line"></span><br><span class="line">            &lt;&#x2F;Frame&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;Grid&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;ViewCell&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;DataTemplate&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">DataTemplate</span> <span class="hljs-attr">x:Key</span>=<span class="hljs-string">&quot;receiverActivityTemplate&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ViewCell</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span> <span class="hljs-attr">Padding</span>=<span class="hljs-string">&quot;10, 2, 10, 2&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Frame</span> <span class="hljs-attr">HasShadow</span>=<span class="hljs-string">&quot;True&quot;</span></span>
+<span class="hljs-tag">                   <span class="hljs-attr">VerticalOptions</span>=<span class="hljs-string">&quot;FillAndExpand&quot;</span></span>
+<span class="hljs-tag">                   <span class="hljs-attr">HorizontalOptions</span>=<span class="hljs-string">&quot;FillAndExpand&quot;</span></span>
+<span class="hljs-tag">                   <span class="hljs-attr">Margin</span>=<span class="hljs-string">&quot;5&quot;</span></span>
+<span class="hljs-tag">                   <span class="hljs-attr">CornerRadius</span>=<span class="hljs-string">&quot;15&quot;</span>&gt;</span>
+
+                 <span class="hljs-tag">&lt;<span class="hljs-name">StackLayout</span></span>
+<span class="hljs-tag">                      <span class="hljs-attr">Orientation</span>=<span class="hljs-string">&quot;Vertical&quot;</span></span>
+<span class="hljs-tag">                      <span class="hljs-attr">VerticalOptions</span>=<span class="hljs-string">&quot;FillAndExpand&quot;</span></span>
+<span class="hljs-tag">                      <span class="hljs-attr">HorizontalOptions</span>=<span class="hljs-string">&quot;FillAndExpand&quot;</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">md:MarkdownView</span> <span class="hljs-attr">Markdown</span>=<span class="hljs-string">&quot;&#123;Binding Text&#125;&quot;</span> /&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Text</span>=<span class="hljs-string">&quot;&#123;Binding From.Name&#125;&quot;</span></span>
+<span class="hljs-tag">                          <span class="hljs-attr">FontSize</span>=<span class="hljs-string">&quot;Micro&quot;</span></span>
+<span class="hljs-tag">                          <span class="hljs-attr">HorizontalOptions</span>=<span class="hljs-string">&quot;EndAndExpand&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">StackLayout</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Frame</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ViewCell</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">DataTemplate</span>&gt;</span>
+</code></pre>
 <p>Which we bind to the selector as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;dataTemplates:ActivityDataTemplateSelector </span><br><span class="line"></span><br><span class="line">    x:Key&#x3D;&quot;activityDataTemplateSelector&quot;</span><br><span class="line"></span><br><span class="line">    ReceiverTemplate&#x3D;&quot;&#123;StaticResource receiverActivityTemplate&#125;&quot; &#x2F;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">dataTemplates:ActivityDataTemplateSelector</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">x:Key</span>=<span class="hljs-string">&quot;activityDataTemplateSelector&quot;</span></span>
+<span class="hljs-tag">    <span class="hljs-attr">ReceiverTemplate</span>=<span class="hljs-string">&quot;&#123;StaticResource receiverActivityTemplate&#125;&quot;</span> /&gt;</span></code></pre>
 <p>​</p>
-<h4 id="Using-Effects"><a href="#Using-Effects" class="headerlink" title="Using Effects"></a>Using Effects</h4><p>​</p>
-<p>Effects are a great way to add platform specific features to your Xamarin Forms UI. Jim Bennet has a really great (and short!) blog post on <a target="_blank" rel="noopener" href="https://www.jimbobbennett.io/effects-in-xamarin-forms/">how to implement Effects in Xamarin Forms</a>.</p>
-<p>​</p>
+<h4 id="Using-Effects"><a href="#Using-Effects" class="headerlink" title="Using Effects"></a>Using Effects</h4><p>Effects are a great way to add platform specific features to your Xamarin Forms UI. Jim Bennet has a really great (and short!) blog post on <a target="_blank" rel="noopener" href="https://www.jimbobbennett.io/effects-in-xamarin-forms/">how to implement Effects in Xamarin Forms</a>.</p>
 <p>One effect you might find useful is listing messages from the bottom.</p>
 <p>In Android, we need to access the native listview control. With effects, it’s easy!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class DroidListViewStackFromBottomEffect : PlatformEffect</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    protected override void OnAttached()</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        var listView &#x3D; Control as Android.Widget.ListView;</span><br><span class="line"></span><br><span class="line">        if (listView !&#x3D; null)</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            listView.StackFromBottom &#x3D; true;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    protected override void OnDetached()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs csharp">
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DroidListViewStackFromBottomEffect</span> : <span class="hljs-title">PlatformEffect</span>
+&#123;
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnAttached</span>(<span class="hljs-params"></span>)</span>
+<span class="hljs-function"></span>    &#123;
+        <span class="hljs-keyword">var</span> listView = Control <span class="hljs-keyword">as</span> Android.Widget.ListView;
+
+        <span class="hljs-keyword">if</span> (listView != <span class="hljs-literal">null</span>)
+        &#123;
+            listView.StackFromBottom = <span class="hljs-literal">true</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDetached</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
+
+&#125;
+</code></pre>
 <p>Check out the <a target="_blank" rel="noopener" href="https://github.com/xtellurian/Botframework.Xamarin">GitHub repo</a> to see all three effects we implemented: Stacking from bottom, auto scrolling, and a keyboard ‘done’ button.</p>
-<p>​</p>
-<h4 id="Using-Custom-Renderers"><a href="#Using-Custom-Renderers" class="headerlink" title="Using Custom Renderers"></a>Using Custom Renderers</h4><p>Another cool feature of Xamarin Forms are <a target="_blank" rel="noopener" href="https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/">custom renderers</a>. Every UI Container in Xamarin Forms renders to a platform specific UI Control. For example, a <a target="_blank" rel="noopener" href="https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/">Xamarin Forms ListView</a> when running in Android, is actually rendered to a native <a target="_blank" rel="noopener" href="https://developer.android.com/guide/topics/ui/layout/listview.html">Android ListView</a>. By writing a custom renderer, we can control the way our UI is converted to native controls. </p>
-<p>​</p>
+<h4 id="Using-Custom-Renderers"><a href="#Using-Custom-Renderers" class="headerlink" title="Using Custom Renderers"></a>Using Custom Renderers</h4><p>Another cool feature of Xamarin Forms are <a target="_blank" rel="noopener" href="https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/">custom renderers</a>. Every UI Container in Xamarin Forms renders to a platform specific UI Control. For example, a <a target="_blank" rel="noopener" href="https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/">Xamarin Forms ListView</a> when running in Android, is actually rendered to a native <a target="_blank" rel="noopener" href="https://developer.android.com/guide/topics/ui/layout/listview.html">Android ListView</a>. By writing a custom renderer, we can control the way our UI is converted to native controls.<br>​</p>
 <h4 id="Working-with-Adaptive-Cards"><a href="#Working-with-Adaptive-Cards" class="headerlink" title="Working with Adaptive Cards"></a>Working with Adaptive Cards</h4><p>We’re going to use a custom renderer to render <a target="_blank" rel="noopener" href="http://adaptivecards.io/">adaptive cards</a> received in a conversation. Adaptive Cards are a great way to serialize a display and share it across multiple user experiences. The same adaptive card may be rendered on Facebook Messenger or Microsoft Teams, and though it contains the same information and functionality, the platform renders it to look though it’s a native implementation (because it is).</p>
-<h6 id="Download-and-Build-the-Adaptive-Card-Renderer-for-Xamarin-Forms"><a href="#Download-and-Build-the-Adaptive-Card-Renderer-for-Xamarin-Forms" class="headerlink" title="Download and Build the Adaptive Card Renderer for Xamarin Forms"></a>Download and Build the Adaptive Card Renderer for Xamarin Forms</h6><p>​</p>
-<p>Adaptive Cards by Microsoft is a 100% open source project. <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards">Check them out on GitHub</a>.</p>
+<h6 id="Download-and-Build-the-Adaptive-Card-Renderer-for-Xamarin-Forms"><a href="#Download-and-Build-the-Adaptive-Card-Renderer-for-Xamarin-Forms" class="headerlink" title="Download and Build the Adaptive Card Renderer for Xamarin Forms"></a>Download and Build the Adaptive Card Renderer for Xamarin Forms</h6><p>Adaptive Cards by Microsoft is a 100% open source project. <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards">Check them out on GitHub</a>.</p>
 <p>Adaptive Cards are designed to render anywhere that your users are. The following native platform renderers are under development right now.</p>
-<p>Android -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/android">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/17418.svg" alt="Build status"> </p>
-<p>​<br>HTML -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/html">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18415.svg" alt="Build Status">  </p>
-<p>iOS -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/ios">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16990.svg" alt="Build status"></p>
-<p>WPF -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18203.svg" alt="Build Status"> </p>
-<p>UWP -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/uwp">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16850.svg" alt="Build Status"> </p>
-<p>Xamarin.Forms -&gt;  <em>No ETA yet</em> - <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet">Source</a>- Alpha </p>
+<p>Android -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/android">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/17418.svg" srcset="/img/loading.gif" alt="Build status"></p>
+<p>​<br>HTML -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/html">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18415.svg" srcset="/img/loading.gif" alt="Build Status"></p>
+<p>iOS -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/ios">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16990.svg" srcset="/img/loading.gif" alt="Build status"></p>
+<p>WPF -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18203.svg" srcset="/img/loading.gif" alt="Build Status"></p>
+<p>UWP -&gt; <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/uwp">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16850.svg" srcset="/img/loading.gif" alt="Build Status"></p>
+<p>Xamarin.Forms -&gt; <em>No ETA yet</em> - <a target="_blank" rel="noopener" href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet">Source</a>- Alpha</p>
 <p>At time of writing, the Xamarin Forms Renderer is still in alpha - which means we’ve included a pre-built library in the /lib directory of our project.</p>
-<h6 id="Rendering-Adaptive-Cards"><a href="#Rendering-Adaptive-Cards" class="headerlink" title="Rendering Adaptive Cards"></a>Rendering Adaptive Cards</h6><p>We implemented a custom renderer &amp; data template combination that allowed us to render adaptive cards directly in the ListView. </p>
+<h6 id="Rendering-Adaptive-Cards"><a href="#Rendering-Adaptive-Cards" class="headerlink" title="Rendering Adaptive Cards"></a>Rendering Adaptive Cards</h6><p>We implemented a custom renderer &amp; data template combination that allowed us to render adaptive cards directly in the ListView.</p>
 <p>There are three important parts to rendering the card.</p>
 <p>First we need to select the correct Data Template based on the incoming activity. These lines in ActivityDataTemplateSelector achieve just that</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">if (activity.Attachments !&#x3D; null &amp;&amp; </span><br><span class="line"></span><br><span class="line">    activity.Attachments.Any(m &#x3D;&gt; m.ContentType &#x3D;&#x3D; </span><br><span class="line"></span><br><span class="line">    &quot;application&#x2F;vnd.microsoft.card.adaptive&quot;))</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    return AdaptiveCardsTemplate;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs csharp">
+<span class="hljs-keyword">if</span> (activity.Attachments != <span class="hljs-literal">null</span> &amp;&amp;
+    activity.Attachments.Any(m =&gt; m.ContentType ==
+    <span class="hljs-string">&quot;application/vnd.microsoft.card.adaptive&quot;</span>))
+
+&#123;
+    <span class="hljs-keyword">return</span> AdaptiveCardsTemplate;
+&#125;
+</code></pre>
 <p>Second, we create a custom view inheriting from StackLayout</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class AdaptiveCardLayout : StackLayout</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    public event EventHandler OnAction;</span><br><span class="line"></span><br><span class="line">​</span><br><span class="line"></span><br><span class="line">    public void InvokeOnAction(object sender, ActionEventArgs args)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        Device.BeginInvokeOnMainThread(() &#x3D;&gt;</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            MessagingCenter.Send(this, &quot;AdaptiveCardAction&quot;, </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AdaptiveCardLayout</span> : <span class="hljs-title">StackLayout</span>
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> EventHandler OnAction;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">InvokeOnAction</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, ActionEventArgs args</span>)</span>
+<span class="hljs-function"></span>    &#123;
+        Device.BeginInvokeOnMainThread(() =&gt;
+        &#123;
+            MessagingCenter.Send(<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;AdaptiveCardAction&quot;</span>,
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p>This custom view is bound, via a data template definition in XAML.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataTemplate x:Key&#x3D;&quot;adaptiveCardsTemplate&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ViewCell&gt;</span><br><span class="line"></span><br><span class="line">        &lt;customViews:AdaptiveCardLayout &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;ViewCell&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;DataTemplate&gt;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&lt;dataTemplates:ActivityDataTemplateSelector x:Key&#x3D;&quot;activityDataTemplateSelector&quot;</span><br><span class="line"></span><br><span class="line">    AdaptiveCardsTemplate&#x3D;&quot;&#123;StaticResource adaptiveCardsTemplate&#125;&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">DataTemplate</span> <span class="hljs-attr">x:Key</span>=<span class="hljs-string">&quot;adaptiveCardsTemplate&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ViewCell</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">customViews:AdaptiveCardLayout</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ViewCell</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">DataTemplate</span>&gt;</span>
+
+...
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dataTemplates:ActivityDataTemplateSelector</span> <span class="hljs-attr">x:Key</span>=<span class="hljs-string">&quot;activityDataTemplateSelector&quot;</span></span>
+<span class="hljs-tag"></span>
+<span class="hljs-tag">    <span class="hljs-attr">AdaptiveCardsTemplate</span>=<span class="hljs-string">&quot;&#123;StaticResource adaptiveCardsTemplate&#125;&quot;</span></span>
+<span class="hljs-tag"></span></code></pre>
 <p>​</p>
 <p>Thirdly, we use the adaptive cards renderer to actually render the card.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F; this code is shortened for brevity, and should not be used.</span><br><span class="line"></span><br><span class="line">public class DroidAdaptiveCardLayoutRenderer : ViewRenderer&lt;AdaptiveCardLayout, Android.Views.View&gt;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    protected override void OnElementChanged(ElementChangedEventArgs&lt;AdaptiveCardLayout&gt; e)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        var activity &#x3D; e.NewElement.BindingContext as Bot.Connector.DirectLine.Activity;</span><br><span class="line"></span><br><span class="line">        var renderer &#x3D; new AdaptiveCards.Rendering.AdaptiveCardRenderer();</span><br><span class="line"></span><br><span class="line">        var cardAttachments &#x3D; activity.Attachments.Where(</span><br><span class="line"></span><br><span class="line">          m &#x3D;&gt; m.ContentType &#x3D;&#x3D; &quot;application&#x2F;vnd.microsoft.card.adaptive&quot;);</span><br><span class="line"></span><br><span class="line">        var jObject &#x3D; (JObject)attachment.Content;</span><br><span class="line"></span><br><span class="line">        var xaml &#x3D; renderer.RenderCard(card);</span><br><span class="line"></span><br><span class="line">        e.NewElement.Children.Add(xaml.View);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs csharp">
+<span class="hljs-comment">// this code is shortened for brevity, and should not be used.</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DroidAdaptiveCardLayoutRenderer</span> : <span class="hljs-title">ViewRenderer</span>&lt;<span class="hljs-title">AdaptiveCardLayout</span>, <span class="hljs-title">Android.Views.View</span>&gt;
+&#123;
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnElementChanged</span>(<span class="hljs-params">ElementChangedEventArgs&lt;AdaptiveCardLayout&gt; e</span>)</span>
+<span class="hljs-function"></span>    &#123;
+        <span class="hljs-keyword">var</span> activity = e.NewElement.BindingContext <span class="hljs-keyword">as</span> Bot.Connector.DirectLine.Activity;
+        <span class="hljs-keyword">var</span> renderer = <span class="hljs-keyword">new</span> AdaptiveCards.Rendering.AdaptiveCardRenderer();
+        <span class="hljs-keyword">var</span> cardAttachments = activity.Attachments.Where(
+          m =&gt; m.ContentType == <span class="hljs-string">&quot;application/vnd.microsoft.card.adaptive&quot;</span>);
+
+        <span class="hljs-keyword">var</span> jObject = (JObject)attachment.Content;
+
+        <span class="hljs-keyword">var</span> xaml = renderer.RenderCard(card);
+
+        e.NewElement.Children.Add(xaml.View);
+    &#125;
+&#125;
+</code></pre>
 <p>You can see our droid <a target="_blank" rel="noopener" href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin.Android/Renderers/DroidAdaptiveCardLayoutRenderer.cs">renderer on GitHub</a>.</p>
 <h4 id="Sample-Project"><a href="#Sample-Project" class="headerlink" title="Sample Project"></a>Sample Project</h4><p>​We used these patterns and code in a 3 day hack with the Australian tax office. Hey look, its a robot that helps you with your tax!</p>
-<p>​<img src="/images/xamarinchatbots/ATO_App.gif" alt="A Sample Conversation"></p>
+<p>​<img src="/images/xamarinchatbots/ATO_App.gif" srcset="/img/loading.gif" alt="A Sample Conversation"></p>
 <p>​You can see the <a target="_blank" rel="noopener" href="https://github.com/xtellurian/Botframework.Xamarin">complete solution on GitHub</a></p>
 <p>​</p>
 <h4 id="Further-Reading"><a href="#Further-Reading" class="headerlink" title="Further Reading"></a>Further Reading</h4><ul>
@@ -274,7 +495,7 @@
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/MSFTAuDX/BotBoiler">Bot Boiler Framework</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://www.visualstudio.com/downloads/">Download Visual Studio</a> </p>
+<li><p><a target="_blank" rel="noopener" href="https://www.visualstudio.com/downloads/">Download Visual Studio</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">Xamarin.Forms &amp; DotNet Standard</a></p>
 </li>
@@ -287,244 +508,246 @@
 </ul>
 <p>​</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div id="donation_div"></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/05/23/smarter-npcs-with-natural-language-processing/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Smarter NPCs with Natural Language Processing</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/03/04/digital-assistants-azure-eventgrid/">
+                        <span class="hidden-mobile">Digital Assistants & Azure Event Grid</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-
-<script src="/js/vdonate.js"></script>
-
-<script>
-var a = new Donate({
-  title: '', // 可选参数，打赏标题
-  btnText: 'Donate', // 可选参数，打赏按钮文字
-  el: document.getElementById('donation_div'),
-  wechatImage: '',
-  alipayImage: ''
-});
-</script>
-      
-      
-      
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/05/23/smarter-npcs-with-natural-language-processing/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Smarter NPCs with Natural Language Processing
-        
+            
+          </article>
+        </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
-  
-    <a href="/2018/03/04/digital-assistants-azure-eventgrid/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Digital Assistants &amp; Azure Event Grid</div>
-    </a>
-  
-</nav>
 
   
-</article>
-
-<!-- Table of Contents -->
-
-  <aside id="toc-sidebar">
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
-    
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-a-Bot"><span class="nav-number">1.</span> <span class="nav-text">Build a Bot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Enable-Direct-Line"><span class="nav-number">1.1.</span> <span class="nav-text">Enable Direct Line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Xamarin-Forms-Project"><span class="nav-number">1.2.</span> <span class="nav-text">Using Xamarin.Forms Project</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-Xamarin-and-Forms"><span class="nav-number">1.2.1.</span> <span class="nav-text">Why Xamarin and Forms?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#File-gt-New-Project-VS2017"><span class="nav-number">1.2.2.</span> <span class="nav-text">File &gt; New Project (VS2017)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Move-to-dotnet-standard"><span class="nav-number">1.2.3.</span> <span class="nav-text">Move to dotnet standard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Import-DirectLine-Client"><span class="nav-number">1.2.4.</span> <span class="nav-text">Import DirectLine Client</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Communicate-with-your-Bot"><span class="nav-number">1.2.5.</span> <span class="nav-text">Communicate with your Bot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Monitor-the-Conversation"><span class="nav-number">1.2.6.</span> <span class="nav-text">Monitor the Conversation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Templates"><span class="nav-number">1.2.7.</span> <span class="nav-text">Data Templates</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Using-Effects"><span class="nav-number">1.2.8.</span> <span class="nav-text">Using Effects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Using-Custom-Renderers"><span class="nav-number">1.2.9.</span> <span class="nav-text">Using Custom Renderers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Working-with-Adaptive-Cards"><span class="nav-number">1.2.10.</span> <span class="nav-text">Working with Adaptive Cards</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Download-and-Build-the-Adaptive-Card-Renderer-for-Xamarin-Forms"><span class="nav-number">1.2.10.0.1.</span> <span class="nav-text">Download and Build the Adaptive Card Renderer for Xamarin Forms</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Rendering-Adaptive-Cards"><span class="nav-number">1.2.10.0.2.</span> <span class="nav-text">Rendering Adaptive Cards</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample-Project"><span class="nav-number">1.2.11.</span> <span class="nav-text">Sample Project</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Further-Reading"><span class="nav-number">1.2.12.</span> <span class="nav-text">Further Reading</span></a></li></ol></li></ol></li></ol>
-    
-    </div>
-  </aside>
-</section>
-        
-      </div>
-      
-      <footer id="footer">
-  
-
-  <div class="container">
-      	<div class="row">
-	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 Rian Finnegan All Rights Reserved.</p>
-	      
-	      
-    		<p class="busuanzi_uv">
-				UV : <span id="busuanzi_value_site_uv"></span> |  
-				PV : <span id="busuanzi_value_site_pv"></span>
-		    </p>
-  		   
-		</div>
-
-		
-  </div>
-</footer>
-
-
-<!-- min height -->
-
-<script>
-    var wrapdiv = document.getElementById("wrap");
-    var contentdiv = document.getElementById("content");
-    var allheader = document.getElementById("allheader");
-
-    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
-    if (allheader != null) {
-      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    } else {
-      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    }
-</script>
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav> -->
-    
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/scripts.js"></script>
-
-
-
-
-
-  
-<script src="/js/dialog.js"></script>
-
-
-
-
-
-
-
-
-
-
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-	</script>
-
-
-
-
-
-
-  </div>
-
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog">
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-
-
-      <div class="modal-body">
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
-              正文字号大小
-            </a>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            您已调整页面字体大小
-          </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
         </div>
-      
-
-
-          <div style="margin:6px;">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
-              夜间护眼模式
-            </a>
-        </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-            夜间模式已经开启，再次单击按钮即可关闭 
-          </div>
-        </div>
-
-        <div>
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        </div>
-         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="panel-body">
-            Rian Finnegan
-          </div>
-          <div class="panel-body">
-            Copyright © 2020 Rian Finnegan All Rights Reserved.
-          </div>
-        </div>
-      </div>
-
-
-      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
-      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
-      <div class="modal-footer">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
   
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+
   
-    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+
   
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Building Xamarin.Forms Chatbots with Bot Framework Direct Line API&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
