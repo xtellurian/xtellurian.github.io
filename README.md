@@ -27,4 +27,4 @@ yarn build
 
 ## Publishing
 
-Via Github Pages
+Via Github Pages. There's a GitHub action for auto-release.
