@@ -29,6 +29,7 @@ about:
   icons:
     - { class: 'iconfont icon-github-fill', link: 'https://github.com/xellurian', tip: 'GitHub' }
     - { class: 'iconfont icon-twitter-fill', link: 'https://twitter.com/rianfinnegan', tip: 'Twitter' }
+    - { class: 'iconfont icon-linkedin-fill', link: 'https://www.linkedin.com/in/rian-finnegan', tip: 'LinkedIn' }
 
 post:
   banner_img: /images/bg/rain.jpg 
