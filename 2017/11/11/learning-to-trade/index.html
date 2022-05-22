@@ -1,68 +1,106 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/images/favicon.ico">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="My name is Rian Finnegan, and I write about engineering, software, and philosophy">
   <meta name="author" content="Rian Finnegan">
   <meta name="keywords" content="rian, finnegan, blog, engineering, software, philosophy">
+  
+    <meta name="description" content="Australia’s energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are poli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning to Trade">
+<meta property="og:url" content="https://rian.xyz/2017/11/11/learning-to-trade/">
+<meta property="og:site_name" content="Thoughts of Rian">
+<meta property="og:description" content="Australia’s energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are poli">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://rian.xyz/images/learningtotrade/NEM-WeighedAveragePrices-1.jpg">
+<meta property="og:image" content="https://rian.xyz/images/learningtotrade/Profit_function.gif">
+<meta property="og:image" content="https://rian.xyz/images/learningtotrade/experiment_results.jpg">
+<meta property="article:published_time" content="2017-11-11T00:11:11.000Z">
+<meta property="article:modified_time" content="2022-05-22T23:20:14.698Z">
+<meta property="article:author" content="Rian Finnegan">
+<meta property="article:tag" content="rian, finnegan, blog, engineering, software, philosophy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rian.xyz/images/learningtotrade/NEM-WeighedAveragePrices-1.jpg">
+  
+  
+  
   <title>Learning to Trade - Thoughts of Rian</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rian.xyz","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Rian</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Rian</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -100,13 +138,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -115,70 +155,85 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/images/bg/rain.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2017-11-11 11:11" pubdate>
-        Saturday, November 11th 2017, 11:11 am
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      1.9k words
-    </span>
   
 
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/bg/rain.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Learning to Trade"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-11-11 11:11" pubdate>
+          Saturday, November 11th 2017, 11:11 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          9.5k words
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Learning to Trade</h1>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
+              
               <p>Australia’s energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are political interests for coal fired generation (CFG), CFG will inevitably decline as alternative technologies displace it. Solar power is now one of the cheapest forms of new electricity generation, and battery storage is about to burst onto the scene. All this at a time when average wholesale prices are rising sharply, and each factor contributing to a sense of price volatility. </p>
-<p><img src="/images/learningtotrade/NEM-WeighedAveragePrices-1.jpg" srcset="/img/loading.gif" alt="NEM-WeighedAveragePrices-1"></p>
+<p><img src="/images/learningtotrade/NEM-WeighedAveragePrices-1.jpg" srcset="/img/loading.gif" lazyload alt="NEM-WeighedAveragePrices-1"></p>
 <p>A newly emerging technology space is that of operating grid-scale battery energy storage. But operating grid-scale battery storage is a tricky business. If you’ve never heard of the NEM before, read <a target="_blank" rel="noopener" href="https://www.aemo.com.au/-/media/Files/PDF/National-Electricity-Market-Fact-Sheet.pdf">this factsheet (pdf)</a> from the Australian Energy Market Operator (AEMO). </p>
 <blockquote>
 <p>All electricity sales are traded through the NEM. It is a wholesale market and prices fluctuate in response to supply and demand at any point in time.</p>
@@ -190,7 +245,7 @@
 <h4 id="Adapting-to-price"><a href="#Adapting-to-price" class="headerlink" title="Adapting to price"></a>Adapting to price</h4><p>In fact, it’s the last weakness I mentioned above that’s the biggest problem. The NEM is a fairly transparent and competitive market, which means that many generators are operating at cost for most of the time. There are gas plants (known as peaking gas plants) that literally remain dormant most of the time, and turn on only when the price spikes and generation becomes profitable. Batteries have the same advantage as gas plants (they can turn on fast) and could also take advantage of high prices. Similarly, we’d also like to take advantage of low prices to charge our battery.</p>
 <h4 id="Augmented-Baseline"><a href="#Augmented-Baseline" class="headerlink" title="Augmented Baseline"></a>Augmented Baseline</h4><p>An augmented baseline strategy takes into account price changes. Rather than simply charging/ discharging at particular times, we account for the difference between prices (probably running average price to minimise noise) at charge time and discharge time. If the price different is not above some threshold, then we prefer to sit (remain charged) and wait for a better price. In order to run this strategy properly, we’d need to account for the state of charge of the battery, and the self-discharge rate (ie, the rate at which energy leaks out of the battery). It’s important to note that we aren’t predicting any future prices, we’re just comparing with the price we bought at 4am. Our expectation is that by setting our sell threshold at the correct level, we can avoid selling at a low price when we’d prefer to wait a few hours and sell later perhaps at a better price. Optimising this strategy simply requires optimising the threshold values, which must change dynamically over a day in order to encourage a complete discharge by 4am the next morning when we wish to recharge.</p>
 <h4 id="Consider-the-Variables"><a href="#Consider-the-Variables" class="headerlink" title="Consider the Variables"></a>Consider the Variables</h4><p>At this point, we’d do well to consider all the information we’d need to create the <strong>perfect strategy</strong>. Clearly we need the current price, and our current state of charge, but crucially we need <em>all future prices</em>. Knowing all future prices means we can decide whether its worth buying/ selling now so that we can buy/ sell later. The following equation expresses profit as a function of two future prices. Prices are quantised. Subscript j represents charge time and subscript i represent discharge time. Lambda represents a discount factor that prioritises earlier profit. The function can be said to represent a <em>full transaction</em> consisting of buy and sell components.</p>
-<p><img src="/images/learningtotrade/Profit_function.gif" srcset="/img/loading.gif" alt="Profit_function"></p>
+<p><img src="/images/learningtotrade/Profit_function.gif" srcset="/img/loading.gif" lazyload alt="Profit_function"></p>
 <p>Our perfect strategy would be to calcuate this function for all i,j (where i &gt; j), sort the results and execute only those transactions with maximum profit. Note that the number of transactions executed is related to the capacity of the battery and charge/ discharge rates.</p>
 <h4 id="Predictive-Strategy"><a href="#Predictive-Strategy" class="headerlink" title="Predictive Strategy"></a>Predictive Strategy</h4><p>We can’t know for certain all future prices in the NEM, but if we can make a good <em>prediction</em> then we can get close to implementing our perfect strategy. Actually, what we really need is a probabilistic distribution of future prices. I won’t go into detail here about formal decision making strategies with uncertainty, but needless to say it’s an area of active research. For a gentle introduction to the subject, I recommend <a target="_blank" rel="noopener" href="https://www.amazon.com/Antifragile-Things-That-Disorder-Incerto/dp/0812979680">Nassim Taleb’s Antifragile</a>. But by weighting our perfect strategy function by probabilistic distributions, we create a strategy that will approximate the perfect strategy as long as our predictions are accurate. </p>
 <blockquote>
@@ -201,7 +256,7 @@
 <h3 id="Enter-Machine-Learning"><a href="#Enter-Machine-Learning" class="headerlink" title="Enter Machine Learning"></a>Enter Machine Learning</h3><p>We want to predict the NEM’s market prices, but this is a non-trivial problem. The number of factors influencing price is enormous. A non-exhaustive list includes the weather, events like sports games and concerts, changes to distribution and transmission, coal prices, gas prices, public holidays, and whether the people operating that power plant are having a good day. </p>
 <h4 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h4><p>Predicting NEM prices falls under a class of problems known as <em><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Regression_analysis">regression</a></em>. In simple terms, regression models the relationship between variables such that, given a number of independent variables, the value of a dependent variable is predicted. Machine learning techniques allow us to introduce literally hundreds or thousands of independent variables (usually called features) into a predictive model. We train this model with data (a training set) in a way that allows us to get extremely accurate predictions. In our context, we want to use as much relevant data as possible in order to predict prices in the NEM.</p>
 <h5 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h5><p>I ran a basic experiment using a Bayesian Linear Regression model in Azure Machine Learning Studio. The data used was only price data for 2016, with no other features. That is, the only data used was the date, the time, and the NEM spot price. Using the first half of 2016 as a training set, and the second half as test and validation sets, the model achieved a 99.3% coefficient of determination. Basically, the model <em>predicted NEM spot price extremely accurately</em>. This is an extremely promising result, and one that shows even simple machine learning techniques can deliver useful predictions. </p>
-<p><img src="/images/learningtotrade/experiment_results.jpg" srcset="/img/loading.gif" alt="experiment_results"></p>
+<p><img src="/images/learningtotrade/experiment_results.jpg" srcset="/img/loading.gif" lazyload alt="experiment_results"></p>
 <h4 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h4><p>Operating a battery in the NEM is a combination of two machine learning problems: regression and classification. Classification is a problem in which input features define a particular class. In our case the input features are the current and future prices, and the battery state of charge, while the output classes are buy/ sell/ sit.  In our perfect strategy, we could maximise profit with zero risk because the future was perfectly deterministic and known. However, once we introduce uncertainty with our predictive strategy, the classification problem becomes more difficult. It becomes entirely possible, in fact inevitable, that our classification system makes a mistake. </p>
 <h4 id="Learning-from-Mistakes"><a href="#Learning-from-Mistakes" class="headerlink" title="Learning from Mistakes"></a>Learning from Mistakes</h4><p>One of the huge benefits of machine learning is that we can improve them over time. Retraining models takes significantly less time than the initial training, and we expect that periodic retraining will keep a model up-to-date, as well as improve overall accuracy. </p>
 <h4 id="Contracts"><a href="#Contracts" class="headerlink" title="Contracts"></a>Contracts</h4><p>I mentioned earlier that hedging contracts are used by players in the NEM to minimise possible losses. The beauty of using machine learning to make decisions on whether to buy/ sell/ sit is that it can account for precisely those contracts. Even our predictive strategy couldn’t deal with those, because it only goal was to maximise profit based on price. ML classifications systems can account for as many arbitrary independent variables as you like, and so could make decisions that account for contractual obligations or any other constraint you’d like to impose. </p>
@@ -212,20 +267,24 @@
 <h6 id="Detecting-Anomalous-Battery-Operation"><a href="#Detecting-Anomalous-Battery-Operation" class="headerlink" title="Detecting Anomalous Battery Operation"></a>Detecting Anomalous Battery Operation</h6><p>In what’s probably the most important application of anomaly detection, we really need to know when our batteries’ hardware starts acting strangely. Be it irregular state of charge, high self-discharge rates or high temperatures, there are a thousand ways for a battery to degrade and affect system performance. Machine learning lets us account for the hundreds of factors that may be early indicators of battery failure and let us act accordingly. Further, if a battery fails in an unexpected way, we can use the data collected during failure to help us predict the next failure.</p>
 <h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>Batteries will play an ever greater role in the NEM and machine learning is already here. Increasing profits generated by batteries will be driven almost entirely by improving price prediction, and the state of the art in prediction is machine learning. </p>
 
+              
             </div>
-            <hr>
+            <hr/>
             <div>
-              <div class="post-metas mb-3">
-                
-                
-              </div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
               
+
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2017/11/23/what-happened-to-the-internet/">
+                      <a href="/2017/11/23/what-happened-to-the-internet/" title="What happened to the decentralised internet?">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">What happened to the decentralised internet?</span>
                         <span class="visible-mobile">Previous</span>
@@ -235,8 +294,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2017/08/21/drake-and-trappist1/">
-                        <span class="hidden-mobile">Drake & Trappist-1</span>
+                      <a href="/2017/08/21/drake-and-trappist1/" title="Drake &amp; Trappist-1">
+                        <span class="hidden-mobile">Drake &amp; Trappist-1</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -251,32 +310,61 @@
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -289,169 +377,226 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  
+    
 
-  
+    
+  </main>
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-    
-
-    
-
-    
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
-
-<!-- Plugins -->
-
-
   
-    <script  src="/js/lazyload.js" ></script>
   
-
-
-
   
+  
+</div>
 
+  </footer>
 
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
       }
     });
-  </script>
+  })();
+</script>
 
 
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Learning to Trade&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
     };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
     }
-    anchors.add(res.join(", "))
-  </script>
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
 
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>
