@@ -4,6 +4,7 @@ date: 2020-10-01 19:20:33
 layout: about
 ---
 
-My name is Rian Finnegan, and I'm an electrical engineer, software developer, and technologist. 
+My name is Rian Finnegan, and I'm a founder (Cherry YC W22), engineer, software developer, and technologist. 
 
-As you can probably guess from my writing, I'm interested in other stuff too. I love talking to passionate and creative people, and always happy to chat, so get in touch!
+I care about people and how they interact with the world. 
+I write mostly about web technology, but also on other topics as they interest me.
