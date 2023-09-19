@@ -6,14 +6,14 @@
 
 <PageTitle>Posts</PageTitle>
 
-<h1>Posts</h1>
+<h1>Rian XYZ</h1>
+<hr/>
 
-<ul>
+<h2>
+    Hey, I'm Rian.
+</h2>
+<p>
+    This is a site I play with. Yeah I know, it needs a heap of work. It's a Blazor site deployed on Cloudflare's edge network, so that's pretty cool.
+</p>
 
-    @foreach (var post in Model.Posts.List().OrderByDescending((p) => p.PublishedAt))
-    {
-        <li>
-            <a href="post/@post.Id">@post.Title</a>
-        </li>
-    }
-</ul>
+<a target="_blank" href="https://blinq.me/rian?utm_source=rian.xyz"> My Blinq Card</a>

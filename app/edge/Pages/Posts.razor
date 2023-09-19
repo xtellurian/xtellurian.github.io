@@ -1,0 +1,18 @@
+﻿@page "/posts"
+@using edge.Components;
+
+@code {
+
+}
+
+<PageTitle>Posts</PageTitle>
+
+<h1>Posts</h1>
+
+<ul>
+
+    @foreach (var post in Model.Posts.List().OrderByDescending((p) => p.PublishedAt))
+    {
+        <PostListItem Post="@post" />
+    }
+</ul>

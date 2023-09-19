@@ -1,0 +1,6 @@
+.ListItemContainer { 
+    margin-top: 0.25rem;
+}
+.ListItem:hover { 
+    background-color: lavender;
+}

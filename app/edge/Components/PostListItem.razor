@@ -1,0 +1,14 @@
+<div class="ListItemContainer">
+    <a href="@ToUrl">
+        <div class="ListItem">
+            @Post?.Title
+        </div>
+    </a>
+</div>
+
+@code {
+    [Parameter]
+    public Model.Post? Post { get; set; }
+    public string ToUrl => $"post/{Post?.Id}";
+
+}
