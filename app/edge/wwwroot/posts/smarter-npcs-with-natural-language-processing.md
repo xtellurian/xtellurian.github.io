@@ -1,5 +1,4 @@
 # Smarter NPCs with Natural Language Processing
-2018-05-23
 
 ## What happened in Pokemon?
 

@@ -1,7 +1,5 @@
 # A secret to Event Processing
 
-2022-05-20
-
 At Cherry, we process hundreds of events per second. For Cherry users, we capture and process data every time their customers visit a web page, take an action, purchase an item, etc. Processing events is a mission critical function to understand customer behaviour in real time. So when we discovered that processing latency for some Cherry users was several days, finding and solving the issue became our #1 priority.
 
 I wrote this to help anyone in a similar position and share what we learned.

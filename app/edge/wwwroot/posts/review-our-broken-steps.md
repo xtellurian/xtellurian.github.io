@@ -1,6 +1,4 @@
-
 # Review - Our Broken Steps
-2017-01-11
 
 
 *Our Broken Steps* is a guide to responsible travel, written by my friend Tamshuk Saha. It's words resonated with me, as it expressed many of my own thoughts and feelings. Tamshuk addresses both the socially and environmentally destructive practices prevalent in the tourism industry throughout Asia. In the following I present a synopsis of the book, followed by an attempt to express his principles in my own words.

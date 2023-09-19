@@ -1,7 +1,5 @@
 # Installing Tensorflow and Keras on Windows
 
-2018-01-28
-
 Installing Tensorflow was once challenging, bordering on impossible. Now... not so much.
 
 ## Install Anaconda

@@ -1,7 +1,5 @@
 # Drake & Trappist-1
 
-2017-08-21
-
 [NASA's latest announcement](https://www.nasa.gov/press-release/nasa-telescope-reveals-largest-batch-of-earth-size-habitable-zone-planets-around) is important because of Drake.
 
 ![drake-email-smile1](/images/drake/drake-email-smile1.png)

@@ -1,7 +1,5 @@
 # Digital Assistants and Azure Event Grid
 
-2018-03-04
-
 
 ![Robot Assistant Cartoon](/images/robot.jpg)
 

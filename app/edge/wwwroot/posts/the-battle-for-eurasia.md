@@ -1,7 +1,5 @@
 # The Battle for Eurasia
 
-2014-05-23
-
 The pieces are moving; the battle for Eurasia has begun.
 
 The 20th century saw the the first global wars. Before the onset of the great war, European powers dominated the globe through superior technology, particularly in war. Two world wars later, and the balance of power had shifted dramatically.

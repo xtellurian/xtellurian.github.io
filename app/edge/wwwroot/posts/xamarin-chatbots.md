@@ -1,7 +1,5 @@
 # Building Xamarin.Forms Chatbots with Bot Framework Direct Line API
 
-2018-03-11
-
 One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the [Bot Framework DirectLine API](https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts).
 
 ![Screenshot of the Bot Framework Dashboard](https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png)

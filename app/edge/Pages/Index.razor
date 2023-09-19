@@ -10,7 +10,7 @@
 
 <ul>
 
-    @foreach (var post in Model.Posts.List().OrderBy((p) => p.PublishedAt))
+    @foreach (var post in Model.Posts.List().OrderByDescending((p) => p.PublishedAt))
     {
         <li>
             <a href="post/@post.Id">@post.Title</a>

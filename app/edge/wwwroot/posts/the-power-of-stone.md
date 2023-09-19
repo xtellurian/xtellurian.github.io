@@ -1,7 +1,5 @@
 # The Power of Stone
 
-2016-12-23
-
 In Rajasthan, fortified towns are separated by stretches of arid land. Centuries of sand are piled against their walls. Tourist infantry swarm the ancient structure, as rickshaw cavalry pick off the weak or confused. These aged military structures, now abandoned to hawkers and rickshaws, stand as a reminder of a different time; when the foundations of power were driven deep into the ground.
 
 Trading caravans travelled from Persia, through the mountain passes, and crossing the Indus river marked their entrance into India. Where the river flows into the Arabian sea, ships arrive at port having travelled far from the gulf coast or the peninsula to the south. Just east of the delta, fertile river plains turn quickly into dry desert. Swapping their donkeys for camels, merchants drove across that dusty land, seeking the markets of Rajasthan: the land of kings. Across this land trade routes spread like cracks through glass.

@@ -1,7 +1,4 @@
-
 # Bots in Kubernetes
-
-2018-08-02
 
 So you've built for first bot with Microsoft [BotBuilder SDK](https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0), deployed it to [Azure App Service](https://azure.microsoft.com/en-au/services/app-service/) or [GCloud App Engine](https://cloud.google.com/appengine/), and everything is just swell. Then along comes your company's CTO, who says they've committed to all their services having zero downtime (best effort of course). On the same day, your friend had the great idea to start doing A/B testing. What do you do?
 
