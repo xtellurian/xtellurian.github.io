@@ -1,9 +1,19 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@code {
 
-<h1>Hello, world!</h1>
+}
 
-Welcome to your new app.
+<PageTitle>Posts</PageTitle>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<h1>Posts</h1>
+
+<ul>
+
+    @foreach (var post in Model.Posts.List().OrderBy((p) => p.PublishedAt))
+    {
+        <li>
+            <a href="post/@post.Id">@post.Title</a>
+        </li>
+    }
+</ul>

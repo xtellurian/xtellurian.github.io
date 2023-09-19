@@ -1,0 +1,40 @@
+﻿@page "/post/{PostId}"
+@inject IJSRuntime JS
+
+@code {
+
+    [Parameter]
+    public string? PostId { get; set; }
+    public Model.Post? Data
+    {
+        get { return string.IsNullOrEmpty(PostId) ? null : Model.Posts.Get(PostId); }
+    }
+
+
+    private async Task LoadPost()
+    {
+        var path = $"/posts/{PostId}.md";
+        var module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Post.razor.js");
+        await module.InvokeVoidAsync("setInnerHtmlFromRequest", "content", path);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // execute conditionally for loading data, otherwise this will load
+        // every time the page refreshes
+        if (firstRender)
+        {
+            await LoadPost();
+        }
+    }
+}
+
+<PageTitle>@Data?.Title</PageTitle>
+
+<div>
+    @Data?.PublishedAt.ToShortDateString()
+</div>
+
+<div class="markdown" id="content"> 
+    Loading...
+</div>
