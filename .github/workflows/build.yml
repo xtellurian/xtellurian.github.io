@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - source # default branch
+      - main
+      - master
+      - "*"
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        working-directory: ./app
+        run: dotnet restore
+      - name: Build
+        working-directory: ./app
+        run: dotnet build
