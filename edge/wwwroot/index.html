@@ -13,6 +13,12 @@
     <link href="css/markdown.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="images/favicon.ico" />
     <link href="edge.styles.css" rel="stylesheet" />
+
+    <script>
+      function onCfTurnstile(o) {
+        console.log("CF Turnstile", o);
+      }
+    </script>
   </head>
 
   <body>
@@ -31,5 +37,10 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/showdown@2.0.3/dist/showdown.min.js"></script>
+    <div
+      class="cf-turnstile"
+      data-sitekey="0x4AAAAAAAKe-7DhfqByY-39"
+      data-callback="onCfTurnstile"
+    ></div>
   </body>
 </html>
