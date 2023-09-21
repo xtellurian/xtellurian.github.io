@@ -4,17 +4,17 @@
 @code {
     private Model.Post[] posts = new Model.Post[]
     {
-        Model.Posts.Get(Model.Posts.CherryReflections),
-        Model.Posts.Get(Model.Posts.LearningToTrade),
-        Model.Posts.Get(Model.Posts.OnFreeWill),
-        Model.Posts.Get(Model.Posts.PowerOfStone),
-        Model.Posts.Get(Model.Posts.WhatHappenedToTheInternet),
+Model.Posts.Get(Model.Posts.CherryReflections),
+Model.Posts.Get(Model.Posts.LearningToTrade),
+Model.Posts.Get(Model.Posts.OnFreeWill),
+Model.Posts.Get(Model.Posts.PowerOfStone),
+Model.Posts.Get(Model.Posts.WhatHappenedToTheInternet),
     };
 }
 
 <PageTitle>Rian XYZ | Posts</PageTitle>
 
-<Stack Gap=@UI.Size.XLarge>
+<Stack Gap=@UI.Size.Large>
 
     <Box>
         <h1 style="margin-bottom: 2rem;">
@@ -26,7 +26,7 @@
             Featured posts
         </h2>
 
-        <Stack Gap=@UI.Size.Large>
+        <Stack Gap=@UI.Size.Small>
             @foreach (var post in posts)
             {
                 <PostListItem Post="post" />
@@ -35,18 +35,12 @@
     </Box>
 
     <Box>
-
         <h2>
             Links
         </h2>
 
-    </Box>
-
-    <Box>
-
         <ul>
             <li>
-
                 <a target="_blank" href="https://blinq.me/rian?utm_source=rian.xyz"> My Blinq Card</a>
             </li>
             <li>
