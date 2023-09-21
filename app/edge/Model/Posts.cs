@@ -24,7 +24,7 @@ namespace Model
             new ("tensorflow-keras-windows", "TensorFlow and Keras on Windows", DateTime.Parse("2018-01-28")),
             new ("the-battle-for-eurasia", "The Battle for Eurasia", DateTime.Parse("2014-05-23")),
             new ("the-power-of-stone", "The Power of Stone", DateTime.Parse("2016-12-23")),
-            new ("what-happened-to-the-internet", "What Happened to the Internet", DateTime.Parse("2017-11-23")),
+            new ("what-happened-to-the-internet", "What Happened to the Internet?", DateTime.Parse("2017-11-23")),
             new ("xamarin-chatbots", "Xamarin Chatbots", DateTime.Parse("2018-03-11"))
         };
         public static Post[] List() => _posts;
