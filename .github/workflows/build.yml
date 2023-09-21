@@ -6,6 +6,7 @@ on:
       - source # default branch
       - main
       - master
+      - vnext/dotnet
       - "*"
 
 jobs:
