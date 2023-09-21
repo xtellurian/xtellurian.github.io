@@ -5,6 +5,7 @@
 
     [Parameter]
     public string? PostId { get; set; }
+    private const string ContentId = "content";
     public Model.Post? Data
     {
         get { return string.IsNullOrEmpty(PostId) ? null : Model.Posts.Get(PostId); }
@@ -15,7 +16,7 @@
     {
         var path = $"/posts/{PostId}.md";
         var module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Post.razor.js");
-        await module.InvokeVoidAsync("setInnerHtmlFromRequest", "content", path);
+        await module.InvokeVoidAsync("setInnerHtmlFromRequest", ContentId, path);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -35,6 +36,6 @@
     @Data?.PublishedAt.ToShortDateString()
 </div>
 
-<div class="markdown" id="content"> 
+<div class="markdown" id=@ContentId>
     Loading...
 </div>

@@ -2,6 +2,13 @@ namespace Model
 {
     public static class Posts
     {
+        public const string CherryReflections = "cherry-reflections";
+        public const string LearningToTrade = "learning-to-trade";
+        public const string PowerOfStone = "the-power-of-stone";
+        public const string OnFreeWill = "on-free-will";
+        public const string WhatHappenedToTheInternet = "what-happened-to-the-internet";
+
+
         private static readonly Post[] _posts = new Post[] {
             new ("bots-in-kubernetes", "Bots in Kubernetes", DateTime.Parse("2018-08-12")),
             new ("cherry-reflections", "Cherry Reflections", DateTime.Parse("2022-07-19")),
@@ -21,7 +28,7 @@ namespace Model
             new ("xamarin-chatbots", "Xamarin Chatbots", DateTime.Parse("2018-03-11"))
         };
         public static Post[] List() => _posts;
-        public static Post Get(string postId) => _posts.First(_ => _.Id == postId);
+        public static Post Get(string postId) => _posts.FirstOrDefault(_ => _.Id == postId) ?? throw new Exception($"Post {postId} not found");
 
     }
 }

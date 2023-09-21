@@ -1,35 +1,34 @@
 @import url("open-iconic/font/css/open-iconic-bootstrap.min.css");
 
+:root {
+  /* CSS HEX */
+  --xlight: #8689ac;
+  --light: #587099;
+  --medium: #3f5576;
+  --dark: #2f3148;
+  --xdark: #101116;
+
+  --text: #141204;
+}
+
 html,
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--text);
 }
 
 h1:focus {
   outline: none;
 }
 
-a,
-.btn-link {
-  color: #0071c1;
+a {
+  color: var(--medium);
+  text-decoration: none;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.btn:focus,
-.btn:active:focus,
-.btn-link.nav-link:focus,
-.form-control:focus,
-.form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-.content {
-  padding-top: 1.1rem;
+a:hover {
+    color: var(--xlight);
+    text-decoration: underline;
 }
 
 .valid.modified:not([type="checkbox"]) {
@@ -106,13 +105,4 @@ a,
 
 .loading-progress-text:after {
   content: var(--blazor-load-percentage-text, "Loading");
-}
-
-:root {
-  /* CSS HEX */
-  --xlight: #8689ac;
-  --light: #587099;
-  --medium: #3f5576;
-  --dark: #2f3148;
-  --xdark: #101116;
 }

@@ -1,5 +1,5 @@
 ﻿@page "/posts"
-@using edge.Components;
+@using UI.Components;
 
 @code {
 
@@ -9,10 +9,11 @@
 
 <h1>Posts</h1>
 
-<ul>
+
+<Stack>
 
     @foreach (var post in Model.Posts.List().OrderByDescending((p) => p.PublishedAt))
     {
         <PostListItem Post="@post" />
     }
-</ul>
+</Stack>

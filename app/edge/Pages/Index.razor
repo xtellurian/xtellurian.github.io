@@ -1,19 +1,50 @@
 ﻿@page "/"
+@using UI.Components;
 
 @code {
-
+    private Model.Post[] posts = new Model.Post[]
+    {
+Model.Posts.Get(Model.Posts.CherryReflections),
+Model.Posts.Get(Model.Posts.LearningToTrade),
+Model.Posts.Get(Model.Posts.OnFreeWill),
+Model.Posts.Get(Model.Posts.PowerOfStone),
+Model.Posts.Get(Model.Posts.WhatHappenedToTheInternet),
+    };
 }
 
 <PageTitle>Posts</PageTitle>
 
-<h1>Rian XYZ</h1>
-<hr/>
+<Stack Gap=@UI.Size.XLarge>
 
-<h2>
-    Hey, I'm Rian.
-</h2>
-<p>
-    This is a site I play with. Yeah I know, it needs a heap of work. It's a Blazor site deployed on Cloudflare's edge network, so that's pretty cool.
-</p>
+    <Box>
+        <h1 style="margin-bottom: 2rem;">
+            RIAN XYZ
+        </h1>
+    </Box>
+    <Box MaxWidth="66rem">
+        <h2>
+            Featured posts
+        </h2>
 
-<a target="_blank" href="https://blinq.me/rian?utm_source=rian.xyz"> My Blinq Card</a>
+        <Stack Gap=@UI.Size.Large>
+            @foreach (var post in posts)
+            {
+                <PostListItem Post="post" />
+            }
+        </Stack>
+    </Box>
+
+    <Box>
+
+        <h2>
+            Links
+        </h2>
+
+    </Box>
+
+    <Box>
+
+
+        <a target="_blank" href="https://blinq.me/rian?utm_source=rian.xyz"> My Blinq Card</a>
+    </Box>
+</Stack>
