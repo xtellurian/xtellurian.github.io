@@ -1,0 +1,44 @@
+@namespace UI.Components
+
+<div style=@ToStyle()>
+    @ChildContent
+</div>
+
+@code {
+    private string ToStyle()
+    {
+        AppendStyle("display", Display.ToCssValue());
+        AppendStyle("width", Width);
+        AppendStyle("max-width", MaxWidth);
+        AppendStyle("gap", Gap.ToCssValue());
+        AppendStyle("flex-direction", FlexDirection?.ToCssValue());
+        return string.Join(";", _derivedStyles.Select(kv => kv.Key + ":" + kv.Value).ToArray());
+    }
+
+    /// Styles from inherited components
+    private Dictionary<string, string> _derivedStyles = new Dictionary<string, string>();
+    protected void AppendStyle(string key, string? value)
+    {
+        if (!string.IsNullOrEmpty(value))
+        {
+            _derivedStyles[key] = value;
+        }
+    }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public Display Display { get; set; } = Display.Block;
+    [Parameter]
+    public FlexDirection? FlexDirection { get; set; }
+
+    [Parameter]
+    public string Width { get; set; } = "100%";
+
+    [Parameter]
+    public string MaxWidth { get; set; } = "100%";
+
+    [Parameter]
+    public Size Gap { get; set; } = UI.Size.Medium;
+}
