@@ -1,22 +1,23 @@
-# My Blog
+# Rian XYZ
 
-Congratulations! You've discovered this readme, which probably means you've been stalking me for too long.
+[rian.xyz](https://rian.xyz)
 
-Currently deployed at [rian.xyz](https://rian.xyz)
-
-![Pages](https://github.com/xtellurian/xtellurian.github.io/workflows/Pages/badge.svg)
+This is a website built in Blazor that renders markdown posts as html pages.
 
 
-## Install
+![Pages](https://github.com/xtellurian/xtellurian.github.io/workflows/Build/badge.svg)
+
+
+## Development
 
 ```sh
-yarn
+dotnet restore
 ```
 
 ## Running
 
 ```sh
-yarn start
+dotnet watch
 ```
 
 ## Building
@@ -27,4 +28,10 @@ yarn build
 
 ## Publishing
 
-Via Github Pages. There's a GitHub action for auto-release.
+### Via Github Pages 
+
+There's a GitHub action for auto-release.
+
+### Via Cloudflare Pages
+
+Cloudflare is connected to this repository
