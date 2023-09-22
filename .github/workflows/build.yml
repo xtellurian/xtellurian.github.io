@@ -22,7 +22,6 @@ jobs:
         run: dotnet build
 
       - name: Publish
-        working-directory: edge
         run: dotnet publish edge -c Release -o public
 
       - name: Deploy to pages
