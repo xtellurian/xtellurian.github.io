@@ -15,8 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Dependencies
-        working-directory: ./app
+        working-directory: edge
         run: dotnet restore
       - name: Build
-        working-directory: ./app
+        working-directory: edge
         run: dotnet build
