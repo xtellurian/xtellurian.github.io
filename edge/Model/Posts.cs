@@ -10,6 +10,7 @@ namespace Model
 
 
         private static readonly Post[] _posts = new Post[] {
+            new ("deconstruction", "De/Construction", DateTime.Parse("2023-09-27")),
             new ("bots-in-kubernetes", "Bots in Kubernetes", DateTime.Parse("2018-08-12")),
             new ("cherry-reflections", "Cherry Reflections", DateTime.Parse("2022-07-19")),
             new ("digital-assistants-azure-eventgrid", "Digital Assistants and Azure Event Grid", DateTime.Parse("2018-03-04")),
