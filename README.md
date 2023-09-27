@@ -11,19 +11,14 @@ This is a website built in Blazor that renders markdown posts as html pages.
 ## Development
 
 ```sh
-dotnet restore
-```
-
-## Running
-
-```sh
-dotnet watch
+./dev.sh
 ```
 
 ## Building
 
 ```sh
-yarn build
+cd edge
+dotnet build
 ```
 
 ## Publishing
