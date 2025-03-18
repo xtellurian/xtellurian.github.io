@@ -1,7 +1,7 @@
 ---
 title: Smarter NPCs with Natural Language Processing
 date: 2018-05-23 13:53:49
-tags:
+tags: post
 ---
 
 ## What happened in Pokemon?

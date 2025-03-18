@@ -1,7 +1,7 @@
 ---
 title: What happened to the decentralised internet?
 date: 2017-11-23 11:11:11
-tags:
+tags: post
 ---
 
 In the late 20th century, the pioneers of the internet and a new generation of online radicals envisioned a future where free communication, access to information, and equality of access made people increasingly fair minded, intelligent, and empathetic. In 2016, that optimism seems like naïveté. So what happened? 

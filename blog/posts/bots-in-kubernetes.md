@@ -1,7 +1,7 @@
 ---
 title: Bots in Kubernetes
 date: 2018-08-02 11:11:00
-tags:
+tags: post
 ---
 
 # Bots in Kube

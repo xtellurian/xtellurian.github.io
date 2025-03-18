@@ -1,7 +1,7 @@
 ---
 title: Reflections on a startup
 date: 2022-07-19 12:01:00
-tags: startups
+tags: startups, post
 ---
 
 

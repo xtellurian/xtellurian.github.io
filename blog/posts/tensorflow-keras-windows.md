@@ -1,7 +1,7 @@
 ---
 title: Installing Tensorflow and Keras on Windows
 date: 2018-01-28 12:00:00
-tags: 
+tags: post
 ---
 
 Installing Tensorflow was once challenging, bordering on impossible. Now... not so much.

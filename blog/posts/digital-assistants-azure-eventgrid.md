@@ -1,7 +1,7 @@
 ---
 title: Digital Assistants & Azure Event Grid
 date: 2018-03-04 16:13:00
-tags:
+tags: post
 ---
 
 ![Robot Assistant Cartoon](/images/robot.jpg)

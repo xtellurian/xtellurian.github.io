@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+
+<article>
+  <header>
+    <time datetime="{{ date | dateIso }}">{{ date | dateDisplay }}</time>
+    {% if tags %}
+    <div class="tags">
+      {% for tag in tags %}
+        <a href="/tags/{{ tag | slug }}/" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="content">
+    {{ content | safe }}
+  </div>
+</article>

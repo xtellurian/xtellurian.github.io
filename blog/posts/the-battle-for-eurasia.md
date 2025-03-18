@@ -1,7 +1,7 @@
 ---
 title: The Battle for Eurasia
 date: 2014-05-23 20:00:00
-tags: 
+tags: post
 ---
 
 The pieces are moving; the battle for Eurasia has begun.

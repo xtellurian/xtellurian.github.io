@@ -1,7 +1,7 @@
 ---
 title: On Free Will
 date: 2014-10-23 17:00:00
-tags: 
+tags: post
 ---
 
 <p>Choice and free will are convenient conceptual shorthands to express some of the complexity of human existence. But what <em>is </em>freedom? Are all choices free choices, and what are the hidden ideological and cognitive structures that give meaning to those questions? Ultimately, ideas of self are intimately entwined with conceptions of and belief in free will, and we must examine the conceptual, cultural and spiritual roots of self to come to terms with freedom, will and choice. First, I must describe orthodox free will and its origins in western enlightenment philosophy. Then, after critiquing this view, I will offer an alternative, not by directly answering the question, but by a different interpretation of self. My proposition is that to ask whether one has free will, one implicitly legitimises a European-derived conceptualisation of self, which can induce motivation and spiritual pain.</p>

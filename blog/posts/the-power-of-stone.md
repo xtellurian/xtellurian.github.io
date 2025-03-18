@@ -1,7 +1,7 @@
 ---
 title: The Power of Stone
 date: 2016-12-23 20:00:00
-tags: 
+tags: post
 ---
 
 In Rajasthan, fortified towns are separated by stretches of arid land. Centuries of sand are piled against their walls. Tourist infantry swarm the ancient structure, as rickshaw cavalry pick off the weak or confused. These aged military structures, now abandoned to hawkers and rickshaws, stand as a reminder of a different time; when the foundations of power were driven deep into the ground. 

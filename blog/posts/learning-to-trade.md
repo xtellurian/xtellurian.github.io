@@ -1,7 +1,7 @@
 ---
 title: Learning to Trade
 date: 2017-11-11 11:11:11
-tags: 
+tags: post
 ---
 
 Australia's energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are political interests for coal fired generation (CFG), CFG will inevitably decline as alternative technologies displace it. Solar power is now one of the cheapest forms of new electricity generation, and battery storage is about to burst onto the scene. All this at a time when average wholesale prices are rising sharply, and each factor contributing to a sense of price volatility. 

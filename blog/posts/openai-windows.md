@@ -1,7 +1,7 @@
 ---
 title: OpenAI Gym on Windows
 date: 2018-02-07 11:29:13
-tags:
+tags: post
 ---
 
 OpenAI's Gym is officially only supported on Linux and OSX. Follow these steps to get up and running on Windows using [Windows Subsystem for Linux](https://msdn.microsoft.com/en-au/commandline/wsl/install_guide)
