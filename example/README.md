@@ -21,7 +21,7 @@ An 11ty starter project for multilingual personal pages and blogs:
 3. Start development server: `npm run dev`
 4. Visit http://localhost:8080 to see your work-in-progress
 5. Do your things and see your changes instantly!
-6. When your projet is ready, deploy easily on GitHub Pages, GitLab Pages, Netlify or manually.
+6. When your projet is ready, deploy easily onto cloudflare
 
 ## Check the code
 
