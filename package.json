@@ -16,5 +16,6 @@
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "clean-css": "^5.3.3",
     "html-minifier": "^4.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
