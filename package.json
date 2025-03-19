@@ -1,0 +1,21 @@
+{
+  "name": "xtellurian.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:xtellurian/xtellurian.github.io.git",
+  "author": "Rian Finnegan <rian.finnegan@orkestra.energy>",
+  "license": "MIT",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "dev": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "clean-css": "^5.3.3",
+    "html-minifier": "^4.0.0"
+  },
+  "packageManager": "yarn@1.22.22"
+}
