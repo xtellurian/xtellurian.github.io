@@ -12,6 +12,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `blog/posts/` - Markdown blog content
 - `images/` - Static images
 
+## Content Guidelines
+
+- Always keep the blog posts as markdown. Any style changes should be done elsewhere
+
 ## Code Style Guidelines
 - Use spaces for indentation (2 spaces)
 - Follow JS Standard Style for JavaScript
