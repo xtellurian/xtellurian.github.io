@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAI Gym on Windows | Rian&#39;s Website</title>
+  <meta name="description" content="Personal website and blog">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    
+<article>
+  <h1>OpenAI Gym on Windows</h1>
+  <p>Published on February 7, 2018</p>
+  
+  <p>OpenAI&rsquo;s Gym is officially only supported on Linux and OSX. Follow these steps to get up and running on Windows using <a href="https://msdn.microsoft.com/en-au/commandline/wsl/install_guide">Windows Subsystem for Linux</a></p>
+<ol>
+<li>
+<p>Update to the latest version of Windows (&gt;version 1607, &ldquo;Anniversary Update&rdquo;)</p>
+</li>
+<li>
+<p>Enable Windows Subsystem for Linux (WSL)</p>
+</li>
+<li>
+<p>Open cmd, run <code>bash</code></p>
+</li>
+<li>
+<p>Install python &amp; gym (using sudo, and NOT PIP to install gym). So by now you should probably be able to run things and get really nasty graphics related errors. This is because WSL doesn&rsquo;t support any displays, so we need to fake it.</p>
+</li>
+<li>
+<p>Install vcXsrv, and run it (you should just have a little tray icon)</p>
+</li>
+<li>
+<p>In bash <code>export DISPLAY=:0</code>
+Now when you run it you should get a display to pop-up, there may be issues related to graphics drivers. Sadly, this is where the instructions diverge if you don&rsquo;t have an NVIDIA graphics card.
+(If you&rsquo;ve got a nvidia graphics card) -&gt;<br>
+<code>sudo apt-get install nvidia-304 nvidia-prime</code></p>
+</li>
+<li>
+<p>Load this into test.py</p>
+<pre><code> // test.py
+ import gym
+
+ if __name__ == &quot;__main__&quot;:
+ env = gym.make(&quot;SpaceInvaders-v0&quot;)
+ env.reset()
+ for _ in range(1000):
+     env.render()
+     env.step(env.action_space.sample())
+</code></pre>
+</li>
+<li>
+<p><code>python test.py</code></p>
+</li>
+</ol>
+<p>SPACE INVADERS!
+<img src="/content/images/2017/08/Capture2.PNG" alt="space invaders playing"></p>
+<p>My thanks to <a href="https://github.com/openai/gym/issues/11">this thread</a></p>
+
+  
+  
+  <div class="tags">
+    <p>Tags: 
+    
+    <span class="tag">openai-windows</span>
+    
+    </p>
+  </div>
+  
+</article>
+
+<nav class="post-nav">
+  
+  <a href="/posts/digital-assistants-azure-eventgrid/" class="next">← Digital Assistants &amp; Azure Event Grid</a>
+  
+  
+  <a href="/posts/tensorflow-keras-windows/" class="prev">Installing Tensorflow and Keras on Windows →</a>
+  
+</nav>
+
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Rian Finnegan. All rights reserved.</p>
+  </footer>
+</body>
+</html>

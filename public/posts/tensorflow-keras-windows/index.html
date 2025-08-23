@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installing Tensorflow and Keras on Windows | Rian&#39;s Website</title>
+  <meta name="description" content="Personal website and blog">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    
+<article>
+  <h1>Installing Tensorflow and Keras on Windows</h1>
+  <p>Published on January 28, 2018</p>
+  
+  <p>Installing Tensorflow was once challenging, bordering on impossible. Now&hellip; not so much.</p>
+<h2 id="install-anaconda">Install Anaconda</h2>
+<p><a href="https://www.continuum.io/what-is-anaconda">Anaconda</a> is a data science ecosystem, giving users access to all sorts of toolkits and frameworks. <a href="https://www.continuum.io/downloads">Download</a> the Anaconda installer for Windows (it&rsquo;s ~500MB) and install. See, that was easy!</p>
+<h2 id="install-c-build-tools">Install C++ Build Tools</h2>
+<p>If you don&rsquo;t already have them installed, you&rsquo;ll need to download and install the <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Visual C++ Build Tools</a>.</p>
+<h2 id="tf--keras">TF &amp; Keras</h2>
+<p>Anaconda provides a simple tool for installing TF in a virtual environment. Open up a terminal prompt and type <code>conda create -n tensorflow python=3.5</code> . This will create a virtual environment for called tensorflow that you&rsquo;ll use to encapsulate all your tensorflow libraries!</p>
+<p><a href="https://conda-forge.org/">Conda Forge</a> is a community led source for conda packages. It provides a simple way to install the packages we&rsquo;re looking for!</p>
+<p>Activate your environment using <code>activate tensorflow</code>.</p>
+<p>Now, we&rsquo;re going to install tf and keras into our virtual anaconda environment using packages from Conda Forge. With your tensorflow env active:
+<code>conda install -c conda-forge keras tensorflow</code></p>
+<p>Now use <code>conda list</code> to see all packages installed in your env.</p>
+<p><img src="/content/images/2017/08/Capture.PNG" alt="an image"></p>
+<p>Look at that! Tensorflow and Keras are both installed!</p>
+<h2 id="test">Test</h2>
+<p>Copy the following code into a new file called kerastest.py</p>
+<pre><code>from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation
+from keras.optimizers import SGD
+model = Sequential()
+model.add(Dense(64, input_dim=20, init='uniform'))
+model.add(Activation('tanh'))
+model.add(Dropout(0.5))
+model.add(Dense(64, init='uniform'))
+model.add(Activation('tanh'))
+model.add(Dropout(0.5))
+model.add(Dense(10, init='uniform'))
+model.add(Activation('softmax'))
+sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy',
+          optimizer=sgd,
+          metrics=['accuracy'])
+print('done')
+</code></pre>
+<p>If it works, then your environment is ready to go.</p>
+<p>Get Learning!</p>
+<h3 id="more-info">More Info</h3>
+<p><a href="https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/">Conda Environments</a></p>
+<p><a href="https://www.tensorflow.org/install/install_windows">Installing TF on Windows</a></p>
+<p><a href="https://keras.io/#installation">Installing Keras</a></p>
+
+  
+  
+  <div class="tags">
+    <p>Tags: 
+    
+    <span class="tag">tensorflow-keras-windows</span>
+    
+    </p>
+  </div>
+  
+</article>
+
+<nav class="post-nav">
+  
+  <a href="/posts/openai-windows/" class="next">← OpenAI Gym on Windows</a>
+  
+  
+  <a href="/posts/what-happened-to-the-internet/" class="prev">What happened to the decentralised internet? →</a>
+  
+</nav>
+
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Rian Finnegan. All rights reserved.</p>
+  </footer>
+</body>
+</html>

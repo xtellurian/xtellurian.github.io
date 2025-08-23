@@ -1,0 +1,19 @@
+baseURL = 'https://xtellurian.github.io'
+languageCode = 'en-us'
+title = "Rian's Website"
+
+[params]
+description = "Personal website and blog"
+author = "Rian Finnegan"
+authorEmail = "rian.finnegan@orkestra.energy"
+
+[markup.highlight]
+style = "github"
+lineNos = true
+codeFences = true
+
+[markup.goldmark.renderer]
+unsafe = true
+
+
+paginate = 10

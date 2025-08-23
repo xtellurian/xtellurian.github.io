@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogging with Blazor and Cloudflare | Rian&#39;s Website</title>
+  <meta name="description" content="Personal website and blog">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    
+<article>
+  <h1>Blogging with Blazor and Cloudflare</h1>
+  <p>Published on December 13, 2023</p>
+  
+  <p><a href="https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor">Blazor</a> is a dotnet/ C# based web app framework. It promises that you&rsquo;ll be able to <strong>&ldquo;build full stack web apps without writing a line of JavaScript.&rdquo;</strong> At time of writing, this post is hosted on a Blazor frontend application. While building the blogging engine, I discovered that Blazor is cool, it runs on <a href="https://pages.cloudflare.com">Cloudflare Pages</a>, it&rsquo;s a good dev experience, but it&rsquo;s no substitute for JavaScript (yet).</p>
+<h2 id="getting-started">Getting started</h2>
+<p>I decided to use a Blazor WASM project for this site, because I wanted to run it on Cloudflare pages. Pages are awesome because they run on Cloudflare&rsquo;s edge network, AND they come for free. Unfortunately, while Cloudflare does offer a &ldquo;server-side&rdquo; environment (called Cloudflare Workers), they only support a Javascript runtime. For full-stack Blazor (including server-side rendering) a different hosting service might be required.</p>
+<p>I created this app using dotnet 7:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># check dotnet version</span>
+</span></span><span style="display:flex;"><span>dotnet --version
+</span></span><span style="display:flex;"><span>7.0.401
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dotnet new blazorwasm -o edge
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Out of the box, this creates a Blazor WASM project with some example components.</p>
+<h2 id="rendering-markdown">Rendering markdown</h2>
+<p>Since I was porting several existing posts, I wanted to keep using markdown as a simple storage format for all my writing. Therefore, I needed a markdown to HTML renderer. I&rsquo;d usually use a pre-built library in this situation, and I quickly discovered that there are many more Javascript implementations than dotnet. Furthermore, WASM applicatons <strong>cannot manipulate the DOM</strong> (<a href="https://developer.mozilla.org/en-US/docs/WebAssembly/Concepts#">source</a>), which makes client side markdown rendering essentially impossible using only C#.</p>
+<p>I decided to expose the raw markdown via GET request, and then render to HTML using <a href="https://showdownjs.com">Showdown JS</a> and Blazor&rsquo;s JS Interop functionality.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#57606a">// Post.razor.js
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#cf222e">export</span> <span style="color:#cf222e">async</span> <span style="color:#cf222e">function</span> <span style="color:#1f2328">setInnerHtmlFromRequest</span><span style="color:#1f2328">(</span><span style="color:#1f2328">id</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">url</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">const</span> <span style="color:#1f2328">converter</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">new</span> <span style="color:#1f2328">showdown</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Converter</span><span style="color:#1f2328">();</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">const</span> <span style="color:#1f2328">content</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">await</span> <span style="color:#1f2328">fetch</span><span style="color:#1f2328">(</span><span style="color:#1f2328">url</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">const</span> <span style="color:#1f2328">text</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">await</span> <span style="color:#1f2328">content</span><span style="color:#1f2328">.</span><span style="color:#1f2328">text</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">const</span> <span style="color:#1f2328">html</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">converter</span><span style="color:#1f2328">.</span><span style="color:#1f2328">makeHtml</span><span style="color:#1f2328">(</span><span style="color:#1f2328">text</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">document</span><span style="color:#1f2328">.</span><span style="color:#1f2328">getElementById</span><span style="color:#1f2328">(</span><span style="color:#1f2328">id</span><span style="color:#1f2328">).</span><span style="color:#1f2328">innerHTML</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">html</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#57606a">// Post.razor</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// other implementation omitted</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">private</span> <span style="color:#cf222e">async</span> Task LoadPost<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> path <span style="color:#1f2328">=</span> <span style="color:#0a3069">$&#34;/posts/{PostId}.md&#34;</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// reference a Javascript module from Blazor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> module <span style="color:#1f2328">=</span> <span style="color:#cf222e">await</span> JS<span style="color:#1f2328">.</span>InvokeAsync<span style="color:#1f2328">&lt;</span>IJSObjectReference<span style="color:#1f2328">&gt;(</span><span style="color:#0a3069">&#34;import&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;./Pages/Post.razor.js&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// call a function in the module</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">await</span> module<span style="color:#1f2328">.</span>InvokeVoidAsync<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;setInnerHtmlFromRequest&#34;</span><span style="color:#1f2328">,</span> ContentId<span style="color:#1f2328">,</span> path<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>While this works, it has several downsides:</p>
+<ul>
+<li>Lack of type safety on Blazor/JS interop calls and responses.</li>
+<li>I now need to support Javascript in the project</li>
+<li>Small performance hit on interop call</li>
+<li>Harder to migrate to server-side rendering</li>
+</ul>
+<h2 id="running-on-cloudflare-pages">Running on Cloudflare Pages</h2>
+<p>Cloudflare have some <a href="https://developers.cloudflare.com/pages/framework-guides/deploy-a-blazor-site/">good documentation</a> on how to deploy a Blazor site using Pages. It&rsquo;s quite simple, but the downsides are:</p>
+<ul>
+<li>cloudflare build agent doesn&rsquo;t have dotnet installed, which increases the build time. My simple project takes ~10 minutes to build on Cloudflare.</li>
+<li>Cloudflare doesn&rsquo;t support server-side C# and so there&rsquo;s no server side rendering</li>
+<li>No server-side rendering also means no fallback for browsers that don&rsquo;t support WASM.</li>
+</ul>
+<p>What I get for free with Cloudflare is:</p>
+<ul>
+<li>Free web hosting</li>
+<li>Edge deployments close to the consumer</li>
+<li><a href="https://developers.cloudflare.com/pages/platform/preview-deployments/">Preview deployments</a></li>
+</ul>
+<p>So as with all engineering challenges, building a blog site with Blazor WASM and Cloudflare has pro&rsquo;s and con&rsquo;s. It&rsquo;s probably better to just statically render your blogs at build time, but where&rsquo;s the fun in that?</p>
+<p><a href="https://github.com/xtellurian/xtellurian.github.io/">Check out the code here</a></p>
+
+  
+  
+  <div class="tags">
+    <p>Tags: 
+    
+    <span class="tag">blazor</span>
+    
+    <span class="tag">cloudflare</span>
+    
+    <span class="tag">web-development</span>
+    
+    <span class="tag">dotnet</span>
+    
+    </p>
+  </div>
+  
+</article>
+
+<nav class="post-nav">
+  
+  
+  <a href="/posts/cherry_reflections/" class="prev">Reflections on a startup →</a>
+  
+</nav>
+
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Rian Finnegan. All rights reserved.</p>
+  </footer>
+</body>
+</html>

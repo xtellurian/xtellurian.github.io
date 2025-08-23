@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web | Rian&#39;s Website</title>
+  <meta name="description" content="Personal website and blog">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    
+<h1>Web</h1>
+
+
+
+
+<article>
+  <h2><a href="/posts/blazor-blog/">Blogging with Blazor and Cloudflare</a></h2>
+  <p>December 13, 2023</p>
+  
+  <p><p><a href="https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor">Blazor</a> is a dotnet/ C# based web app framework. It promises that you&rsquo;ll be able to <strong>&ldquo;build full stack web apps without writing a line of JavaScript.&rdquo;</strong> At time of writing, this post is hosted on a Blazor frontend application. While building the blogging engine, I discovered that Blazor is cool, it runs on <a href="https://pages.cloudflare.com">Cloudflare Pages</a>, it&rsquo;s a good dev experience, but it&rsquo;s no substitute for JavaScript (yet).</p>
+<h2 id="getting-started">Getting started</h2>
+<p>I decided to use a Blazor WASM project for this site, because I wanted to run it on Cloudflare pages. Pages are awesome because they run on Cloudflare&rsquo;s edge network, AND they come for free. Unfortunately, while Cloudflare does offer a &ldquo;server-side&rdquo; environment (called Cloudflare Workers), they only support a Javascript runtime. For full-stack Blazor (including server-side rendering) a different hosting service might be required.</p></p>
+  
+  <p><a href="/posts/blazor-blog/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/cherry_reflections/">Reflections on a startup</a></h2>
+  <p>July 19, 2022</p>
+  
+  <p><p>For the last 18 months I&rsquo;ve been building a startup, but we&rsquo;ve decided to close it down. It was a tough decision, but the right one. Even though it failed, I have only minor regrets. The company failed to grow, but I experienced personal growth that would be unachievable in a regular job. Would I do it again? Yes.</p>
+<p>Cherry Recommends was a SaaS platform (not really, but the term&rsquo;s in vogue) for improving the effectiveness of promotions in e-commerce. We used machine learning algorithms to target individual customers with &ldquo;the best&rdquo; promotion. When used in properly, Cherry could increase revenue (yes, <em>revenue</em>) by 15%. Honestly, we thought it was pretty cool. It was ugly, it was hard to use, and hard to explain - but with financial outcomes like that, we were confident we&rsquo;d find a way. But after 9 months of searching, we just weren&rsquo;t able to acquire new customers at anything near the required rate. We tried changing the our target customer, changing our brand, changing our messaging, and changing our pricing. But those things weren&rsquo;t the problem. The problem was simple: people did not want to buy our product.</p></p>
+  
+  <p><a href="/posts/cherry_reflections/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/secret-to-event-processing/">A secret to Event Processing</a></h2>
+  <p>May 20, 2022</p>
+  
+  <p><p>At Cherry, we process hundreds of events per second. For Cherry users, we capture and process data every time their customers visit a web page, take an action, purchase an item, etc. Processing events is a mission critical function to understand customer behaviour in real time. So when we discovered that processing latency for some Cherry users was several days, finding and solving the issue became our #1 priority.</p>
+<p>I wrote this to help anyone in a similar position and share what we learned.</p></p>
+  
+  <p><a href="/posts/secret-to-event-processing/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/bots-in-kubernetes/">Bots in Kubernetes</a></h2>
+  <p>August 2, 2018</p>
+  
+  <p><h1 id="bots-in-kube">Bots in Kube</h1>
+<p>So you&rsquo;ve built for first bot with Microsoft <a href="https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0">BotBuilder SDK</a>, deployed it to <a href="https://azure.microsoft.com/en-au/services/app-service/">Azure App Service</a> or <a href="https://cloud.google.com/appengine/">GCloud App Engine</a>, and everything is just swell. Then along comes your company&rsquo;s CTO, who says they&rsquo;ve committed to all their services having zero downtime (best effort of course). On the same day, your friend had the great idea to start doing A/B testing. What do you do?</p>
+<p>You&rsquo;ve outgrown the App Service platform. Hello Kubernetes.</p></p>
+  
+  <p><a href="/posts/bots-in-kubernetes/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/smarter-npcs-with-natural-language-processing/">Smarter NPCs with Natural Language Processing</a></h2>
+  <p>May 23, 2018</p>
+  
+  <p><h2 id="what-happened-in-pokemon">What happened in Pokemon?</h2>
+<p>I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning. Almost all my interactions with non-player chracters (NPC) involved multiple choice answers at best, and pre-canned conversations at worst.</p>
+<p><img src="/images/NLU/Pokemonconversationscreenshot.png" alt="Screenshot of a simple Yes or No answer to a question in Pokemon for Gameboy"></p></p>
+  
+  <p><a href="/posts/smarter-npcs-with-natural-language-processing/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/xamarin-chatbots/">Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</a></h2>
+  <p>March 11, 2018</p>
+  
+  <p><p>One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the <a href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts">Bot Framework DirectLine API</a>.</p>
+<p><img src="https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png" alt="Screenshot of the Bot Framework Dashboard"></p>
+<h2 id="build-a-bot">Build a Bot</h2>
+<p>There are lots of good tutorials on how to get started writing bots using the <a href="https://github.com/Microsoft/BotBuilder">Microsoft Bot Builder SDK</a>. If you&rsquo;re just getting started, try the excellent <a href="https://github.com/MissionMarsFourthHorizon/operation-max">Mission Mars Tutorials</a>.</p></p>
+  
+  <p><a href="/posts/xamarin-chatbots/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/digital-assistants-azure-eventgrid/">Digital Assistants &amp; Azure Event Grid</a></h2>
+  <p>March 4, 2018</p>
+  
+  <p><p><img src="/images/robot.jpg" alt="Robot Assistant Cartoon"></p>
+<h2 id="the-digital-world">The Digital World</h2>
+<p>The digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds to events in the digital world, helping you that pervasive yet ephemeral environment.</p>
+<p>As the digital world becomes busier and noisier, we need cloud-scale technologies that allow us to respond to events in real time. Azure event grid proves exactly that type of medium, for events on the web and in the cloud. Using event grid and bot framework, we can build bots that observe events in the grid, let you know when important things are happening, and provide options for responding.</p></p>
+  
+  <p><a href="/posts/digital-assistants-azure-eventgrid/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/openai-windows/">OpenAI Gym on Windows</a></h2>
+  <p>February 7, 2018</p>
+  
+  <p><p>OpenAI&rsquo;s Gym is officially only supported on Linux and OSX. Follow these steps to get up and running on Windows using <a href="https://msdn.microsoft.com/en-au/commandline/wsl/install_guide">Windows Subsystem for Linux</a></p>
+<ol>
+<li>
+<p>Update to the latest version of Windows (&gt;version 1607, &ldquo;Anniversary Update&rdquo;)</p>
+</li>
+<li>
+<p>Enable Windows Subsystem for Linux (WSL)</p>
+</li>
+<li>
+<p>Open cmd, run <code>bash</code></p>
+</li>
+<li>
+<p>Install python &amp; gym (using sudo, and NOT PIP to install gym). So by now you should probably be able to run things and get really nasty graphics related errors. This is because WSL doesn&rsquo;t support any displays, so we need to fake it.</p></p>
+  
+  <p><a href="/posts/openai-windows/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/tensorflow-keras-windows/">Installing Tensorflow and Keras on Windows</a></h2>
+  <p>January 28, 2018</p>
+  
+  <p><p>Installing Tensorflow was once challenging, bordering on impossible. Now&hellip; not so much.</p>
+<h2 id="install-anaconda">Install Anaconda</h2>
+<p><a href="https://www.continuum.io/what-is-anaconda">Anaconda</a> is a data science ecosystem, giving users access to all sorts of toolkits and frameworks. <a href="https://www.continuum.io/downloads">Download</a> the Anaconda installer for Windows (it&rsquo;s ~500MB) and install. See, that was easy!</p>
+<h2 id="install-c-build-tools">Install C++ Build Tools</h2>
+<p>If you don&rsquo;t already have them installed, you&rsquo;ll need to download and install the <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">Visual C++ Build Tools</a>.</p>
+<h2 id="tf--keras">TF &amp; Keras</h2>
+<p>Anaconda provides a simple tool for installing TF in a virtual environment. Open up a terminal prompt and type <code>conda create -n tensorflow python=3.5</code> . This will create a virtual environment for called tensorflow that you&rsquo;ll use to encapsulate all your tensorflow libraries!</p></p>
+  
+  <p><a href="/posts/tensorflow-keras-windows/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/what-happened-to-the-internet/">What happened to the decentralised internet?</a></h2>
+  <p>November 23, 2017</p>
+  
+  <p><p>In the late 20th century, the pioneers of the internet and a new generation of online radicals envisioned a future where free communication, access to information, and equality of access made people increasingly fair minded, intelligent, and empathetic. In 2016, that optimism seems like naïveté. So what happened?</p>
+<p>In the early days, internet technology remained in the hands of large organisations, governments and militaries. Computers were large and expensive, and commonly used for transferring scientific or research data across multiple sites. During this phase, a key design goal was to build a non-centralised network; basically to build a robust communication system that could survive major catastrophes (aka nuclear war). Almost nobody at this time was thinking of the social impact of the technology. The whole point was to build networks that didn&rsquo;t have a centre.</p></p>
+  
+  <p><a href="/posts/what-happened-to-the-internet/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/learning-to-trade/">Learning to Trade</a></h2>
+  <p>November 11, 2017</p>
+  
+  <p><p>Australia&rsquo;s energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are political interests for coal fired generation (CFG), CFG will inevitably decline as alternative technologies displace it. Solar power is now one of the cheapest forms of new electricity generation, and battery storage is about to burst onto the scene. All this at a time when average wholesale prices are rising sharply, and each factor contributing to a sense of price volatility.</p></p>
+  
+  <p><a href="/posts/learning-to-trade/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/drake-and-trappist1/">Drake &amp; Trappist-1</a></h2>
+  <p>August 21, 2017</p>
+  
+  <p><p><a href="https://www.nasa.gov/press-release/nasa-telescope-reveals-largest-batch-of-earth-size-habitable-zone-planets-around">NASA&rsquo;s latest announcement</a> is important because of Drake.</p>
+<p><img src="/images/drake/drake-email-smile1.png" alt="drake-email-smile1"></p>
+<p>Wait, not that Drake&hellip; this one, <a href="https://en.wikipedia.org/wiki/Drake_equation">Dr Frank Drake</a>:</p>
+<p><img src="/images/drake/Dr._Frank_Drake.jpg" alt="Dr._Frank_Drake"></p>
+<p>He&rsquo;s most famous for the Drake Equation, which provides a method for estimating the number of active, intelligent and communicating civilisations in the Milky Way Galaxy - i.e. it tells you how many aliens are out there.</p>
+<p><img src="/images/drake/drake-equation.svg" alt="The Drake Equation"></p>
+<h3 id="trappist-1">TRAPPIST-1</h3>
+<p><img src="/images/drake/trappist-system-1.jpg" alt="trappist-system-1"></p>
+<p>This planetary system recently discovered has 7 Earth-sized planets orbiting a single star! Three of those planets are orbiting within the <em>habitable zone</em> - the &ldquo;goldilocks area&rdquo;, where conditions are just-right to support life. Strangely enough, all these planets are orbiting closer to their star than Mercury is to our own sun. Trappist-1 is an ultra-cool dwarf star. Consequently the planets can be much closer to their star and still may contain liquid water, crucial for life as we know it.</p></p>
+  
+  <p><a href="/posts/drake-and-trappist1/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/review-our-broken-steps/">Review - Our Broken Steps</a></h2>
+  <p>January 11, 2017</p>
+  
+  <p><p><em>Our Broken Steps</em> is a guide to responsible travel, written by my friend Tamshuk Saha. It&rsquo;s words resonated with me, as it expressed many of my own thoughts and feelings. Tamshuk addresses both the socially and environmentally destructive practices prevalent in the tourism industry throughout Asia. In the following I present a synopsis of the book, followed by an attempt to express his principles in my own words.</p>
+<h2 id="our-broken-steps-a-synopsis">Our Broken Steps: A Synopsis</h2>
+<p>Tamshuk discusses three categories of unethical travel practices:  not-so-eco-friendly travel, humanitarian abuse, and clash of cultures. The book is written in the style of a travel-guide, describing many harmful activities, and providing simple solutions that any tourist could undertake. The book is not long, and I encourage you to read it before traveling in Asia or elsewhere. Its available on <a href="https://www.amazon.com/OUR-BROKEN-STEPS-Insights-Responsible-ebook/dp/B01MZ51V5F">Amazon</a>, and you can follow Tamshuk at his <a href="http://www.tamzexplores.com/">blog</a>.</p></p>
+  
+  <p><a href="/posts/review-our-broken-steps/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/the-power-of-stone/">The Power of Stone</a></h2>
+  <p>December 23, 2016</p>
+  
+  <p><p>In Rajasthan, fortified towns are separated by stretches of arid land. Centuries of sand are piled against their walls. Tourist infantry swarm the ancient structure, as rickshaw cavalry pick off the weak or confused. These aged military structures, now abandoned to hawkers and rickshaws, stand as a reminder of a different time; when the foundations of power were driven deep into the ground.</p>
+<p>Trading caravans travelled from Persia, through the mountain passes, and crossing the Indus river marked their entrance into India. Where the river flows into the Arabian sea, ships arrive at port having travelled far from the gulf coast or the peninsula to the south. Just east of the delta, fertile river plains turn quickly into dry desert. Swapping their donkeys for camels, merchants drove across that dusty land, seeking the markets of Rajasthan: the land of kings. Across this land trade routes spread like cracks through glass.</p></p>
+  
+  <p><a href="/posts/the-power-of-stone/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/identity-politics/">Identity is the only form of politics</a></h2>
+  <p>May 23, 2015</p>
+  
+  <p><p>Identity is the way we transpose the subjective into the objective. It is the fixed point by which we pivot between our personal universe and the social world. Identity is the only way to politics, though &ldquo;Identity Politics&rdquo; has been denounced by many as too post-modern, or a cause of modern political apathy, or a conscious plan by the elite to divide the working class. The denial of identity as fundamental to political or human experience is drawn from the hubris of infallibility.</p></p>
+  
+  <p><a href="/posts/identity-politics/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/on-free-will/">On Free Will</a></h2>
+  <p>October 23, 2014</p>
+  
+  <p><p>Choice and free will are convenient conceptual shorthands to express some of the complexity of human existence. But what <em>is </em>freedom? Are all choices free choices, and what are the hidden ideological and cognitive structures that give meaning to those questions? Ultimately, ideas of self are intimately entwined with conceptions of and belief in free will, and we must examine the conceptual, cultural and spiritual roots of self to come to terms with freedom, will and choice. First, I must describe orthodox free will and its origins in western enlightenment philosophy. Then, after critiquing this view, I will offer an alternative, not by directly answering the question, but by a different interpretation of self. My proposition is that to ask whether one has free will, one implicitly legitimises a European-derived conceptualisation of self, which can induce motivation and spiritual pain.</p></p>
+  
+  <p><a href="/posts/on-free-will/">Read more →</a></p>
+</article>
+
+<article>
+  <h2><a href="/posts/the-battle-for-eurasia/">The Battle for Eurasia</a></h2>
+  <p>May 23, 2014</p>
+  
+  <p><p>The pieces are moving; the battle for Eurasia has begun.</p>
+<p>The 20th century saw the the first global wars. Before the onset of the great war, European powers dominated the globe through superior technology, particularly in war. Two world wars later, and the balance of power had shifted dramatically.</p>
+<p>Orthodox interpretation of the post war period proposes a war of ideologies between capitalism and collectivism. But this was essentially a collective brainwashing by the two major powers of the era: the Soviet Union and the United States. In the west, the narrative goes something like: <em>capitalism and democracy are fundamentally connected, and are better than communism</em>. However, this interpretation entirely fails to account for the role of China in the fall of the USSR.
+In 1971 Kissinger traveled to China, initiating a secret strategic relationship between the emerging Chinese Communist-led state and the Americans. In Chinese terms, using the far away enemy against the near enemy. The Sino-Soviet split became a dagger to the heart of soviet communism. The Soviet Union, which became heavily militarised and surrounded by enemies, could not sustain both its economy and military in such a hostile environment. What followed was victory for the Americans and the Chinese. Once again, orthodox interpretation of the fall resembles Fukuyama. But events in the early 21st century throw new challenges to the end of history. History, rather than ending, provides new challenges.</p></p>
+  
+  <p><a href="/posts/the-battle-for-eurasia/">Read more →</a></p>
+</article>
+
+
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Rian Finnegan. All rights reserved.</p>
+  </footer>
+</body>
+</html>

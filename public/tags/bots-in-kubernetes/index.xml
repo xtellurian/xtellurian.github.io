@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bots-in-Kubernetes on Rian&#39;s Website</title>
+    <link>https://xtellurian.github.io/tags/bots-in-kubernetes/</link>
+    <description>Recent content in Bots-in-Kubernetes on Rian&#39;s Website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Aug 2018 11:11:00 +0000</lastBuildDate>
+    <atom:link href="https://xtellurian.github.io/tags/bots-in-kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bots in Kubernetes</title>
+      <link>https://xtellurian.github.io/posts/bots-in-kubernetes/</link>
+      <pubDate>Thu, 02 Aug 2018 11:11:00 +0000</pubDate>
+      <guid>https://xtellurian.github.io/posts/bots-in-kubernetes/</guid>
+      <description>&lt;h1 id=&#34;bots-in-kube&#34;&gt;Bots in Kube&lt;/h1&gt;&#xA;&lt;p&gt;So you&amp;rsquo;ve built for first bot with Microsoft &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0&#34;&gt;BotBuilder SDK&lt;/a&gt;, deployed it to &lt;a href=&#34;https://azure.microsoft.com/en-au/services/app-service/&#34;&gt;Azure App Service&lt;/a&gt; or &lt;a href=&#34;https://cloud.google.com/appengine/&#34;&gt;GCloud App Engine&lt;/a&gt;, and everything is just swell. Then along comes your company&amp;rsquo;s CTO, who says they&amp;rsquo;ve committed to all their services having zero downtime (best effort of course). On the same day, your friend had the great idea to start doing A/B testing. What do you do?&lt;/p&gt;&#xA;&lt;p&gt;You&amp;rsquo;ve outgrown the App Service platform. Hello Kubernetes.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

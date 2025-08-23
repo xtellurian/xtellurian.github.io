@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Assistants &amp; Azure Event Grid | Rian&#39;s Website</title>
+  <meta name="description" content="Personal website and blog">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    
+<article>
+  <h1>Digital Assistants &amp; Azure Event Grid</h1>
+  <p>Published on March 4, 2018</p>
+  
+  <p><img src="/images/robot.jpg" alt="Robot Assistant Cartoon"></p>
+<h2 id="the-digital-world">The Digital World</h2>
+<p>The digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds to events in the digital world, helping you that pervasive yet ephemeral environment.</p>
+<p>As the digital world becomes busier and noisier, we need cloud-scale technologies that allow us to respond to events in real time. Azure event grid proves exactly that type of medium, for events on the web and in the cloud. Using event grid and bot framework, we can build bots that observe events in the grid, let you know when important things are happening, and provide options for responding.</p>
+<h2 id="azure-event-grid">Azure Event Grid</h2>
+<p>Azure Event Grid allows you to easily build applications with event-based architectures. You select the Azure resource you would like to subscribe to, and give the event handler or WebHook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like storage blobs and resource groups. Event Grid also has custom support for application and third-party events, using custom topics and custom webhooks.</p>
+<p><img src="https://docs.microsoft.com/en-us/azure/event-grid/media/overview/functional-model.png" alt="Azure Event Grid Sources and Handers Diagram"></p>
+<p>More publishers and handlers are being added. Event Grid is currently in preview, but is expected to be in GA by the end of 2017.</p>
+<p>The best features of event grid are:</p>
+<ul>
+<li>Cloud Scale: Can support millions of events per second</li>
+<li>Cloud Pricing: GA pricing will be $0.60 / million events</li>
+<li>Low Latency: Events are delivered usually within a second</li>
+<li>Flexible Schema: Arbitrary JSON payloads</li>
+<li>Guaranteed Delivery: Retry policy and eventual consistency</li>
+</ul>
+<h2 id="bots-in-the-grid">Bots in the Grid</h2>
+<p>Conversations are growing in popularity as an interface with the digital world. Conversations naturally morph between the synchronous and asynchronous, making them a perfect fit for how we interact with modern applications.</p>
+<h3 id="responding-to-digital-events">Responding to Digital Events</h3>
+<p>The following shows how to listen for events with Microsoft Bot Framework. In this example, I&rsquo;ll be using an ASP.NET bot, so this code will work for any ASP.NET application, and the same pattern holds for most web applications.</p>
+<h3 id="architecture">Architecture</h3>
+<p>Subscribing your bot to events is actually very simple. Just implement an http endpoint that receives incoming webhooks.</p>
+<p><img src="/content/images/2017/10/boteventgridarchitecture.png" alt="Architecture Diagram for Connecting Bots to Event Grid"></p>
+<h4 id="incoming-event-data-structure">Incoming Event Data Structure</h4>
+<p>Incoming events, via webhook, are delivered by the body of an HTTP Post. The following is an example:</p>
+<pre tabindex="0"><code class="language-.language-json" data-lang=".language-json">{[
+  {
+    &#34;Data&#34;: {
+      &#34;Correlation&#34;: {
+        &#34;ExternalReferenceId&#34;: &#34;9c551c4f-9a73-4565-8590-b4b81b074dfb&#34;
+      },
+      &#34;To&#34;: {
+        &#34;Id&#34;: &#34;myUserId&#34;,
+        &#34;DisplayName&#34;: &#34;Rian&#34;
+      },
+      &#34;Amount&#34;: 150.0,
+      &#34;Message&#34;: &#34;Whatever you like&#34;
+    },
+    &#34;Id&#34;: &#34;fbfaab9e-a328-4c77-bee7-8fb95264d4fd&#34;,
+    &#34;Subject&#34;: &#34;custom\\value&#34;,
+    &#34;EventType&#34;: 0,
+    &#34;EventTime&#34;: &#34;2017-10-25T23:01:37.3456283Z&#34;,
+    &#34;topic&#34;: &#34;/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XX/RESOURCEGROUPS/YOUR-GROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/YOUR_TOPIC&#34;
+  }
+]}
+</code></pre><p>Since this is a custom event, everything in the <em>Data</em> field is yours to play with. The other top level fields define how the event is processed within event grid.</p>
+<h3 id="security">Security</h3>
+<p>Event Grid can provide up to a million events per second, which could be the biggest DDOS cannon on the public cloud! Luckily, when you register a webhook subscriber, the first request contains a challenge that must be responded to correctly, else the subscription fails. The challenge request has the same structure as a normal event, however the <em>data</em> field contains a validation code that must be returned in the HTTP response.</p>
+<pre tabindex="0"><code class="language-.language-json" data-lang=".language-json">[{
+  &#34;id&#34;: &#34;2d1781af-3a4c-4d7c-bd0c-e34b19da4e66&#34;,
+  &#34;topic&#34;: &#34;/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;,
+  &#34;subject&#34;: &#34;&#34;,
+  &#34;data&#34;: {
+    &#34;validationCode&#34;: &#34;512d38b6-c7b8-40c8-89fe-f46f9e9622b6&#34;
+  },
+  &#34;eventType&#34;: &#34;Microsoft.EventGrid.SubscriptionValidationEvent&#34;,
+  &#34;eventTime&#34;: &#34;2017-08-06T22:09:30.740323Z&#34;
+}]
+</code></pre><p>You must return the validation code as a validation response:</p>
+<pre tabindex="0"><code class="language-.language-json" data-lang=".language-json">{
+  &#34;validationResponse&#34;: &#34;512d38b6-c7b8-40c8-89fe-f46f9e9622b6&#34;
+}
+</code></pre><p>Its also best practice to protect your webhook endpoint with a secret key. Its quite simple: just provide that key when setting up the subscription, and the request path contains that key before processing any event. Your webhook path should look like:</p>
+<p><code>https://&lt;base_url&gt;/api/events?secret=YOUR_SECRET_KEY</code></p>
+<h3 id="handling-incoming-events-with-aspnet">Handling Incoming Events with ASP.NET</h3>
+<p>The key method on your controller accepts an HTTP Post and should return a 200 or 202, to ensure that event grid knows that the event has been received, and won&rsquo;t retry.</p>
+<pre tabindex="0"><code class="language-.language-csharp" data-lang=".language-csharp">public async Task&lt;HttpResponseMessage&gt; Post([FromBody]dynamic e)
+{
+  foreach ( var azEvent in e)
+  {
+    if (azEvent?.data?.validationCode != null)
+    {
+      return Request.CreateResponse(HttpStatusCode.OK, new { validationResponse = x.data.validationCode });
+    }
+    else
+    {
+      HandleEvent(azEvent);
+    }
+  }
+  return Request.CreateResponse(HttpStatusCode.OK);
+}
+</code></pre><p><a href="https://gist.github.com/xtellurian/1ee357452668d7c3f46b83410c84435c">See this gist for the full controller code</a></p>
+<h3 id="creating-and-subscribing-to-topics-and-events">Creating and Subscribing to Topics and Events</h3>
+<p>Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.</p>
+<p>Follow these steps in the Azure Portal to use custom topics:</p>
+<p><img src="/content/images/2017/10/eventgridportal.PNG" alt="Creating Topics and Subs in the Azure Portal"></p>
+<ol start="0">
+<li>Create an Azure Resource Group if you don&rsquo;t have one already.</li>
+<li>Under <em>More Services</em> search for event grid, and select <strong>Event Grid Topics</strong></li>
+<li>Create a new topic</li>
+<li>Under <em>More Services</em> search for event grid, and select <strong>Event Grid Subscriptions</strong></li>
+<li>Create a new subscription, and enter the endpoint you created as a webhook.</li>
+</ol>
+<p>You can follow detailed steps <a href="https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal">here</a></p>
+<h3 id="dev--test-using-ngrok">Dev &amp; Test using Ngrok</h3>
+<p>You can also get events directly to your local machine using <a href="https://ngrok.com/">ngrok</a>. When you run a local server, there are listeners on local ports e.g. <code>localhost:44313/api/events</code>. Using ngrok, you can expose your local server to the web. After installing ngrok, run the following command: <code>ngrok http 44313 -host-header=&quot;localhost:44313&quot;</code> and you&rsquo;ll have a public url you can then set as a new subscription.</p>
+<p><img src="/content/images/2017/10/ngrokexample.PNG" alt="Ngrok Screenshot"></p>
+<p>Add your public ngrok url, with events path and key, as a new event subscription: <code>https://xxxxxx.ngrok.io/api/events?key=YOUR_SECRET_KEY</code></p>
+<h3 id="proactive-bot-messages">Proactive Bot Messages</h3>
+<p>Now your bot web server is receiving events, you can use that power to send proactive messages to users affected by that event. For example, you may generate an event every time users post a comment. You can <a href="https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-proactive-messages">read the documentation</a> of proactive messages on Microsoft Bot Framework, or there are <a href="https://github.com/MicrosoftDX/botFramework-proactiveMessages">several samples on GitHub</a>.</p>
+<p>A great use case for proactive messages is billing and payment requests. Every service provider wants a fast, reliable and easy billing experience for their customers. Imagine if your company&rsquo;s digital assistant could proactively reach out to your customers, let them know their bill&rsquo;s are almost due, and provide them simple ways to pay.</p>
+<p><img src="/content/images/2017/10/PaymentRequest.PNG" alt="Example of a Proactive Message for a Payment Request"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Azure Event Grid is a great way to trigger proactive messages from intelligent bots - but there&rsquo;s so much more it can do. It&rsquo;s designed for modern applications, particularly those using serverless, because of its ability to scale. It lets you connect on-premises and cloud infrastructure via a fast and reliable messaging. It&rsquo;s really fast, and super easy to use. 10/10 - would use again.</p>
+<h3 id="further-reading">Further Reading</h3>
+<ul>
+<li><a href="https://gist.github.com/xtellurian/1ee357452668d7c3f46b83410c84435c">ASP.NET Controller for Event Grid Webhooks</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/event-grid/">Event Grid</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal">Event Grid - Quickstart on the Azure Portal</a></li>
+<li><a href="https://ngrok.com/">ngrok</a></li>
+<li><a href="https://docs.microsoft.com/en-us/bot-framework/">Bot Framework</a></li>
+<li><a href="https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-proactive-messages">Proactive Messages Documentation</a></li>
+<li><a href="https://github.com/MicrosoftDX/botFramework-proactiveMessages">Proactive Messages Samples</a></li>
+</ul>
+
+  
+  
+  <div class="tags">
+    <p>Tags: 
+    
+    <span class="tag">digital-assistants-azure-eventgrid</span>
+    
+    </p>
+  </div>
+  
+</article>
+
+<nav class="post-nav">
+  
+  <a href="/posts/xamarin-chatbots/" class="next">← Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</a>
+  
+  
+  <a href="/posts/openai-windows/" class="prev">OpenAI Gym on Windows →</a>
+  
+</nav>
+
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Rian Finnegan. All rights reserved.</p>
+  </footer>
+</body>
+</html>

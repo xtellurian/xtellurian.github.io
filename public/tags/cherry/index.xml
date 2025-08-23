@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cherry on Rian&#39;s Website</title>
+    <link>https://xtellurian.github.io/tags/cherry/</link>
+    <description>Recent content in Cherry on Rian&#39;s Website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jul 2022 12:01:00 +0000</lastBuildDate>
+    <atom:link href="https://xtellurian.github.io/tags/cherry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reflections on a startup</title>
+      <link>https://xtellurian.github.io/posts/cherry_reflections/</link>
+      <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
+      <guid>https://xtellurian.github.io/posts/cherry_reflections/</guid>
+      <description>&lt;p&gt;For the last 18 months I&amp;rsquo;ve been building a startup, but we&amp;rsquo;ve decided to close it down. It was a tough decision, but the right one. Even though it failed, I have only minor regrets. The company failed to grow, but I experienced personal growth that would be unachievable in a regular job. Would I do it again? Yes.&lt;/p&gt;&#xA;&lt;p&gt;Cherry Recommends was a SaaS platform (not really, but the term&amp;rsquo;s in vogue) for improving the effectiveness of promotions in e-commerce. We used machine learning algorithms to target individual customers with &amp;ldquo;the best&amp;rdquo; promotion. When used in properly, Cherry could increase revenue (yes, &lt;em&gt;revenue&lt;/em&gt;) by 15%. Honestly, we thought it was pretty cool. It was ugly, it was hard to use, and hard to explain - but with financial outcomes like that, we were confident we&amp;rsquo;d find a way. But after 9 months of searching, we just weren&amp;rsquo;t able to acquire new customers at anything near the required rate. We tried changing the our target customer, changing our brand, changing our messaging, and changing our pricing. But those things weren&amp;rsquo;t the problem. The problem was simple: people did not want to buy our product.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A secret to Event Processing</title>
+      <link>https://xtellurian.github.io/posts/secret-to-event-processing/</link>
+      <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
+      <guid>https://xtellurian.github.io/posts/secret-to-event-processing/</guid>
+      <description>&lt;p&gt;At Cherry, we process hundreds of events per second. For Cherry users, we capture and process data every time their customers visit a web page, take an action, purchase an item, etc. Processing events is a mission critical function to understand customer behaviour in real time. So when we discovered that processing latency for some Cherry users was several days, finding and solving the issue became our #1 priority.&lt;/p&gt;&#xA;&lt;p&gt;I wrote this to help anyone in a similar position and share what we learned.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Rian&#39;s Website</title>
+    <link>https://xtellurian.github.io/tags/web/</link>
+    <description>Recent content in Web on Rian&#39;s Website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 May 2022 09:00:00 +0000</lastBuildDate>
+    <atom:link href="https://xtellurian.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A secret to Event Processing</title>
+      <link>https://xtellurian.github.io/posts/secret-to-event-processing/</link>
+      <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
+      <guid>https://xtellurian.github.io/posts/secret-to-event-processing/</guid>
+      <description>&lt;p&gt;At Cherry, we process hundreds of events per second. For Cherry users, we capture and process data every time their customers visit a web page, take an action, purchase an item, etc. Processing events is a mission critical function to understand customer behaviour in real time. So when we discovered that processing latency for some Cherry users was several days, finding and solving the issue became our #1 priority.&lt;/p&gt;&#xA;&lt;p&gt;I wrote this to help anyone in a similar position and share what we learned.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
