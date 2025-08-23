@@ -10,7 +10,8 @@
     "serve": "hugo server",
     "dev": "hugo server",
     "deploy": "wrangler deploy",
-    "preview": "wrangler dev"
+    "preview": "wrangler dev",
+    "combine": "node combine-posts.js"
   },
   "dependencies": {
     "clean-css": "^5.3.3",
