@@ -1,6 +1,6 @@
 {
 	// Cloudflare Workers configuration for xtellurian.github.io
-	"name": "xtellurian-github-io",
+	"name": "xtellurian",
 	"compatibility_date": "2025-08-23",
 	"assets": {
 		"directory": "./public"
