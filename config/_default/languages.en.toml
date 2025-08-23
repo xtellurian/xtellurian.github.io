@@ -13,12 +13,12 @@ title = "Rian's Website"
 
 [params.author]
   name = "Rian Finnegan"
-  email = "rian.finnegan@orkestra.energy"
+  email = "rian.finnegan@gmail.com"
   image = "Rian_lookingaway2020.png"
   imageQuality = 96
-  headline = "Software Engineer & Technology Enthusiast"
+  headline = "Essays on various topics"
   bio = "Welcome to my personal website where I share thoughts on technology, software development, and various other topics."
   links = [
-    { email = "mailto:rian.finnegan@orkestra.energy" },
+    { email = "mailto:rian.finnegan@gmail.com" },
     { github = "https://github.com/xtellurian" },
   ]
