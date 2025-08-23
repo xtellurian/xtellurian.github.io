@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API | Rian&#39;s Website</title>
+  <title>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API | Blowfish</title>
   <meta name="description" content="Personal website and blog">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -22,23 +22,131 @@
   <h1>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</h1>
   <p>Published on March 11, 2018</p>
   
-  <p>One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the <a href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts">Bot Framework DirectLine API</a>.</p>
-<p><img src="https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png" alt="Screenshot of the Bot Framework Dashboard"></p>
-<h2 id="build-a-bot">Build a Bot</h2>
-<p>There are lots of good tutorials on how to get started writing bots using the <a href="https://github.com/Microsoft/BotBuilder">Microsoft Bot Builder SDK</a>. If you&rsquo;re just getting started, try the excellent <a href="https://github.com/MissionMarsFourthHorizon/operation-max">Mission Mars Tutorials</a>.</p>
-<p>Once you&rsquo;ve got the basics, you should try the <a href="https://github.com/MSFTAuDX/BotBoiler">Bot Boiler Framework</a> in NodeJS. It provides tools for dependency injection, testing, deployment to Azure Functions, and more. I won&rsquo;t go into how to write a good chatbot - this article assumed that your bot code already exists.</p>
-<h3 id="enable-direct-line">Enable Direct Line</h3>
-<p>Configure your channels in the <a href="https://dev.botframework.com/">Bot Portal</a> and enable the Direct Line channel, then <a href="https://docs.microsoft.com/en-us/bot-framework/portal-configure-channels">configure your Direct Line Channel</a>, and get your direct line secret. You&rsquo;ll need that secret later on.</p>
-<p><img src="https://docs.microsoft.com/en-us/bot-framework/media/direct-line-configure.png" alt="Direct Line Config Sample"></p>
-<h3 id="using-xamarinforms-project">Using Xamarin.Forms Project</h3>
-<h4 id="why-xamarin-and-forms">Why Xamarin and Forms?</h4>
-<p>If you&rsquo;ve never heard of <a href="https://www.xamarin.com/">Xamarin</a>, then you&rsquo;ve been missing out. Xamarin is a toolset, originally built using the Mono Framework, that allows developers to write common C# (and F#) and deploy applications to many operating systems and environments. The most popular are Android, iOS, and Windows.</p>
+  <p>One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the <a
+  href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts"
+    target="_blank"
+  >Bot Framework DirectLine API</a>.</p>
+<p>
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Screenshot of the Bot Framework Dashboard" src="https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png">
+
+  
+</figure>
+</p>
+
+<h2 class="relative group">Build a Bot 
+    <div id="build-a-bot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#build-a-bot" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There are lots of good tutorials on how to get started writing bots using the <a
+  href="https://github.com/Microsoft/BotBuilder"
+    target="_blank"
+  >Microsoft Bot Builder SDK</a>. If you&rsquo;re just getting started, try the excellent <a
+  href="https://github.com/MissionMarsFourthHorizon/operation-max"
+    target="_blank"
+  >Mission Mars Tutorials</a>.</p>
+<p>Once you&rsquo;ve got the basics, you should try the <a
+  href="https://github.com/MSFTAuDX/BotBoiler"
+    target="_blank"
+  >Bot Boiler Framework</a> in NodeJS. It provides tools for dependency injection, testing, deployment to Azure Functions, and more. I won&rsquo;t go into how to write a good chatbot - this article assumed that your bot code already exists.</p>
+
+<h3 class="relative group">Enable Direct Line 
+    <div id="enable-direct-line" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#enable-direct-line" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Configure your channels in the <a
+  href="https://dev.botframework.com/"
+    target="_blank"
+  >Bot Portal</a> and enable the Direct Line channel, then <a
+  href="https://docs.microsoft.com/en-us/bot-framework/portal-configure-channels"
+    target="_blank"
+  >configure your Direct Line Channel</a>, and get your direct line secret. You&rsquo;ll need that secret later on.</p>
+<p>
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Direct Line Config Sample" src="https://docs.microsoft.com/en-us/bot-framework/media/direct-line-configure.png">
+
+  
+</figure>
+</p>
+
+<h3 class="relative group">Using Xamarin.Forms Project 
+    <div id="using-xamarinforms-project" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#using-xamarinforms-project" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">Why Xamarin and Forms? 
+    <div id="why-xamarin-and-forms" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#why-xamarin-and-forms" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>If you&rsquo;ve never heard of <a
+  href="https://www.xamarin.com/"
+    target="_blank"
+  >Xamarin</a>, then you&rsquo;ve been missing out. Xamarin is a toolset, originally built using the Mono Framework, that allows developers to write common C# (and F#) and deploy applications to many operating systems and environments. The most popular are Android, iOS, and Windows.</p>
 <p>​
-<img src="https://www.xamarin.com/content/images/pages/platform/code-sharing@2x.png" alt="Xamarin Framework Overview"></p>
+
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Xamarin Framework Overview" src="https://www.xamarin.com/content/images/pages/platform/code-sharing@2x.png">
+
+  
+</figure>
+</p>
 <p>Xamarin Forms is a set of API&rsquo;s written in Xamarin that let us write common user interface code. Basically, I can run exactly the same app on Android, iOS and Windows. Cool!</p>
-<h4 id="file--new-project-vs2017">File &gt; New Project (VS2017)</h4>
-<p>I&rsquo;m going using Visual Studio 2017. You can <a href="https://www.visualstudio.com/downloads/">download the community version</a> for free. DotNet Standard is supported in VS2015 but not in earlier versions.</p>
-<p><a href="https://developer.xamarin.com/guides/xamarin-forms/getting-started/hello-xamarin-forms/quickstart/">This guide</a> can help you create your first Xamarin Forms project. The short version is:</p>
+
+<h4 class="relative group">File &gt; New Project (VS2017) 
+    <div id="file--new-project-vs2017" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#file--new-project-vs2017" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>I&rsquo;m going using Visual Studio 2017. You can <a
+  href="https://www.visualstudio.com/downloads/"
+    target="_blank"
+  >download the community version</a> for free. DotNet Standard is supported in VS2015 but not in earlier versions.</p>
+<p><a
+  href="https://developer.xamarin.com/guides/xamarin-forms/getting-started/hello-xamarin-forms/quickstart/"
+    target="_blank"
+  >This guide</a> can help you create your first Xamarin Forms project. The short version is:</p>
 <ul>
 <li>
 <p>Create a new Xamarin.Forms project</p>
@@ -50,256 +158,322 @@
 <p>Create a blank app (not a master detail page)</p>
 </li>
 </ul>
-<h4 id="move-to-dotnet-standard">Move to dotnet standard</h4>
-<p>​<a href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">Xamarin.Forms recently started supporting DotNet Standard</a> (hooray!). <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a> is the latest and greatest standard for writing cross platform C#. It provides a common set of API&rsquo;s that <strong>work everywhere</strong>. Better yet, it improves dramatically over the previous standard (Portable Class Libraries, or PCL) as there&rsquo;s no platform targets, just backwards compatible versions of .NET Standard.</p>
-<p>​Before we get started, we&rsquo;ve got to change the way we&rsquo;re sharing code in our Xamarin project, by <a href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">converting to .NET Standard</a>. We&rsquo;ll change our PCL project (not the Android, iOS, or UWP projects) by deleting <code>packages.config</code> then unloading the project and replacing the contents of the .csproj file with the following code:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+
+<h4 class="relative group">Move to dotnet standard 
+    <div id="move-to-dotnet-standard" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#move-to-dotnet-standard" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>​<a
+  href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/"
+    target="_blank"
+  >Xamarin.Forms recently started supporting DotNet Standard</a> (hooray!). <a
+  href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard"
+    target="_blank"
+  >.Net Standard</a> is the latest and greatest standard for writing cross platform C#. It provides a common set of API&rsquo;s that <strong>work everywhere</strong>. Better yet, it improves dramatically over the previous standard (Portable Class Libraries, or PCL) as there&rsquo;s no platform targets, just backwards compatible versions of .NET Standard.</p>
+<p>​Before we get started, we&rsquo;ve got to change the way we&rsquo;re sharing code in our Xamarin project, by <a
+  href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/"
+    target="_blank"
+  >converting to .NET Standard</a>. We&rsquo;ll change our PCL project (not the Android, iOS, or UWP projects) by deleting <code>packages.config</code> then unloading the project and replacing the contents of the .csproj file with the following code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;Project</span> <span style="color:#1f2328">Sdk=</span><span style="color:#0a3069">&#34;Microsoft.NET.Sdk&#34;</span><span style="color:#0550ae">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;PropertyGroup&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&lt;TargetFramework&gt;</span>netstandard1.3<span style="color:#0550ae">&lt;/TargetFramework&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&lt;PackageTargetFallback&gt;</span>$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8<span style="color:#0550ae">&lt;/PackageTargetFallback&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;/PropertyGroup&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;/Project&gt;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">&#34;Microsoft.NET.Sdk&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;PropertyGroup&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;TargetFramework&gt;</span>netstandard1.3<span class="nt">&lt;/TargetFramework&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;PackageTargetFallback&gt;</span>$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8<span class="nt">&lt;/PackageTargetFallback&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/PropertyGroup&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/Project&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>You&rsquo;ll have to re-add and install any NuGet Packages, but at this stage it should only be the Xamarin.Forms package.</p>
-<h4 id="import-directline-client">Import DirectLine Client</h4>
+
+<h4 class="relative group">Import DirectLine Client 
+    <div id="import-directline-client" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#import-directline-client" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <p>​The best thing about targetting .NET Standard is we can use the official NuGet package for interacting with the DirectLine API!</p>
 <p>​<code>Install-Package Microsoft.Bot.Connector.DirectLine -Version 3.0.2</code></p>
-<h4 id="communicate-with-your-bot">Communicate with your Bot</h4>
+
+<h4 class="relative group">Communicate with your Bot 
+    <div id="communicate-with-your-bot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#communicate-with-your-bot" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <p>Here&rsquo;s a screenshot of what we expect our Bot UI to look like:</p>
-<p><img src="/images/xamarinchatbots/botscreenshot.png" alt="Chat Bot Sreenshot"></p>
-<p>Before continuing, I suggest you read <a href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts">Key Concepts in DirectLine API 3.0</a></p>
+<p>
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Chat Bot Sreenshot" src="/images/xamarinchatbots/botscreenshot.png">
+
+  
+</figure>
+</p>
+<p>Before continuing, I suggest you read <a
+  href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts"
+    target="_blank"
+  >Key Concepts in DirectLine API 3.0</a></p>
 <p>First, we create a microservice class for interacting with the bot. We inject the direct line secret (from the portal) into the constructor.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">private</span> DirectLineClient _client<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> BotService<span style="color:#1f2328">(</span><span style="color:#cf222e">string</span> directLineSecret<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">string</span><span style="color:#1f2328">.</span>IsNullOrEmpty<span style="color:#1f2328">(</span>directLineSecret<span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">throw</span> <span style="color:#cf222e">new</span> ArgumentNullException<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;Direct Line Secret is required&#34;</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    _client <span style="color:#1f2328">=</span> <span style="color:#cf222e">new</span> DirectLineClient<span style="color:#1f2328">(</span>directLineSecret<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">DirectLineClient</span> <span class="n">_client</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">BotService</span><span class="p">(</span><span class="kt">string</span> <span class="n">directLineSecret</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">directLineSecret</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">throw</span> <span class="k">new</span> <span class="n">ArgumentNullException</span><span class="p">(</span><span class="s">&#34;Direct Line Secret is required&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">_client</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DirectLineClient</span><span class="p">(</span><span class="n">directLineSecret</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>There are two important public methods: CreateConversation and SendMessage.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">async</span> Task<span style="color:#1f2328">&lt;</span><span style="color:#cf222e">string</span><span style="color:#1f2328">&gt;</span> StartConversation<span style="color:#1f2328">(</span><span style="color:#cf222e">bool</span> isDefault <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> conversation <span style="color:#1f2328">=</span> <span style="color:#cf222e">await</span> _client<span style="color:#1f2328">.</span>Conversations<span style="color:#1f2328">.</span>StartConversationAsync<span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    PollForMessages<span style="color:#1f2328">(</span>conversation<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span><span style="color:#1f2328">(</span>isDefault <span style="color:#1f2328">||</span> _defaultConversation <span style="color:#1f2328">==</span> <span style="color:#cf222e">null</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        _defaultConversation <span style="color:#1f2328">=</span> conversation<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> conversation<span style="color:#1f2328">.</span>ConversationId<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// Poll the API every second to check for new messages</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">private</span> <span style="color:#cf222e">void</span> PollForMessages<span style="color:#1f2328">(</span>Conversation conversation<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    Device<span style="color:#1f2328">.</span>StartTimer<span style="color:#1f2328">(</span><span style="color:#cf222e">new</span> TimeSpan<span style="color:#1f2328">(</span><span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">),</span> <span style="color:#1f2328">()</span> <span style="color:#1f2328">=&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> activitySet <span style="color:#1f2328">=</span> _client<span style="color:#1f2328">.</span>Conversations<span style="color:#1f2328">.</span>GetActivities<span style="color:#1f2328">(</span> conversation<span style="color:#1f2328">.</span>ConversationId<span style="color:#1f2328">,</span> _watermark<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> activities <span style="color:#1f2328">=</span> activitySet<span style="color:#1f2328">?.</span>Activities<span style="color:#1f2328">.</span>Where<span style="color:#1f2328">(</span>_ <span style="color:#1f2328">=&gt;</span> _<span style="color:#1f2328">.</span>From<span style="color:#1f2328">.</span>Id <span style="color:#1f2328">!=</span> GetUserId<span style="color:#1f2328">());</span>
-</span></span><span style="display:flex;"><span>        _watermark <span style="color:#1f2328">=</span> activitySet<span style="color:#1f2328">.</span>Watermark<span style="color:#1f2328">;</span> <span style="color:#57606a">// watermark lets us only get new messages</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>activities <span style="color:#1f2328">!=</span> <span style="color:#cf222e">null</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">foreach</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">var</span> activity <span style="color:#cf222e">in</span> activities<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>                ActivityReceived<span style="color:#1f2328">?.</span>Invoke<span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">new</span> ActivityEventArgs<span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span> Activity <span style="color:#1f2328">=</span> activity <span style="color:#1f2328">});</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">});</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">StartConversation</span><span class="p">(</span><span class="kt">bool</span> <span class="n">isDefault</span> <span class="p">=</span> <span class="kc">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">conversation</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_client</span><span class="p">.</span><span class="n">Conversations</span><span class="p">.</span><span class="n">StartConversationAsync</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">PollForMessages</span><span class="p">(</span><span class="n">conversation</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">isDefault</span> <span class="p">||</span> <span class="n">_defaultConversation</span> <span class="p">==</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_defaultConversation</span> <span class="p">=</span> <span class="n">conversation</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">conversation</span><span class="p">.</span><span class="n">ConversationId</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Poll the API every second to check for new messages</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="k">void</span> <span class="n">PollForMessages</span><span class="p">(</span><span class="n">Conversation</span> <span class="n">conversation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Device</span><span class="p">.</span><span class="n">StartTimer</span><span class="p">(</span><span class="k">new</span> <span class="n">TimeSpan</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="p">()</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">activitySet</span> <span class="p">=</span> <span class="n">_client</span><span class="p">.</span><span class="n">Conversations</span><span class="p">.</span><span class="n">GetActivities</span><span class="p">(</span> <span class="n">conversation</span><span class="p">.</span><span class="n">ConversationId</span><span class="p">,</span> <span class="n">_watermark</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">activities</span> <span class="p">=</span> <span class="n">activitySet</span><span class="p">?.</span><span class="n">Activities</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">_</span> <span class="p">=&gt;</span> <span class="n">_</span><span class="p">.</span><span class="n">From</span><span class="p">.</span><span class="n">Id</span> <span class="p">!=</span> <span class="n">GetUserId</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_watermark</span> <span class="p">=</span> <span class="n">activitySet</span><span class="p">.</span><span class="n">Watermark</span><span class="p">;</span> <span class="c1">// watermark lets us only get new messages</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">activities</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">activity</span> <span class="k">in</span> <span class="n">activities</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ActivityReceived</span><span class="p">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">new</span> <span class="n">ActivityEventArgs</span><span class="p">()</span> <span class="p">{</span> <span class="n">Activity</span> <span class="p">=</span> <span class="n">activity</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>​</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">async</span> Task<span style="color:#1f2328">&lt;</span>ResourceResponse<span style="color:#1f2328">&gt;</span> SendMessage<span style="color:#1f2328">(</span> <span style="color:#cf222e">string</span> message<span style="color:#1f2328">,</span> <span style="color:#cf222e">string</span> conversationId <span style="color:#1f2328">=</span> <span style="color:#cf222e">null</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>conversationId <span style="color:#1f2328">==</span> <span style="color:#cf222e">null</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        conversationId <span style="color:#1f2328">=</span> GetDefaultConversationId<span style="color:#1f2328">();</span> <span style="color:#57606a">// get default if not specified</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// create a new Activity to send to the Bot</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    SentActivity <span style="color:#1f2328">=</span> <span style="color:#cf222e">new</span> Activity
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        From <span style="color:#1f2328">=</span> GetChannelAccount<span style="color:#1f2328">(),</span>
-</span></span><span style="display:flex;"><span>        Text <span style="color:#1f2328">=</span> message<span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>        Type <span style="color:#1f2328">=</span> ActivityTypes<span style="color:#1f2328">.</span>Message
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">};</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// invoke an event signalling an activity has been sent</span>
-</span></span><span style="display:flex;"><span>    ActivitySent<span style="color:#1f2328">?.</span>Invoke<span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">new</span> ActivityEventArgs<span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span> Activity <span style="color:#1f2328">=</span> SentActivity <span style="color:#1f2328">});</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> response <span style="color:#1f2328">=</span> <span style="color:#cf222e">await</span> _client<span style="color:#1f2328">.</span>Conversations<span style="color:#1f2328">.</span>PostActivityAsync<span style="color:#1f2328">(</span>conversationId<span style="color:#1f2328">,</span> SentActivity<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> response<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ResourceResponse</span><span class="p">&gt;</span> <span class="n">SendMessage</span><span class="p">(</span> <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span> <span class="n">conversationId</span> <span class="p">=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">conversationId</span> <span class="p">==</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">conversationId</span> <span class="p">=</span> <span class="n">GetDefaultConversationId</span><span class="p">();</span> <span class="c1">// get default if not specified</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// create a new Activity to send to the Bot</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">SentActivity</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Activity</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">From</span> <span class="p">=</span> <span class="n">GetChannelAccount</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Text</span> <span class="p">=</span> <span class="n">message</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Type</span> <span class="p">=</span> <span class="n">ActivityTypes</span><span class="p">.</span><span class="n">Message</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// invoke an event signalling an activity has been sent</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ActivitySent</span><span class="p">?.</span><span class="n">Invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">new</span> <span class="n">ActivityEventArgs</span><span class="p">()</span> <span class="p">{</span> <span class="n">Activity</span> <span class="p">=</span> <span class="n">SentActivity</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_client</span><span class="p">.</span><span class="n">Conversations</span><span class="p">.</span><span class="n">PostActivityAsync</span><span class="p">(</span><span class="n">conversationId</span><span class="p">,</span> <span class="n">SentActivity</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">response</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>​</p>
-<h4 id="monitor-the-conversation">Monitor the Conversation</h4>
-<p>We need to make a user interface for chatting with the bot. We add these two events to our <a href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/Implementations/BotService.cs">BotService class</a> in order to track when things happen.</p>
+
+<h4 class="relative group">Monitor the Conversation 
+    <div id="monitor-the-conversation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#monitor-the-conversation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>We need to make a user interface for chatting with the bot. We add these two events to our <a
+  href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/Implementations/BotService.cs"
+    target="_blank"
+  >BotService class</a> in order to track when things happen.</p>
 <p>​</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">event</span> EventHandler<span style="color:#1f2328">&lt;</span>ActivityEventArgs<span style="color:#1f2328">&gt;</span> ActivitySent<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">event</span> EventHandler<span style="color:#1f2328">&lt;</span>ActivityEventArgs<span style="color:#1f2328">&gt;</span> ActivityReceived<span style="color:#1f2328">;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">event</span> <span class="n">EventHandler</span><span class="p">&lt;</span><span class="n">ActivityEventArgs</span><span class="p">&gt;</span> <span class="n">ActivitySent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">event</span> <span class="n">EventHandler</span><span class="p">&lt;</span><span class="n">ActivityEventArgs</span><span class="p">&gt;</span> <span class="n">ActivityReceived</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>​</p>
 <p>These two events are going to let us update our UI any time we send or receive a message from the Bot. We add every activity we send/ receive to an observable collection that we bind to a ListView. Actually, we&rsquo;re going to use a custom UI element, described below, but it inherits from the standard Xamarin Forms ListView.</p>
-<p>The <a href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/ViewModels/ConversationViewModel.cs">ConversationViewModel</a> class contains the following property:</p>
+<p>The <a
+  href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/ViewModels/ConversationViewModel.cs"
+    target="_blank"
+  >ConversationViewModel</a> class contains the following property:</p>
 <p><code> public ObservableCollection&lt;Activity&gt; Messages { get; set; }</code></p>
 <p>​</p>
 <p>and in our XAML view, we create a listview that binds to that collection.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;ListView</span> <span style="color:#1f2328">x:Name=</span><span style="color:#0a3069">&#34;ChatListView&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ItemsSource=</span><span style="color:#0a3069">&#34;{Binding Messages}&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ItemTemplate=</span><span style="color:#0a3069">&#34;{StaticResource activityDataTemplateSelector}&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">SeparatorVisibility=</span><span style="color:#0a3069">&#34;None&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">HasUnevenRows=</span><span style="color:#0a3069">&#34;True&#34;</span><span style="color:#0550ae">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;customViews:ChatListView.Effects&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&lt;effects:ListViewScrollToBottomEffect</span> <span style="color:#0550ae">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&lt;effects:ListViewStackFromBottomEffect</span> <span style="color:#0550ae">/&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#0550ae">&lt;/customViews:ChatListView.Effects&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;/ListView&gt;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;ListView</span> <span class="na">x:Name=</span><span class="s">&#34;ChatListView&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="na">ItemsSource=</span><span class="s">&#34;{Binding Messages}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">ItemTemplate=</span><span class="s">&#34;{StaticResource activityDataTemplateSelector}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">SeparatorVisibility=</span><span class="s">&#34;None&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">HasUnevenRows=</span><span class="s">&#34;True&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;customViews:ChatListView.Effects&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;effects:ListViewScrollToBottomEffect</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;effects:ListViewStackFromBottomEffect</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&lt;/customViews:ChatListView.Effects&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/ListView&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>There are two interesting parts of this XAML:</p>
@@ -312,366 +486,582 @@
 <p><code>&lt;customViews:ChatListView.Effects&gt;</code></p>
 </li>
 </ul>
-<h4 id="data-templates">Data Templates</h4>
+
+<h4 class="relative group">Data Templates 
+    <div id="data-templates" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#data-templates" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <p>We need to tell the difference between messages <em>to</em> and <em>from</em> the bot, and render those messages differently so the user can tell the difference. In order to do that, we use a Data Template Selector, which we referenced in the above XAML.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">class</span> <span style="color:#1f2328">ActivityDataTemplateSelector</span> <span style="color:#1f2328">:</span> DataTemplateSelector
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">public</span> DataTemplate SenderTemplate <span style="color:#1f2328">{</span> <span style="color:#cf222e">get</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">set</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">public</span> DataTemplate ReceiverTemplate <span style="color:#1f2328">{</span> <span style="color:#cf222e">get</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">set</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">public</span> DataTemplate AdaptiveCardsTemplate <span style="color:#1f2328">{</span> <span style="color:#cf222e">get</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">set</span><span style="color:#1f2328">;</span> <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">protected</span> <span style="color:#cf222e">override</span> DataTemplate OnSelectTemplate<span style="color:#1f2328">(</span><span style="color:#cf222e">object</span> item<span style="color:#1f2328">,</span> BindableObject container<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#cf222e">var</span> activity <span style="color:#1f2328">=</span> <span style="color:#1f2328">(</span>Activity<span style="color:#1f2328">)</span>item<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>activity<span style="color:#1f2328">.</span>Attachments <span style="color:#1f2328">!=</span> <span style="color:#cf222e">null</span> <span style="color:#1f2328">&amp;&amp;</span>
-</span></span><span style="display:flex;"><span>           activity<span style="color:#1f2328">.</span>Attachments<span style="color:#1f2328">.</span>Any<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>               m <span style="color:#1f2328">=&gt;</span> m<span style="color:#1f2328">.</span>ContentType <span style="color:#1f2328">==</span> <span style="color:#0a3069">&#34;application/vnd.microsoft.card.adaptive&#34;</span><span style="color:#1f2328">))</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#cf222e">return</span> AdaptiveCardsTemplate<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>           <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>activity <span style="color:#cf222e">is</span> SendPhotoActivity<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#cf222e">if</span> <span style="color:#1f2328">(((</span>SendPhotoActivity<span style="color:#1f2328">)</span>activity<span style="color:#1f2328">).</span>Path <span style="color:#1f2328">!=</span> <span style="color:#cf222e">null</span> <span style="color:#1f2328">&amp;&amp;</span> <span style="color:#1f2328">((</span>SendPhotoActivity<span style="color:#1f2328">)</span>activity<span style="color:#1f2328">).</span>Path <span style="color:#1f2328">!=</span> <span style="color:#cf222e">string</span><span style="color:#1f2328">.</span>Empty<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#cf222e">return</span> SentPhotoAttachmentTemplate<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>               <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#1f2328">((</span>Activity<span style="color:#1f2328">)</span>item<span style="color:#1f2328">).</span>From<span style="color:#1f2328">.</span>Name <span style="color:#1f2328">==</span> <span style="color:#0a3069">&#34;MyName&#34;</span> <span style="color:#1f2328">?</span> SenderTemplate <span style="color:#1f2328">:</span> ReceiverTemplate<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ActivityDataTemplateSelector</span> <span class="p">:</span> <span class="n">DataTemplateSelector</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">DataTemplate</span> <span class="n">SenderTemplate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">DataTemplate</span> <span class="n">ReceiverTemplate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">DataTemplate</span> <span class="n">AdaptiveCardsTemplate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="n">DataTemplate</span> <span class="n">OnSelectTemplate</span><span class="p">(</span><span class="kt">object</span> <span class="n">item</span><span class="p">,</span> <span class="n">BindableObject</span> <span class="n">container</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="kt">var</span> <span class="n">activity</span> <span class="p">=</span> <span class="p">(</span><span class="n">Activity</span><span class="p">)</span><span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       <span class="k">if</span> <span class="p">(</span><span class="n">activity</span><span class="p">.</span><span class="n">Attachments</span> <span class="p">!=</span> <span class="kc">null</span> <span class="p">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">           <span class="n">activity</span><span class="p">.</span><span class="n">Attachments</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">               <span class="n">m</span> <span class="p">=&gt;</span> <span class="n">m</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">==</span> <span class="s">&#34;application/vnd.microsoft.card.adaptive&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="k">return</span> <span class="n">AdaptiveCardsTemplate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">           <span class="k">if</span> <span class="p">(</span><span class="n">activity</span> <span class="k">is</span> <span class="n">SendPhotoActivity</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="k">if</span> <span class="p">(((</span><span class="n">SendPhotoActivity</span><span class="p">)</span><span class="n">activity</span><span class="p">).</span><span class="n">Path</span> <span class="p">!=</span> <span class="kc">null</span> <span class="p">&amp;&amp;</span> <span class="p">((</span><span class="n">SendPhotoActivity</span><span class="p">)</span><span class="n">activity</span><span class="p">).</span><span class="n">Path</span> <span class="p">!=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">               <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                   <span class="k">return</span> <span class="n">SentPhotoAttachmentTemplate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">               <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">((</span><span class="n">Activity</span><span class="p">)</span><span class="n">item</span><span class="p">).</span><span class="n">From</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&#34;MyName&#34;</span> <span class="p">?</span> <span class="n">SenderTemplate</span> <span class="p">:</span> <span class="n">ReceiverTemplate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Then, in XAML, we bind those three public properties to views which will be rendered at runtime depending on the type of activity. For example, our receiver activity template looks like this:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;DataTemplate</span> <span style="color:#1f2328">x:Key=</span><span style="color:#0a3069">&#34;receiverActivityTemplate&#34;</span><span style="color:#0550ae">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;ViewCell&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&lt;Grid</span> <span style="color:#1f2328">Padding=</span><span style="color:#0a3069">&#34;10, 2, 10, 2&#34;</span><span style="color:#0550ae">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&lt;Frame</span> <span style="color:#1f2328">HasShadow=</span><span style="color:#0a3069">&#34;True&#34;</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#1f2328">VerticalOptions=</span><span style="color:#0a3069">&#34;FillAndExpand&#34;</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#1f2328">HorizontalOptions=</span><span style="color:#0a3069">&#34;FillAndExpand&#34;</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#1f2328">Margin=</span><span style="color:#0a3069">&#34;5&#34;</span>
-</span></span><span style="display:flex;"><span>                   <span style="color:#1f2328">CornerRadius=</span><span style="color:#0a3069">&#34;15&#34;</span><span style="color:#0550ae">&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#0550ae">&lt;StackLayout</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#1f2328">Orientation=</span><span style="color:#0a3069">&#34;Vertical&#34;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#1f2328">VerticalOptions=</span><span style="color:#0a3069">&#34;FillAndExpand&#34;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#1f2328">HorizontalOptions=</span><span style="color:#0a3069">&#34;FillAndExpand&#34;</span><span style="color:#0550ae">&gt;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#0550ae">&lt;md:MarkdownView</span> <span style="color:#1f2328">Markdown=</span><span style="color:#0a3069">&#34;{Binding Text}&#34;</span> <span style="color:#0550ae">/&gt;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#0550ae">&lt;Label</span> <span style="color:#1f2328">Text=</span><span style="color:#0a3069">&#34;{Binding From.Name}&#34;</span>
-</span></span><span style="display:flex;"><span>                          <span style="color:#1f2328">FontSize=</span><span style="color:#0a3069">&#34;Micro&#34;</span>
-</span></span><span style="display:flex;"><span>                          <span style="color:#1f2328">HorizontalOptions=</span><span style="color:#0a3069">&#34;EndAndExpand&#34;</span> <span style="color:#0550ae">/&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#0550ae">&lt;/StackLayout&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&lt;/Frame&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&lt;/Grid&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;/ViewCell&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;/DataTemplate&gt;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;DataTemplate</span> <span class="na">x:Key=</span><span class="s">&#34;receiverActivityTemplate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;ViewCell&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;Grid</span> <span class="na">Padding=</span><span class="s">&#34;10, 2, 10, 2&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;Frame</span> <span class="na">HasShadow=</span><span class="s">&#34;True&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="na">VerticalOptions=</span><span class="s">&#34;FillAndExpand&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="na">HorizontalOptions=</span><span class="s">&#34;FillAndExpand&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="na">Margin=</span><span class="s">&#34;5&#34;</span>
+</span></span><span class="line"><span class="cl">                   <span class="na">CornerRadius=</span><span class="s">&#34;15&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                 <span class="nt">&lt;StackLayout</span>
+</span></span><span class="line"><span class="cl">                      <span class="na">Orientation=</span><span class="s">&#34;Vertical&#34;</span>
+</span></span><span class="line"><span class="cl">                      <span class="na">VerticalOptions=</span><span class="s">&#34;FillAndExpand&#34;</span>
+</span></span><span class="line"><span class="cl">                      <span class="na">HorizontalOptions=</span><span class="s">&#34;FillAndExpand&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">                      <span class="nt">&lt;md:MarkdownView</span> <span class="na">Markdown=</span><span class="s">&#34;{Binding Text}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                      <span class="nt">&lt;Label</span> <span class="na">Text=</span><span class="s">&#34;{Binding From.Name}&#34;</span>
+</span></span><span class="line"><span class="cl">                          <span class="na">FontSize=</span><span class="s">&#34;Micro&#34;</span>
+</span></span><span class="line"><span class="cl">                          <span class="na">HorizontalOptions=</span><span class="s">&#34;EndAndExpand&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/StackLayout&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/Frame&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/Grid&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/ViewCell&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/DataTemplate&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Which we bind to the selector as follows:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;dataTemplates:ActivityDataTemplateSelector</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">x:Key=</span><span style="color:#0a3069">&#34;activityDataTemplateSelector&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">ReceiverTemplate=</span><span style="color:#0a3069">&#34;{StaticResource receiverActivityTemplate}&#34;</span> <span style="color:#0550ae">/&gt;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dataTemplates:ActivityDataTemplateSelector</span>
+</span></span><span class="line"><span class="cl">    <span class="na">x:Key=</span><span class="s">&#34;activityDataTemplateSelector&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">ReceiverTemplate=</span><span class="s">&#34;{StaticResource receiverActivityTemplate}&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>​</p>
-<h4 id="using-effects">Using Effects</h4>
-<p>Effects are a great way to add platform specific features to your Xamarin Forms UI. Jim Bennet has a really great (and short!) blog post on <a href="https://www.jimbobbennett.io/effects-in-xamarin-forms/">how to implement Effects in Xamarin Forms</a>.</p>
+
+<h4 class="relative group">Using Effects 
+    <div id="using-effects" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#using-effects" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Effects are a great way to add platform specific features to your Xamarin Forms UI. Jim Bennet has a really great (and short!) blog post on <a
+  href="https://www.jimbobbennett.io/effects-in-xamarin-forms/"
+    target="_blank"
+  >how to implement Effects in Xamarin Forms</a>.</p>
 <p>One effect you might find useful is listing messages from the bottom.</p>
 <p>In Android, we need to access the native listview control. With effects, it&rsquo;s easy!</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">class</span> <span style="color:#1f2328">DroidListViewStackFromBottomEffect</span> <span style="color:#1f2328">:</span> PlatformEffect
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">protected</span> <span style="color:#cf222e">override</span> <span style="color:#cf222e">void</span> OnAttached<span style="color:#1f2328">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> listView <span style="color:#1f2328">=</span> Control <span style="color:#cf222e">as</span> Android<span style="color:#1f2328">.</span>Widget<span style="color:#1f2328">.</span>ListView<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>listView <span style="color:#1f2328">!=</span> <span style="color:#cf222e">null</span><span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            listView<span style="color:#1f2328">.</span>StackFromBottom <span style="color:#1f2328">=</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">protected</span> <span style="color:#cf222e">override</span> <span style="color:#cf222e">void</span> OnDetached<span style="color:#1f2328">(){}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">DroidListViewStackFromBottomEffect</span> <span class="p">:</span> <span class="n">PlatformEffect</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">OnAttached</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">listView</span> <span class="p">=</span> <span class="n">Control</span> <span class="k">as</span> <span class="n">Android</span><span class="p">.</span><span class="n">Widget</span><span class="p">.</span><span class="n">ListView</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">listView</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">listView</span><span class="p">.</span><span class="n">StackFromBottom</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">OnDetached</span><span class="p">(){}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Check out the <a href="https://github.com/xtellurian/Botframework.Xamarin">GitHub repo</a> to see all three effects we implemented: Stacking from bottom, auto scrolling, and a keyboard &lsquo;done&rsquo; button.</p>
-<h4 id="using-custom-renderers">Using Custom Renderers</h4>
-<p>Another cool feature of Xamarin Forms are <a href="https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/">custom renderers</a>. Every UI Container in Xamarin Forms renders to a platform specific UI Control. For example, a <a href="https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/">Xamarin Forms ListView</a> when running in Android, is actually rendered to a native <a href="https://developer.android.com/guide/topics/ui/layout/listview.html">Android ListView</a>. By writing a custom renderer, we can control the way our UI is converted to native controls.
+</div><p>Check out the <a
+  href="https://github.com/xtellurian/Botframework.Xamarin"
+    target="_blank"
+  >GitHub repo</a> to see all three effects we implemented: Stacking from bottom, auto scrolling, and a keyboard &lsquo;done&rsquo; button.</p>
+
+<h4 class="relative group">Using Custom Renderers 
+    <div id="using-custom-renderers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#using-custom-renderers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Another cool feature of Xamarin Forms are <a
+  href="https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/custom-renderer/"
+    target="_blank"
+  >custom renderers</a>. Every UI Container in Xamarin Forms renders to a platform specific UI Control. For example, a <a
+  href="https://developer.xamarin.com/guides/xamarin-forms/user-interface/listview/"
+    target="_blank"
+  >Xamarin Forms ListView</a> when running in Android, is actually rendered to a native <a
+  href="https://developer.android.com/guide/topics/ui/layout/listview.html"
+    target="_blank"
+  >Android ListView</a>. By writing a custom renderer, we can control the way our UI is converted to native controls.
 ​</p>
-<h4 id="working-with-adaptive-cards">Working with Adaptive Cards</h4>
-<p>We&rsquo;re going to use a custom renderer to render <a href="http://adaptivecards.io/">adaptive cards</a> received in a conversation. Adaptive Cards are a great way to serialize a display and share it across multiple user experiences. The same adaptive card may be rendered on Facebook Messenger or Microsoft Teams, and though it contains the same information and functionality, the platform renders it to look though it&rsquo;s a native implementation (because it is).</p>
-<h6 id="download-and-build-the-adaptive-card-renderer-for-xamarin-forms">Download and Build the Adaptive Card Renderer for Xamarin Forms</h6>
-<p>Adaptive Cards by Microsoft is a 100% open source project. <a href="https://github.com/Microsoft/AdaptiveCards">Check them out on GitHub</a>.</p>
+
+<h4 class="relative group">Working with Adaptive Cards 
+    <div id="working-with-adaptive-cards" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#working-with-adaptive-cards" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>We&rsquo;re going to use a custom renderer to render <a
+  href="http://adaptivecards.io/"
+    target="_blank"
+  >adaptive cards</a> received in a conversation. Adaptive Cards are a great way to serialize a display and share it across multiple user experiences. The same adaptive card may be rendered on Facebook Messenger or Microsoft Teams, and though it contains the same information and functionality, the platform renders it to look though it&rsquo;s a native implementation (because it is).</p>
+
+<h6 class="relative group">Download and Build the Adaptive Card Renderer for Xamarin Forms 
+    <div id="download-and-build-the-adaptive-card-renderer-for-xamarin-forms" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#download-and-build-the-adaptive-card-renderer-for-xamarin-forms" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>Adaptive Cards by Microsoft is a 100% open source project. <a
+  href="https://github.com/Microsoft/AdaptiveCards"
+    target="_blank"
+  >Check them out on GitHub</a>.</p>
 <p>Adaptive Cards are designed to render anywhere that your users are. The following native platform renderers are under development right now.</p>
-<p>Android -&gt; <a href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/android">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/17418.svg" alt="Build status"></p>
+<p>Android -&gt; <a
+  href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/android"
+    target="_blank"
+  >Source</a> 
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Build status" src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/17418.svg">
+
+  
+</figure>
+</p>
 <p>​
-HTML -&gt; <a href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/html">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18415.svg" alt="Build Status"></p>
-<p>iOS -&gt; <a href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/ios">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16990.svg" alt="Build status"></p>
-<p>WPF -&gt; <a href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18203.svg" alt="Build Status"></p>
-<p>UWP -&gt; <a href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/uwp">Source</a> <img src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16850.svg" alt="Build Status"></p>
-<p>Xamarin.Forms -&gt; <em>No ETA yet</em> - <a href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet">Source</a>- Alpha</p>
+HTML -&gt; <a
+  href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/html"
+    target="_blank"
+  >Source</a> 
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Build Status" src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18415.svg">
+
+  
+</figure>
+</p>
+<p>iOS -&gt; <a
+  href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/ios"
+    target="_blank"
+  >Source</a> 
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Build status" src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16990.svg">
+
+  
+</figure>
+</p>
+<p>WPF -&gt; <a
+  href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet"
+    target="_blank"
+  >Source</a> 
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Build Status" src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/18203.svg">
+
+  
+</figure>
+</p>
+<p>UWP -&gt; <a
+  href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/uwp"
+    target="_blank"
+  >Source</a> 
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Build Status" src="https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16850.svg">
+
+  
+</figure>
+</p>
+<p>Xamarin.Forms -&gt; <em>No ETA yet</em> - <a
+  href="https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet"
+    target="_blank"
+  >Source</a>- Alpha</p>
 <p>At time of writing, the Xamarin Forms Renderer is still in alpha - which means we&rsquo;ve included a pre-built library in the /lib directory of our project.</p>
-<h6 id="rendering-adaptive-cards">Rendering Adaptive Cards</h6>
+
+<h6 class="relative group">Rendering Adaptive Cards 
+    <div id="rendering-adaptive-cards" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rendering-adaptive-cards" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
 <p>We implemented a custom renderer &amp; data template combination that allowed us to render adaptive cards directly in the ListView.</p>
 <p>There are three important parts to rendering the card.</p>
 <p>First we need to select the correct Data Template based on the incoming activity. These lines in ActivityDataTemplateSelector achieve just that</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>activity<span style="color:#1f2328">.</span>Attachments <span style="color:#1f2328">!=</span> <span style="color:#cf222e">null</span> <span style="color:#1f2328">&amp;&amp;</span>
-</span></span><span style="display:flex;"><span>    activity<span style="color:#1f2328">.</span>Attachments<span style="color:#1f2328">.</span>Any<span style="color:#1f2328">(</span>m <span style="color:#1f2328">=&gt;</span> m<span style="color:#1f2328">.</span>ContentType <span style="color:#1f2328">==</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0a3069">&#34;application/vnd.microsoft.card.adaptive&#34;</span><span style="color:#1f2328">))</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> AdaptiveCardsTemplate<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">activity</span><span class="p">.</span><span class="n">Attachments</span> <span class="p">!=</span> <span class="kc">null</span> <span class="p">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">activity</span><span class="p">.</span><span class="n">Attachments</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">m</span> <span class="p">=&gt;</span> <span class="n">m</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">==</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;application/vnd.microsoft.card.adaptive&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">AdaptiveCardsTemplate</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Second, we create a custom view inheriting from StackLayout</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">class</span> <span style="color:#1f2328">AdaptiveCardLayout</span> <span style="color:#1f2328">:</span> StackLayout
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">public</span> <span style="color:#cf222e">event</span> EventHandler OnAction<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">public</span> <span style="color:#cf222e">void</span> InvokeOnAction<span style="color:#1f2328">(</span><span style="color:#cf222e">object</span> sender<span style="color:#1f2328">,</span> ActionEventArgs args<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        Device<span style="color:#1f2328">.</span>BeginInvokeOnMainThread<span style="color:#1f2328">(()</span> <span style="color:#1f2328">=&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            MessagingCenter<span style="color:#1f2328">.</span>Send<span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;AdaptiveCardAction&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AdaptiveCardLayout</span> <span class="p">:</span> <span class="n">StackLayout</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">OnAction</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">InvokeOnAction</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ActionEventArgs</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Device</span><span class="p">.</span><span class="n">BeginInvokeOnMainThread</span><span class="p">(()</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">MessagingCenter</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&#34;AdaptiveCardAction&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>This custom view is bound, via a data template definition in XAML.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#0550ae">&lt;DataTemplate</span> <span style="color:#1f2328">x:Key=</span><span style="color:#0a3069">&#34;adaptiveCardsTemplate&#34;</span><span style="color:#0550ae">&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;ViewCell&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&lt;customViews:AdaptiveCardLayout</span> <span style="color:#0550ae">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;/ViewCell&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;/DataTemplate&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;dataTemplates:ActivityDataTemplateSelector</span> <span style="color:#1f2328">x:Key=</span><span style="color:#0a3069">&#34;activityDataTemplateSelector&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">AdaptiveCardsTemplate=</span><span style="color:#0a3069">&#34;{StaticResource adaptiveCardsTemplate}&#34;</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;DataTemplate</span> <span class="na">x:Key=</span><span class="s">&#34;adaptiveCardsTemplate&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;ViewCell&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;customViews:AdaptiveCardLayout</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/ViewCell&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/DataTemplate&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dataTemplates:ActivityDataTemplateSelector</span> <span class="na">x:Key=</span><span class="s">&#34;activityDataTemplateSelector&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="na">AdaptiveCardsTemplate=</span><span class="s">&#34;{StaticResource adaptiveCardsTemplate}&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>​</p>
 <p>Thirdly, we use the adaptive cards renderer to actually render the card.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a">// this code is shortened for brevity, and should not be used.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#cf222e">public</span> <span style="color:#cf222e">class</span> <span style="color:#1f2328">DroidAdaptiveCardLayoutRenderer</span> <span style="color:#1f2328">:</span> ViewRenderer<span style="color:#1f2328">&lt;</span>AdaptiveCardLayout<span style="color:#1f2328">,</span> Android<span style="color:#1f2328">.</span>Views<span style="color:#1f2328">.</span>View<span style="color:#1f2328">&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">protected</span> <span style="color:#cf222e">override</span> <span style="color:#cf222e">void</span> OnElementChanged<span style="color:#1f2328">(</span>ElementChangedEventArgs<span style="color:#1f2328">&lt;</span>AdaptiveCardLayout<span style="color:#1f2328">&gt;</span> e<span style="color:#1f2328">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> activity <span style="color:#1f2328">=</span> e<span style="color:#1f2328">.</span>NewElement<span style="color:#1f2328">.</span>BindingContext <span style="color:#cf222e">as</span> Bot<span style="color:#1f2328">.</span>Connector<span style="color:#1f2328">.</span>DirectLine<span style="color:#1f2328">.</span>Activity<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> renderer <span style="color:#1f2328">=</span> <span style="color:#cf222e">new</span> AdaptiveCards<span style="color:#1f2328">.</span>Rendering<span style="color:#1f2328">.</span>AdaptiveCardRenderer<span style="color:#1f2328">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> cardAttachments <span style="color:#1f2328">=</span> activity<span style="color:#1f2328">.</span>Attachments<span style="color:#1f2328">.</span>Where<span style="color:#1f2328">(</span>
-</span></span><span style="display:flex;"><span>          m <span style="color:#1f2328">=&gt;</span> m<span style="color:#1f2328">.</span>ContentType <span style="color:#1f2328">==</span> <span style="color:#0a3069">&#34;application/vnd.microsoft.card.adaptive&#34;</span><span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> jObject <span style="color:#1f2328">=</span> <span style="color:#1f2328">(</span>JObject<span style="color:#1f2328">)</span>attachment<span style="color:#1f2328">.</span>Content<span style="color:#1f2328">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> xaml <span style="color:#1f2328">=</span> renderer<span style="color:#1f2328">.</span>RenderCard<span style="color:#1f2328">(</span>card<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        e<span style="color:#1f2328">.</span>NewElement<span style="color:#1f2328">.</span>Children<span style="color:#1f2328">.</span>Add<span style="color:#1f2328">(</span>xaml<span style="color:#1f2328">.</span>View<span style="color:#1f2328">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// this code is shortened for brevity, and should not be used.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">DroidAdaptiveCardLayoutRenderer</span> <span class="p">:</span> <span class="n">ViewRenderer</span><span class="p">&lt;</span><span class="n">AdaptiveCardLayout</span><span class="p">,</span> <span class="n">Android</span><span class="p">.</span><span class="n">Views</span><span class="p">.</span><span class="n">View</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">OnElementChanged</span><span class="p">(</span><span class="n">ElementChangedEventArgs</span><span class="p">&lt;</span><span class="n">AdaptiveCardLayout</span><span class="p">&gt;</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">activity</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">NewElement</span><span class="p">.</span><span class="n">BindingContext</span> <span class="k">as</span> <span class="n">Bot</span><span class="p">.</span><span class="n">Connector</span><span class="p">.</span><span class="n">DirectLine</span><span class="p">.</span><span class="n">Activity</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">renderer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AdaptiveCards</span><span class="p">.</span><span class="n">Rendering</span><span class="p">.</span><span class="n">AdaptiveCardRenderer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">cardAttachments</span> <span class="p">=</span> <span class="n">activity</span><span class="p">.</span><span class="n">Attachments</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="n">m</span> <span class="p">=&gt;</span> <span class="n">m</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">==</span> <span class="s">&#34;application/vnd.microsoft.card.adaptive&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">jObject</span> <span class="p">=</span> <span class="p">(</span><span class="n">JObject</span><span class="p">)</span><span class="n">attachment</span><span class="p">.</span><span class="n">Content</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">xaml</span> <span class="p">=</span> <span class="n">renderer</span><span class="p">.</span><span class="n">RenderCard</span><span class="p">(</span><span class="n">card</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">e</span><span class="p">.</span><span class="n">NewElement</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">xaml</span><span class="p">.</span><span class="n">View</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>You can see our droid <a href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin.Android/Renderers/DroidAdaptiveCardLayoutRenderer.cs">renderer on GitHub</a>.</p>
-<h4 id="sample-project">Sample Project</h4>
+</div><p>You can see our droid <a
+  href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin.Android/Renderers/DroidAdaptiveCardLayoutRenderer.cs"
+    target="_blank"
+  >renderer on GitHub</a>.</p>
+
+<h4 class="relative group">Sample Project 
+    <div id="sample-project" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#sample-project" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <p>​We used these patterns and code in a 3 day hack with the Australian tax office. Hey look, its a robot that helps you with your tax!</p>
-<p>​<img src="/images/xamarinchatbots/ATO_App.gif" alt="A Sample Conversation"></p>
-<p>​You can see the <a href="https://github.com/xtellurian/Botframework.Xamarin">complete solution on GitHub</a></p>
+<p>​
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="A Sample Conversation" src="/images/xamarinchatbots/ATO_App.gif">
+
+  
+</figure>
+</p>
+<p>​You can see the <a
+  href="https://github.com/xtellurian/Botframework.Xamarin"
+    target="_blank"
+  >complete solution on GitHub</a></p>
 <p>​</p>
-<h4 id="further-reading">Further Reading</h4>
+
+<h4 class="relative group">Further Reading 
+    <div id="further-reading" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#further-reading" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <ul>
 <li>
-<p><a href="http://adaptivecards.io/">Adaptive Cards</a></p>
+<p><a
+  href="http://adaptivecards.io/"
+    target="_blank"
+  >Adaptive Cards</a></p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/bot-framework">Bot Framework Docs</a></p>
+<p><a
+  href="https://docs.microsoft.com/en-us/bot-framework"
+    target="_blank"
+  >Bot Framework Docs</a></p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts">Bot Framework DirectLine API</a></p>
+<p><a
+  href="https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts"
+    target="_blank"
+  >Bot Framework DirectLine API</a></p>
 </li>
 <li>
-<p><a href="https://github.com/MSFTAuDX/BotBoiler">Bot Boiler Framework</a></p>
+<p><a
+  href="https://github.com/MSFTAuDX/BotBoiler"
+    target="_blank"
+  >Bot Boiler Framework</a></p>
 </li>
 <li>
-<p><a href="https://www.visualstudio.com/downloads/">Download Visual Studio</a></p>
+<p><a
+  href="https://www.visualstudio.com/downloads/"
+    target="_blank"
+  >Download Visual Studio</a></p>
 </li>
 <li>
-<p><a href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">Xamarin.Forms &amp; DotNet Standard</a></p>
+<p><a
+  href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/"
+    target="_blank"
+  >Xamarin.Forms &amp; DotNet Standard</a></p>
 </li>
 <li>
-<p><a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard">.Net Standard</a></p>
+<p><a
+  href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard"
+    target="_blank"
+  >.Net Standard</a></p>
 </li>
 <li>
-<p><a href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/">Upgrade a PCL to .NET Standard</a></p>
+<p><a
+  href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/"
+    target="_blank"
+  >Upgrade a PCL to .NET Standard</a></p>
 </li>
 <li>
-<p><a href="https://www.jimbobbennett.io/effects-in-xamarin-forms/">Xamarin.Forms Effects</a></p>
+<p><a
+  href="https://www.jimbobbennett.io/effects-in-xamarin-forms/"
+    target="_blank"
+  >Xamarin.Forms Effects</a></p>
 </li>
 </ul>
 <p>​</p>

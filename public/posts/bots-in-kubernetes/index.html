@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bots in Kubernetes | Rian&#39;s Website</title>
+  <title>Bots in Kubernetes | Blowfish</title>
   <meta name="description" content="Personal website and blog">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -22,273 +22,423 @@
   <h1>Bots in Kubernetes</h1>
   <p>Published on August 2, 2018</p>
   
-  <h1 id="bots-in-kube">Bots in Kube</h1>
-<p>So you&rsquo;ve built for first bot with Microsoft <a href="https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0">BotBuilder SDK</a>, deployed it to <a href="https://azure.microsoft.com/en-au/services/app-service/">Azure App Service</a> or <a href="https://cloud.google.com/appengine/">GCloud App Engine</a>, and everything is just swell. Then along comes your company&rsquo;s CTO, who says they&rsquo;ve committed to all their services having zero downtime (best effort of course). On the same day, your friend had the great idea to start doing A/B testing. What do you do?</p>
+  
+<h1 class="relative group">Bots in Kube 
+    <div id="bots-in-kube" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#bots-in-kube" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>So you&rsquo;ve built for first bot with Microsoft <a
+  href="https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0"
+    target="_blank"
+  >BotBuilder SDK</a>, deployed it to <a
+  href="https://azure.microsoft.com/en-au/services/app-service/"
+    target="_blank"
+  >Azure App Service</a> or <a
+  href="https://cloud.google.com/appengine/"
+    target="_blank"
+  >GCloud App Engine</a>, and everything is just swell. Then along comes your company&rsquo;s CTO, who says they&rsquo;ve committed to all their services having zero downtime (best effort of course). On the same day, your friend had the great idea to start doing A/B testing. What do you do?</p>
 <p>You&rsquo;ve outgrown the App Service platform. Hello Kubernetes.</p>
-<h2 id="what-to-do">What to do</h2>
+
+<h2 class="relative group">What to do 
+    <div id="what-to-do" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#what-to-do" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
 <p>There&rsquo;s three things we have to do to get our bot into k8s.</p>
 <ol>
 <li>Containerise the bot code</li>
 <li>Provision a Kubernetes Cluster</li>
 <li>Enable cluster HTTPS Ingress</li>
 </ol>
-<h2 id="containerising-a-bot">Containerising a Bot</h2>
-<p>Lucky for us, bots look mostly like web servers, and we&rsquo;re pretty good at containerising web servers. Create a <code>Dockerfile</code> that builds your bot image. It should look something like this one, which uses the <a href="https://docs.docker.com/develop/develop-images/multistage-build/">builder pattern</a> to reduce the size of the output image.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+
+<h2 class="relative group">Containerising a Bot 
+    <div id="containerising-a-bot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#containerising-a-bot" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Lucky for us, bots look mostly like web servers, and we&rsquo;re pretty good at containerising web servers. Create a <code>Dockerfile</code> that builds your bot image. It should look something like this one, which uses the <a
+  href="https://docs.docker.com/develop/develop-images/multistage-build/"
+    target="_blank"
+  >builder pattern</a> to reduce the size of the output image.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-docker" data-lang="docker"><span style="display:flex;"><span><span style="color:#57606a"># this file builds a bot built in Typescript.</span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">FROM</span><span style="color:#0a3069"> ubuntu:16.04 as builder</span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">RUN</span> apt-get update <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    apt-get install -y curl <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    curl -sL https://deb.nodesource.com/setup_10.x <span style="color:#1f2328">|</span> bash <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    apt-get install -y git nodejs build-essential<span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">RUN</span> npm install -g node-gyp <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#0a3069">\
-</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>    npm install -g typescript<span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">WORKDIR</span><span style="color:#0a3069"> /build</span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">COPY</span> my-bot/package.json .<span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">RUN</span> npm install <span style="color:#57606a"># this helps reduce build times during dev iteration</span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">COPY</span> my-bot .<span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">RUN</span> npm run build<span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">FROM</span><span style="color:#0a3069"> node:10-alpine</span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">WORKDIR</span><span style="color:#0a3069"> /app/</span><span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">COPY</span> --from<span style="color:#0550ae">=</span>builder /build .<span style="color:#f6f8fa;background-color:#82071e">
-</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#cf222e">ENTRYPOINT</span> <span style="color:#1f2328">[</span> <span style="color:#0a3069">&#34;node&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;js/app.js&#34;</span> <span style="color:#1f2328">]</span><span style="color:#f6f8fa;background-color:#82071e">
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># this file builds a bot built in Typescript.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> ubuntu:16.04 as builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-get install -y curl <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    curl -sL https://deb.nodesource.com/setup_10.x <span class="p">|</span> bash <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-get install -y git nodejs build-essential<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> npm install -g node-gyp <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    npm install -g typescript<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /build</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> my-bot/package.json .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> npm install <span class="c1"># this helps reduce build times during dev iteration</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> my-bot .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> npm run build<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> node:10-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app/</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /build .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span> <span class="s2">&#34;node&#34;</span><span class="p">,</span> <span class="s2">&#34;js/app.js&#34;</span> <span class="p">]</span><span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>Running the container locally and connecting with the <a href="https://github.com/Microsoft/BotFramework-Emulator">Bot Framework Emulator</a>, you might see this error</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</div><p>Running the container locally and connecting with the <a
+  href="https://github.com/Microsoft/BotFramework-Emulator"
+    target="_blank"
+  >Bot Framework Emulator</a>, you might see this error</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>BotFrameworkAdapter.processActivity(): 500 ERROR - FetchError: request to http://localhost:60321/v3/conversations/1dk6m0la5ji6/activities/bcmfna2mfjmf failed, reason: connect ECONNREFUSED 127.0.0.1:60321
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">BotFrameworkAdapter.processActivity(): 500 ERROR - FetchError: request to http://localhost:60321/v3/conversations/1dk6m0la5ji6/activities/bcmfna2mfjmf failed, reason: connect ECONNREFUSED 127.0.0.1:60321
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>That&rsquo;s because the Emulator opens a localhost port to listen for messages from the bot, but that address is not actually accessible from inside the container, hence the connection refused. You need to disable &lsquo;Bypass ngrok for local addresses&rsquo;.</p>
-<p><img src="/images/botsinkube/bypass-ngrok.png" alt="Screenshot of bypass ngrok on localhost setting disabled"></p>
-<h3 id="publish-the-image">Publish the image</h3>
-<p>Once you&rsquo;ve built the image, publish it to the repository of your choice, e.g. <a href="https://hub.docker.com/">Docker Hub</a>. Now it&rsquo;s ready to be deployed into the cluster.</p>
-<h2 id="provision-a-kubernetes-cluster">Provision a Kubernetes Cluster</h2>
+<p>
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Screenshot of bypass ngrok on localhost setting disabled" src="/images/botsinkube/bypass-ngrok.png">
+
+  
+</figure>
+</p>
+
+<h3 class="relative group">Publish the image 
+    <div id="publish-the-image" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#publish-the-image" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Once you&rsquo;ve built the image, publish it to the repository of your choice, e.g. <a
+  href="https://hub.docker.com/"
+    target="_blank"
+  >Docker Hub</a>. Now it&rsquo;s ready to be deployed into the cluster.</p>
+
+<h2 class="relative group">Provision a Kubernetes Cluster 
+    <div id="provision-a-kubernetes-cluster" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#provision-a-kubernetes-cluster" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
 <p>Now creating a kubernetes cluster from scratch is hard. If your like me, you&rsquo;d prefer if someone else did the hard work for you. Well they have!</p>
-<p><a href="https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough">Azure Kubernetes Service (AKS)</a> is the fasted way to get a cluster up and running. Just spin it up via Azure CLI. Then run this command - <code>az aks get-credentials</code> - and kubectl now interacts with the cluster. Almost too easy.</p>
+<p><a
+  href="https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough"
+    target="_blank"
+  >Azure Kubernetes Service (AKS)</a> is the fasted way to get a cluster up and running. Just spin it up via Azure CLI. Then run this command - <code>az aks get-credentials</code> - and kubectl now interacts with the cluster. Almost too easy.</p>
 <blockquote>
 <p>Side note: It&rsquo;s important to have a stateless bot (i.e. state remains in a remote database like CosmosDB and not memory) because Kubernetes deployments work best this way.</p></blockquote>
-<h3 id="deploy-the-bot">Deploy the bot</h3>
+
+<h3 class="relative group">Deploy the bot 
+    <div id="deploy-the-bot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#deploy-the-bot" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <p>Your bot will need three kubernetes objects: a <code>deployment</code>, a <code>service</code>, and a <code>secret</code>.</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">apiVersion</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>apps/v1<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">kind</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Deployment<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">metadata</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot-deployment<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">labels</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">app</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">spec</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">replicas</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">2</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">selector</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">matchLabels</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">app</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">template</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">metadata</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">labels</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">app</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">spec</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">containers</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">image</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>dockerhubrepo/my-bot:tag<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">ports</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>- <span style="color:#0550ae">containerPort</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">80</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">env</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>- <span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>PORT<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">value</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0a3069">&#34;80&#34;</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>- <span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>MICROSOFT_APP_ID<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">valueFrom</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#0550ae">secretKeyRef</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">              </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>microsoft-bot-app<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">              </span><span style="color:#0550ae">key</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>app-id<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span>- <span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>MICROSOFT_APP_PASSWORD<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">valueFrom</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">            </span><span style="color:#0550ae">secretKeyRef</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">              </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>microsoft-bot-app<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">              </span><span style="color:#0550ae">key</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>app-password<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#24292e">---</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">kind</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Service<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">apiVersion</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>v1<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">metadata</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot-service<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">spec</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">selector</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">app</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">ports</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span>- <span style="color:#0550ae">protocol</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>TCP<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">port</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">80</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">targetPort</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">80</span><span style="color:#fff">
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot-deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">dockerhubrepo/my-bot:tag</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">PORT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">MICROSOFT_APP_ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">microsoft-bot-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">app-id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">MICROSOFT_APP_PASSWORD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">microsoft-bot-app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">app-password</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>Create the secret:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> /your/secrets/directory
-</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> -n <span style="color:#0a3069">&#39;your-id&#39;</span> &gt; ./app-id
-</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> -n <span style="color:#0a3069">&#39;your-password&#39;</span> &gt; ./app-password
-</span></span><span style="display:flex;"><span>kubectl create secret generic microsoft-bot-app --from-file<span style="color:#0550ae">=</span>./app-password --from-file<span style="color:#0550ae">=</span>./app-id
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /your/secrets/directory
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s1">&#39;your-id&#39;</span> &gt; ./app-id
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s1">&#39;your-password&#39;</span> &gt; ./app-password
+</span></span><span class="line"><span class="cl">kubectl create secret generic microsoft-bot-app --from-file<span class="o">=</span>./app-password --from-file<span class="o">=</span>./app-id
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="enable-cluster-https-ingress">Enable Cluster HTTPS Ingress</h2>
-<p>This step is probably the most convoluted, but once you&rsquo;re up and running, it should require much intervention. I&rsquo;m not going to rewrite all the steps (there are many) but follow <a href="https://docs.microsoft.com/en-us/azure/aks/ingress">this walkthrough</a> for enabling HTTPS ingress on AKS.</p>
+</div>
+<h2 class="relative group">Enable Cluster HTTPS Ingress 
+    <div id="enable-cluster-https-ingress" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#enable-cluster-https-ingress" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This step is probably the most convoluted, but once you&rsquo;re up and running, it should require much intervention. I&rsquo;m not going to rewrite all the steps (there are many) but follow <a
+  href="https://docs.microsoft.com/en-us/azure/aks/ingress"
+    target="_blank"
+  >this walkthrough</a> for enabling HTTPS ingress on AKS.</p>
 <blockquote>
 <p>Note: Be sure to use <code>letsencrypt-prod</code> - the Bot Emulator and Azure Bot Service will not work unless the bot is hosted under a trusted certificate.</p></blockquote>
 <p>If you&rsquo;re following the anove walkthrough, you&rsquo;ll need to customise your http ingress routes.</p>
 <p>Modify the K8s Ingress object to look something like this:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#0550ae">apiVersion</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>extensions/v1beta1<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">kind</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>Ingress<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">metadata</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">name</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot-ingress<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">annotations</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">kubernetes.io/ingress.class</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>nginx<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">certmanager.k8s.io/cluster-issuer</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>letsencrypt-prod<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">nginx.ingress.kubernetes.io/rewrite-target</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>/<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#0550ae">spec</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">tls</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span>- <span style="color:#0550ae">hosts</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span>- my-dns-name.australiaeast.cloudapp.azure.com<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">secretName</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>tls-secret<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#0550ae">rules</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span>- <span style="color:#0550ae">host</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-dns-name.australiaeast.cloudapp.azure.com<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">    </span><span style="color:#0550ae">http</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span><span style="color:#0550ae">paths</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">      </span>- <span style="color:#0550ae">path</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>/bot<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">        </span><span style="color:#0550ae">backend</span><span style="color:#1f2328">:</span><span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">serviceName</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span>my-bot-service<span style="color:#fff">
-</span></span></span><span style="display:flex;"><span><span style="color:#fff">          </span><span style="color:#0550ae">servicePort</span><span style="color:#1f2328">:</span><span style="color:#fff"> </span><span style="color:#0550ae">80</span><span style="color:#fff">
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">extensions/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot-ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">certmanager.k8s.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="l">letsencrypt-prod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">nginx.ingress.kubernetes.io/rewrite-target</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">hosts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">my-dns-name.australiaeast.cloudapp.azure.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l">tls-secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l">my-dns-name.australiaeast.cloudapp.azure.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/bot</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">servicePort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>That&rsquo;s it, you&rsquo;re done. You should be able to connect to your bot at <code>https://my-dns-name.australiaeast.cloudapp.azure.com/bot/api/messages</code></p>
-<h2 id="sample">Sample</h2>
-<p>You can see a full sample <a href="https://github.com/xtellurian/halp-bot">on github</a></p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="the-bot-doesnt-respond-at-all">The bot doesn&rsquo;t respond at all&hellip;</h3>
+
+<h2 class="relative group">Sample 
+    <div id="sample" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#sample" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>You can see a full sample <a
+  href="https://github.com/xtellurian/halp-bot"
+    target="_blank"
+  >on github</a></p>
+
+<h2 class="relative group">Troubleshooting 
+    <div id="troubleshooting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#troubleshooting" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">The bot doesn&rsquo;t respond at all&hellip; 
+    <div id="the-bot-doesnt-respond-at-all" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#the-bot-doesnt-respond-at-all" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <p>Check the validity of the certificate by navigating to your https url in a browser. If the browser doesn&rsquo;t trust the certificate, your ingress isn&rsquo;t configured properly. Check the issuer of the certificate.</p>
-<h3 id="the-bot-says-im-unauthorized">The bot says I&rsquo;m unauthorized&hellip;</h3>
-<p>Check the values of MICROSOFT_APP_ID and MICROSOFT_APP_PASSWORD. They should be the same in the <a href="https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-concepts?view=azure-bot-service-3.0#bot-connector-service">Bot Service Connector</a> and in your code. The password is hidden inside a kubernetes secret.</p>
-<h3 id="something-is-wrong">Something is wrong&hellip;</h3>
+
+<h3 class="relative group">The bot says I&rsquo;m unauthorized&hellip; 
+    <div id="the-bot-says-im-unauthorized" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#the-bot-says-im-unauthorized" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Check the values of MICROSOFT_APP_ID and MICROSOFT_APP_PASSWORD. They should be the same in the <a
+  href="https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-connector-concepts?view=azure-bot-service-3.0#bot-connector-service"
+    target="_blank"
+  >Bot Service Connector</a> and in your code. The password is hidden inside a kubernetes secret.</p>
+
+<h3 class="relative group">Something is wrong&hellip; 
+    <div id="something-is-wrong" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#something-is-wrong" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <p>You can get the logs from your container with the following command</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl logs --selector<span style="color:#0550ae">=</span><span style="color:#953800">app</span><span style="color:#0550ae">=</span>my-bot
-</span></span><span style="display:flex;"><span>restify listening to http://<span style="color:#0550ae">[</span>::<span style="color:#0550ae">]</span>:80
-</span></span><span style="display:flex;"><span>Yes, this service is alive
-</span></span><span style="display:flex;"><span>recieved a message
-</span></span><span style="display:flex;"><span>Replying: <span style="color:#0550ae">[</span>conversationUpdate event detected<span style="color:#0550ae">]</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl logs --selector<span class="o">=</span><span class="nv">app</span><span class="o">=</span>my-bot
+</span></span><span class="line"><span class="cl">restify listening to http://<span class="o">[</span>::<span class="o">]</span>:80
+</span></span><span class="line"><span class="cl">Yes, this service is alive
+</span></span><span class="line"><span class="cl">recieved a message
+</span></span><span class="line"><span class="cl">Replying: <span class="o">[</span>conversationUpdate event detected<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
