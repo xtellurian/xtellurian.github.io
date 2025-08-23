@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Rian&#39;s Website</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://xtellurian.github.io/blog/</link>
     <description>Recent content in Blog on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xtellurian.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

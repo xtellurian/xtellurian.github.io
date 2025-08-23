@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web-Development on Rian&#39;s Website</title>
-    <link>http://localhost:1313/tags/web-development/</link>
+    <link>https://xtellurian.github.io/tags/web-development/</link>
     <description>Recent content in Web-Development on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 11:11:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xtellurian.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blogging with Blazor and Cloudflare</title>
-      <link>http://localhost:1313/posts/blazor-blog/</link>
+      <link>https://xtellurian.github.io/posts/blazor-blog/</link>
       <pubDate>Wed, 13 Dec 2023 11:11:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/blazor-blog/</guid>
+      <guid>https://xtellurian.github.io/posts/blazor-blog/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor&#34;&gt;Blazor&lt;/a&gt; is a dotnet/ C# based web app framework. It promises that you&amp;rsquo;ll be able to &lt;strong&gt;&amp;ldquo;build full stack web apps without writing a line of JavaScript.&amp;rdquo;&lt;/strong&gt; At time of writing, this post is hosted on a Blazor frontend application. While building the blogging engine, I discovered that Blazor is cool, it runs on &lt;a href=&#34;https://pages.cloudflare.com&#34;&gt;Cloudflare Pages&lt;/a&gt;, it&amp;rsquo;s a good dev experience, but it&amp;rsquo;s no substitute for JavaScript (yet).&lt;/p&gt;&#xA;&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;&#xA;&lt;p&gt;I decided to use a Blazor WASM project for this site, because I wanted to run it on Cloudflare pages. Pages are awesome because they run on Cloudflare&amp;rsquo;s edge network, AND they come for free. Unfortunately, while Cloudflare does offer a &amp;ldquo;server-side&amp;rdquo; environment (called Cloudflare Workers), they only support a Javascript runtime. For full-stack Blazor (including server-side rendering) a different hosting service might be required.&lt;/p&gt;</description>
     </item>
   </channel>

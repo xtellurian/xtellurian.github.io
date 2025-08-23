@@ -8,11 +8,16 @@
   "scripts": {
     "build": "hugo",
     "serve": "hugo server",
-    "dev": "hugo server"
+    "dev": "hugo server",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "dependencies": {
     "clean-css": "^5.3.3",
     "html-minifier": "^4.0.0"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "yarn@1.22.22",
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
 }
