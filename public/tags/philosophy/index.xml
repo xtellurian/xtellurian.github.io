@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Philosophy on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/philosophy/</link>
+    <link>http://localhost:1313/tags/philosophy/</link>
     <description>Recent content in Philosophy on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Oct 2014 17:00:00 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/philosophy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/philosophy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On Free Will</title>
-      <link>https://xtellurian.github.io/posts/on-free-will/</link>
+      <link>http://localhost:1313/posts/on-free-will/</link>
       <pubDate>Thu, 23 Oct 2014 17:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/on-free-will/</guid>
+      <guid>http://localhost:1313/posts/on-free-will/</guid>
       <description>&lt;p&gt;Choice and free will are convenient conceptual shorthands to express some of the complexity of human existence. But what &lt;em&gt;is &lt;/em&gt;freedom? Are all choices free choices, and what are the hidden ideological and cognitive structures that give meaning to those questions? Ultimately, ideas of self are intimately entwined with conceptions of and belief in free will, and we must examine the conceptual, cultural and spiritual roots of self to come to terms with freedom, will and choice. First, I must describe orthodox free will and its origins in western enlightenment philosophy. Then, after critiquing this view, I will offer an alternative, not by directly answering the question, but by a different interpretation of self. My proposition is that to ask whether one has free will, one implicitly legitimises a European-derived conceptualisation of self, which can induce motivation and spiritual pain.&lt;/p&gt;</description>
     </item>
   </channel>

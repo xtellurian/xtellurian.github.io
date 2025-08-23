@@ -1,8 +1,0 @@
-{
-  "title": "Rian's Website",
-  "description": "Personal website and blog",
-  "url": "https://xtellurian.github.io",
-  "author": "Rian Finnegan",
-  "authorEmail": "rian.finnegan@orkestra.energy",
-  "buildTime": "{% now 'iso' %}"
-}

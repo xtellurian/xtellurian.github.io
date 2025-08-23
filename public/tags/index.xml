@@ -2,213 +2,213 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 11:11:00 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blazor</title>
-      <link>https://xtellurian.github.io/tags/blazor/</link>
+      <link>http://localhost:1313/tags/blazor/</link>
       <pubDate>Wed, 13 Dec 2023 11:11:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/blazor/</guid>
+      <guid>http://localhost:1313/tags/blazor/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloudflare</title>
-      <link>https://xtellurian.github.io/tags/cloudflare/</link>
+      <link>http://localhost:1313/tags/cloudflare/</link>
       <pubDate>Wed, 13 Dec 2023 11:11:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/cloudflare/</guid>
+      <guid>http://localhost:1313/tags/cloudflare/</guid>
       <description></description>
     </item>
     <item>
       <title>Dotnet</title>
-      <link>https://xtellurian.github.io/tags/dotnet/</link>
+      <link>http://localhost:1313/tags/dotnet/</link>
       <pubDate>Wed, 13 Dec 2023 11:11:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/dotnet/</guid>
+      <guid>http://localhost:1313/tags/dotnet/</guid>
       <description></description>
     </item>
     <item>
       <title>Web-Development</title>
-      <link>https://xtellurian.github.io/tags/web-development/</link>
+      <link>http://localhost:1313/tags/web-development/</link>
       <pubDate>Wed, 13 Dec 2023 11:11:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/web-development/</guid>
+      <guid>http://localhost:1313/tags/web-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Cherry</title>
-      <link>https://xtellurian.github.io/tags/cherry/</link>
+      <link>http://localhost:1313/tags/cherry/</link>
       <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/cherry/</guid>
+      <guid>http://localhost:1313/tags/cherry/</guid>
       <description></description>
     </item>
     <item>
       <title>Entrepreneurship</title>
-      <link>https://xtellurian.github.io/tags/entrepreneurship/</link>
+      <link>http://localhost:1313/tags/entrepreneurship/</link>
       <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/entrepreneurship/</guid>
+      <guid>http://localhost:1313/tags/entrepreneurship/</guid>
       <description></description>
     </item>
     <item>
       <title>Reflection</title>
-      <link>https://xtellurian.github.io/tags/reflection/</link>
+      <link>http://localhost:1313/tags/reflection/</link>
       <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/reflection/</guid>
+      <guid>http://localhost:1313/tags/reflection/</guid>
       <description></description>
     </item>
     <item>
       <title>Startups</title>
-      <link>https://xtellurian.github.io/tags/startups/</link>
+      <link>http://localhost:1313/tags/startups/</link>
       <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/startups/</guid>
+      <guid>http://localhost:1313/tags/startups/</guid>
       <description></description>
     </item>
     <item>
       <title>Azure</title>
-      <link>https://xtellurian.github.io/tags/azure/</link>
+      <link>http://localhost:1313/tags/azure/</link>
       <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/azure/</guid>
+      <guid>http://localhost:1313/tags/azure/</guid>
       <description></description>
     </item>
     <item>
       <title>Event-Processing</title>
-      <link>https://xtellurian.github.io/tags/event-processing/</link>
+      <link>http://localhost:1313/tags/event-processing/</link>
       <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/event-processing/</guid>
+      <guid>http://localhost:1313/tags/event-processing/</guid>
       <description></description>
     </item>
     <item>
       <title>Technology</title>
-      <link>https://xtellurian.github.io/tags/technology/</link>
+      <link>http://localhost:1313/tags/technology/</link>
       <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/technology/</guid>
+      <guid>http://localhost:1313/tags/technology/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>https://xtellurian.github.io/tags/web/</link>
+      <link>http://localhost:1313/tags/web/</link>
       <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/web/</guid>
+      <guid>http://localhost:1313/tags/web/</guid>
       <description></description>
     </item>
     <item>
       <title>Bots-in-Kubernetes</title>
-      <link>https://xtellurian.github.io/tags/bots-in-kubernetes/</link>
+      <link>http://localhost:1313/tags/bots-in-kubernetes/</link>
       <pubDate>Thu, 02 Aug 2018 11:11:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/bots-in-kubernetes/</guid>
+      <guid>http://localhost:1313/tags/bots-in-kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Smarter-Npcs-With-Natural-Language-Processing</title>
-      <link>https://xtellurian.github.io/tags/smarter-npcs-with-natural-language-processing/</link>
+      <link>http://localhost:1313/tags/smarter-npcs-with-natural-language-processing/</link>
       <pubDate>Wed, 23 May 2018 13:53:49 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/smarter-npcs-with-natural-language-processing/</guid>
+      <guid>http://localhost:1313/tags/smarter-npcs-with-natural-language-processing/</guid>
       <description></description>
     </item>
     <item>
       <title>Xamarin-Chatbots</title>
-      <link>https://xtellurian.github.io/tags/xamarin-chatbots/</link>
+      <link>http://localhost:1313/tags/xamarin-chatbots/</link>
       <pubDate>Sun, 11 Mar 2018 21:11:09 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/xamarin-chatbots/</guid>
+      <guid>http://localhost:1313/tags/xamarin-chatbots/</guid>
       <description></description>
     </item>
     <item>
       <title>Digital-Assistants-Azure-Eventgrid</title>
-      <link>https://xtellurian.github.io/tags/digital-assistants-azure-eventgrid/</link>
+      <link>http://localhost:1313/tags/digital-assistants-azure-eventgrid/</link>
       <pubDate>Sun, 04 Mar 2018 16:13:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/digital-assistants-azure-eventgrid/</guid>
+      <guid>http://localhost:1313/tags/digital-assistants-azure-eventgrid/</guid>
       <description></description>
     </item>
     <item>
       <title>Openai-Windows</title>
-      <link>https://xtellurian.github.io/tags/openai-windows/</link>
+      <link>http://localhost:1313/tags/openai-windows/</link>
       <pubDate>Wed, 07 Feb 2018 11:29:13 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/openai-windows/</guid>
+      <guid>http://localhost:1313/tags/openai-windows/</guid>
       <description></description>
     </item>
     <item>
       <title>Tensorflow-Keras-Windows</title>
-      <link>https://xtellurian.github.io/tags/tensorflow-keras-windows/</link>
+      <link>http://localhost:1313/tags/tensorflow-keras-windows/</link>
       <pubDate>Sun, 28 Jan 2018 12:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/tensorflow-keras-windows/</guid>
+      <guid>http://localhost:1313/tags/tensorflow-keras-windows/</guid>
       <description></description>
     </item>
     <item>
       <title>What-Happened-to-the-Internet</title>
-      <link>https://xtellurian.github.io/tags/what-happened-to-the-internet/</link>
+      <link>http://localhost:1313/tags/what-happened-to-the-internet/</link>
       <pubDate>Thu, 23 Nov 2017 11:11:11 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/what-happened-to-the-internet/</guid>
+      <guid>http://localhost:1313/tags/what-happened-to-the-internet/</guid>
       <description></description>
     </item>
     <item>
       <title>Learning-to-Trade</title>
-      <link>https://xtellurian.github.io/tags/learning-to-trade/</link>
+      <link>http://localhost:1313/tags/learning-to-trade/</link>
       <pubDate>Sat, 11 Nov 2017 11:11:11 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/learning-to-trade/</guid>
+      <guid>http://localhost:1313/tags/learning-to-trade/</guid>
       <description></description>
     </item>
     <item>
       <title>Drake-and-Trappist1</title>
-      <link>https://xtellurian.github.io/tags/drake-and-trappist1/</link>
+      <link>http://localhost:1313/tags/drake-and-trappist1/</link>
       <pubDate>Mon, 21 Aug 2017 10:23:43 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/drake-and-trappist1/</guid>
+      <guid>http://localhost:1313/tags/drake-and-trappist1/</guid>
       <description></description>
     </item>
     <item>
       <title>Review-Our-Broken-Steps</title>
-      <link>https://xtellurian.github.io/tags/review-our-broken-steps/</link>
+      <link>http://localhost:1313/tags/review-our-broken-steps/</link>
       <pubDate>Wed, 11 Jan 2017 10:23:43 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/review-our-broken-steps/</guid>
+      <guid>http://localhost:1313/tags/review-our-broken-steps/</guid>
       <description></description>
     </item>
     <item>
       <title>The-Power-of-Stone</title>
-      <link>https://xtellurian.github.io/tags/the-power-of-stone/</link>
+      <link>http://localhost:1313/tags/the-power-of-stone/</link>
       <pubDate>Fri, 23 Dec 2016 20:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/the-power-of-stone/</guid>
+      <guid>http://localhost:1313/tags/the-power-of-stone/</guid>
       <description></description>
     </item>
     <item>
       <title>Identity-Politics</title>
-      <link>https://xtellurian.github.io/tags/identity-politics/</link>
+      <link>http://localhost:1313/tags/identity-politics/</link>
       <pubDate>Sat, 23 May 2015 10:23:43 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/identity-politics/</guid>
+      <guid>http://localhost:1313/tags/identity-politics/</guid>
       <description></description>
     </item>
     <item>
       <title>Consciousness</title>
-      <link>https://xtellurian.github.io/tags/consciousness/</link>
+      <link>http://localhost:1313/tags/consciousness/</link>
       <pubDate>Thu, 23 Oct 2014 17:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/consciousness/</guid>
+      <guid>http://localhost:1313/tags/consciousness/</guid>
       <description></description>
     </item>
     <item>
       <title>Free-Will</title>
-      <link>https://xtellurian.github.io/tags/free-will/</link>
+      <link>http://localhost:1313/tags/free-will/</link>
       <pubDate>Thu, 23 Oct 2014 17:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/free-will/</guid>
+      <guid>http://localhost:1313/tags/free-will/</guid>
       <description></description>
     </item>
     <item>
       <title>Philosophy</title>
-      <link>https://xtellurian.github.io/tags/philosophy/</link>
+      <link>http://localhost:1313/tags/philosophy/</link>
       <pubDate>Thu, 23 Oct 2014 17:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/philosophy/</guid>
+      <guid>http://localhost:1313/tags/philosophy/</guid>
       <description></description>
     </item>
     <item>
       <title>Spirituality</title>
-      <link>https://xtellurian.github.io/tags/spirituality/</link>
+      <link>http://localhost:1313/tags/spirituality/</link>
       <pubDate>Thu, 23 Oct 2014 17:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/spirituality/</guid>
+      <guid>http://localhost:1313/tags/spirituality/</guid>
       <description></description>
     </item>
     <item>
       <title>The-Battle-for-Eurasia</title>
-      <link>https://xtellurian.github.io/tags/the-battle-for-eurasia/</link>
+      <link>http://localhost:1313/tags/the-battle-for-eurasia/</link>
       <pubDate>Fri, 23 May 2014 20:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/tags/the-battle-for-eurasia/</guid>
+      <guid>http://localhost:1313/tags/the-battle-for-eurasia/</guid>
       <description></description>
     </item>
   </channel>

@@ -6,14 +6,11 @@
   "author": "Rian Finnegan <rian.finnegan@orkestra.energy>",
   "license": "MIT",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve",
-    "dev": "eleventy --serve"
+    "build": "hugo",
+    "serve": "hugo server",
+    "dev": "hugo server"
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
     "clean-css": "^5.3.3",
     "html-minifier": "^4.0.0"
   },

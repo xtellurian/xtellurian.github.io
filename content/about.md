@@ -4,7 +4,7 @@ title: About
 
 # About Me
 
-Hello! I'm Rian Finnegan. This is a simple website built using Hugo, converted from Eleventy.
+Hello! I'm Rian Finnegan. This is a simple website built using Hugo.
 
 ## Skills
 

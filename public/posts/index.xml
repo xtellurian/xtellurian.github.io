@@ -2,129 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 11:11:00 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blogging with Blazor and Cloudflare</title>
-      <link>https://xtellurian.github.io/posts/blazor-blog/</link>
+      <link>http://localhost:1313/posts/blazor-blog/</link>
       <pubDate>Wed, 13 Dec 2023 11:11:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/blazor-blog/</guid>
+      <guid>http://localhost:1313/posts/blazor-blog/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor&#34;&gt;Blazor&lt;/a&gt; is a dotnet/ C# based web app framework. It promises that you&amp;rsquo;ll be able to &lt;strong&gt;&amp;ldquo;build full stack web apps without writing a line of JavaScript.&amp;rdquo;&lt;/strong&gt; At time of writing, this post is hosted on a Blazor frontend application. While building the blogging engine, I discovered that Blazor is cool, it runs on &lt;a href=&#34;https://pages.cloudflare.com&#34;&gt;Cloudflare Pages&lt;/a&gt;, it&amp;rsquo;s a good dev experience, but it&amp;rsquo;s no substitute for JavaScript (yet).&lt;/p&gt;&#xA;&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;&#xA;&lt;p&gt;I decided to use a Blazor WASM project for this site, because I wanted to run it on Cloudflare pages. Pages are awesome because they run on Cloudflare&amp;rsquo;s edge network, AND they come for free. Unfortunately, while Cloudflare does offer a &amp;ldquo;server-side&amp;rdquo; environment (called Cloudflare Workers), they only support a Javascript runtime. For full-stack Blazor (including server-side rendering) a different hosting service might be required.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Reflections on a startup</title>
-      <link>https://xtellurian.github.io/posts/cherry_reflections/</link>
+      <link>http://localhost:1313/posts/cherry_reflections/</link>
       <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/cherry_reflections/</guid>
+      <guid>http://localhost:1313/posts/cherry_reflections/</guid>
       <description>&lt;p&gt;For the last 18 months I&amp;rsquo;ve been building a startup, but we&amp;rsquo;ve decided to close it down. It was a tough decision, but the right one. Even though it failed, I have only minor regrets. The company failed to grow, but I experienced personal growth that would be unachievable in a regular job. Would I do it again? Yes.&lt;/p&gt;&#xA;&lt;p&gt;Cherry Recommends was a SaaS platform (not really, but the term&amp;rsquo;s in vogue) for improving the effectiveness of promotions in e-commerce. We used machine learning algorithms to target individual customers with &amp;ldquo;the best&amp;rdquo; promotion. When used in properly, Cherry could increase revenue (yes, &lt;em&gt;revenue&lt;/em&gt;) by 15%. Honestly, we thought it was pretty cool. It was ugly, it was hard to use, and hard to explain - but with financial outcomes like that, we were confident we&amp;rsquo;d find a way. But after 9 months of searching, we just weren&amp;rsquo;t able to acquire new customers at anything near the required rate. We tried changing the our target customer, changing our brand, changing our messaging, and changing our pricing. But those things weren&amp;rsquo;t the problem. The problem was simple: people did not want to buy our product.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A secret to Event Processing</title>
-      <link>https://xtellurian.github.io/posts/secret-to-event-processing/</link>
+      <link>http://localhost:1313/posts/secret-to-event-processing/</link>
       <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/secret-to-event-processing/</guid>
+      <guid>http://localhost:1313/posts/secret-to-event-processing/</guid>
       <description>&lt;p&gt;At Cherry, we process hundreds of events per second. For Cherry users, we capture and process data every time their customers visit a web page, take an action, purchase an item, etc. Processing events is a mission critical function to understand customer behaviour in real time. So when we discovered that processing latency for some Cherry users was several days, finding and solving the issue became our #1 priority.&lt;/p&gt;&#xA;&lt;p&gt;I wrote this to help anyone in a similar position and share what we learned.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bots in Kubernetes</title>
-      <link>https://xtellurian.github.io/posts/bots-in-kubernetes/</link>
+      <link>http://localhost:1313/posts/bots-in-kubernetes/</link>
       <pubDate>Thu, 02 Aug 2018 11:11:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/bots-in-kubernetes/</guid>
+      <guid>http://localhost:1313/posts/bots-in-kubernetes/</guid>
       <description>&lt;h1 id=&#34;bots-in-kube&#34;&gt;Bots in Kube&lt;/h1&gt;&#xA;&lt;p&gt;So you&amp;rsquo;ve built for first bot with Microsoft &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/bot-service/nodejs/bot-builder-nodejs-quickstart?view=azure-bot-service-3.0&#34;&gt;BotBuilder SDK&lt;/a&gt;, deployed it to &lt;a href=&#34;https://azure.microsoft.com/en-au/services/app-service/&#34;&gt;Azure App Service&lt;/a&gt; or &lt;a href=&#34;https://cloud.google.com/appengine/&#34;&gt;GCloud App Engine&lt;/a&gt;, and everything is just swell. Then along comes your company&amp;rsquo;s CTO, who says they&amp;rsquo;ve committed to all their services having zero downtime (best effort of course). On the same day, your friend had the great idea to start doing A/B testing. What do you do?&lt;/p&gt;&#xA;&lt;p&gt;You&amp;rsquo;ve outgrown the App Service platform. Hello Kubernetes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Smarter NPCs with Natural Language Processing</title>
-      <link>https://xtellurian.github.io/posts/smarter-npcs-with-natural-language-processing/</link>
+      <link>http://localhost:1313/posts/smarter-npcs-with-natural-language-processing/</link>
       <pubDate>Wed, 23 May 2018 13:53:49 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/smarter-npcs-with-natural-language-processing/</guid>
-      <description>&lt;h2 id=&#34;what-happened-in-pokemon&#34;&gt;What happened in Pokemon?&lt;/h2&gt;&#xA;&lt;p&gt;I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning. Almost all my interactions with non-player chracters (NPC) involved multiple choice answers at best, and pre-canned conversations at worst.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/NLU/Pokemonconversationscreenshot.png&#34; alt=&#34;Screenshot of a simple Yes or No answer to a question in Pokemon for Gameboy&#34;&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/smarter-npcs-with-natural-language-processing/</guid>
+      <description>&lt;h2 id=&#34;what-happened-in-pokemon&#34;&gt;What happened in Pokemon?&lt;/h2&gt;&#xA;&lt;p&gt;I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning. Almost all my interactions with non-player chracters (NPC) involved multiple choice answers at best, and pre-canned conversations at worst.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/NLU/Pokemonconversationscreenshot.png&#34; alt=&#34;Screenshot of a simple Yes or No answer to a question in Pokemon for Gameboy&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</title>
-      <link>https://xtellurian.github.io/posts/xamarin-chatbots/</link>
+      <link>http://localhost:1313/posts/xamarin-chatbots/</link>
       <pubDate>Sun, 11 Mar 2018 21:11:09 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/xamarin-chatbots/</guid>
+      <guid>http://localhost:1313/posts/xamarin-chatbots/</guid>
       <description>&lt;p&gt;One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the &lt;a href=&#34;https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts&#34;&gt;Bot Framework DirectLine API&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png&#34; alt=&#34;Screenshot of the Bot Framework Dashboard&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;build-a-bot&#34;&gt;Build a Bot&lt;/h2&gt;&#xA;&lt;p&gt;There are lots of good tutorials on how to get started writing bots using the &lt;a href=&#34;https://github.com/Microsoft/BotBuilder&#34;&gt;Microsoft Bot Builder SDK&lt;/a&gt;. If you&amp;rsquo;re just getting started, try the excellent &lt;a href=&#34;https://github.com/MissionMarsFourthHorizon/operation-max&#34;&gt;Mission Mars Tutorials&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Digital Assistants &amp; Azure Event Grid</title>
-      <link>https://xtellurian.github.io/posts/digital-assistants-azure-eventgrid/</link>
+      <link>http://localhost:1313/posts/digital-assistants-azure-eventgrid/</link>
       <pubDate>Sun, 04 Mar 2018 16:13:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/digital-assistants-azure-eventgrid/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/robot.jpg&#34; alt=&#34;Robot Assistant Cartoon&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-digital-world&#34;&gt;The Digital World&lt;/h2&gt;&#xA;&lt;p&gt;The digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds to events in the digital world, helping you that pervasive yet ephemeral environment.&lt;/p&gt;&#xA;&lt;p&gt;As the digital world becomes busier and noisier, we need cloud-scale technologies that allow us to respond to events in real time. Azure event grid proves exactly that type of medium, for events on the web and in the cloud. Using event grid and bot framework, we can build bots that observe events in the grid, let you know when important things are happening, and provide options for responding.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/digital-assistants-azure-eventgrid/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/robot.jpg&#34; alt=&#34;Robot Assistant Cartoon&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-digital-world&#34;&gt;The Digital World&lt;/h2&gt;&#xA;&lt;p&gt;The digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds to events in the digital world, helping you that pervasive yet ephemeral environment.&lt;/p&gt;&#xA;&lt;p&gt;As the digital world becomes busier and noisier, we need cloud-scale technologies that allow us to respond to events in real time. Azure event grid proves exactly that type of medium, for events on the web and in the cloud. Using event grid and bot framework, we can build bots that observe events in the grid, let you know when important things are happening, and provide options for responding.&lt;/p&gt;</description>
     </item>
     <item>
       <title>OpenAI Gym on Windows</title>
-      <link>https://xtellurian.github.io/posts/openai-windows/</link>
+      <link>http://localhost:1313/posts/openai-windows/</link>
       <pubDate>Wed, 07 Feb 2018 11:29:13 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/openai-windows/</guid>
+      <guid>http://localhost:1313/posts/openai-windows/</guid>
       <description>&lt;p&gt;OpenAI&amp;rsquo;s Gym is officially only supported on Linux and OSX. Follow these steps to get up and running on Windows using &lt;a href=&#34;https://msdn.microsoft.com/en-au/commandline/wsl/install_guide&#34;&gt;Windows Subsystem for Linux&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Update to the latest version of Windows (&amp;gt;version 1607, &amp;ldquo;Anniversary Update&amp;rdquo;)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Enable Windows Subsystem for Linux (WSL)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Open cmd, run &lt;code&gt;bash&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install python &amp;amp; gym (using sudo, and NOT PIP to install gym). So by now you should probably be able to run things and get really nasty graphics related errors. This is because WSL doesn&amp;rsquo;t support any displays, so we need to fake it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Installing Tensorflow and Keras on Windows</title>
-      <link>https://xtellurian.github.io/posts/tensorflow-keras-windows/</link>
+      <link>http://localhost:1313/posts/tensorflow-keras-windows/</link>
       <pubDate>Sun, 28 Jan 2018 12:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/tensorflow-keras-windows/</guid>
+      <guid>http://localhost:1313/posts/tensorflow-keras-windows/</guid>
       <description>&lt;p&gt;Installing Tensorflow was once challenging, bordering on impossible. Now&amp;hellip; not so much.&lt;/p&gt;&#xA;&lt;h2 id=&#34;install-anaconda&#34;&gt;Install Anaconda&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.continuum.io/what-is-anaconda&#34;&gt;Anaconda&lt;/a&gt; is a data science ecosystem, giving users access to all sorts of toolkits and frameworks. &lt;a href=&#34;https://www.continuum.io/downloads&#34;&gt;Download&lt;/a&gt; the Anaconda installer for Windows (it&amp;rsquo;s ~500MB) and install. See, that was easy!&lt;/p&gt;&#xA;&lt;h2 id=&#34;install-c-build-tools&#34;&gt;Install C++ Build Tools&lt;/h2&gt;&#xA;&lt;p&gt;If you don&amp;rsquo;t already have them installed, you&amp;rsquo;ll need to download and install the &lt;a href=&#34;http://landinghub.visualstudio.com/visual-cpp-build-tools&#34;&gt;Visual C++ Build Tools&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tf--keras&#34;&gt;TF &amp;amp; Keras&lt;/h2&gt;&#xA;&lt;p&gt;Anaconda provides a simple tool for installing TF in a virtual environment. Open up a terminal prompt and type &lt;code&gt;conda create -n tensorflow python=3.5&lt;/code&gt; . This will create a virtual environment for called tensorflow that you&amp;rsquo;ll use to encapsulate all your tensorflow libraries!&lt;/p&gt;</description>
     </item>
     <item>
       <title>What happened to the decentralised internet?</title>
-      <link>https://xtellurian.github.io/posts/what-happened-to-the-internet/</link>
+      <link>http://localhost:1313/posts/what-happened-to-the-internet/</link>
       <pubDate>Thu, 23 Nov 2017 11:11:11 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/what-happened-to-the-internet/</guid>
+      <guid>http://localhost:1313/posts/what-happened-to-the-internet/</guid>
       <description>&lt;p&gt;In the late 20th century, the pioneers of the internet and a new generation of online radicals envisioned a future where free communication, access to information, and equality of access made people increasingly fair minded, intelligent, and empathetic. In 2016, that optimism seems like naïveté. So what happened?&lt;/p&gt;&#xA;&lt;p&gt;In the early days, internet technology remained in the hands of large organisations, governments and militaries. Computers were large and expensive, and commonly used for transferring scientific or research data across multiple sites. During this phase, a key design goal was to build a non-centralised network; basically to build a robust communication system that could survive major catastrophes (aka nuclear war). Almost nobody at this time was thinking of the social impact of the technology. The whole point was to build networks that didn&amp;rsquo;t have a centre.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Learning to Trade</title>
-      <link>https://xtellurian.github.io/posts/learning-to-trade/</link>
+      <link>http://localhost:1313/posts/learning-to-trade/</link>
       <pubDate>Sat, 11 Nov 2017 11:11:11 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/learning-to-trade/</guid>
+      <guid>http://localhost:1313/posts/learning-to-trade/</guid>
       <description>&lt;p&gt;Australia&amp;rsquo;s energy market has found itself in a particularly strange place. The Finkel report, released in early June, recommends legislating for a Low Emissions Target (LET) and though there are political interests for coal fired generation (CFG), CFG will inevitably decline as alternative technologies displace it. Solar power is now one of the cheapest forms of new electricity generation, and battery storage is about to burst onto the scene. All this at a time when average wholesale prices are rising sharply, and each factor contributing to a sense of price volatility.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Drake &amp; Trappist-1</title>
-      <link>https://xtellurian.github.io/posts/drake-and-trappist1/</link>
+      <link>http://localhost:1313/posts/drake-and-trappist1/</link>
       <pubDate>Mon, 21 Aug 2017 10:23:43 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/drake-and-trappist1/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.nasa.gov/press-release/nasa-telescope-reveals-largest-batch-of-earth-size-habitable-zone-planets-around&#34;&gt;NASA&amp;rsquo;s latest announcement&lt;/a&gt; is important because of Drake.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/drake/drake-email-smile1.png&#34; alt=&#34;drake-email-smile1&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wait, not that Drake&amp;hellip; this one, &lt;a href=&#34;https://en.wikipedia.org/wiki/Drake_equation&#34;&gt;Dr Frank Drake&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/drake/Dr._Frank_Drake.jpg&#34; alt=&#34;Dr._Frank_Drake&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;He&amp;rsquo;s most famous for the Drake Equation, which provides a method for estimating the number of active, intelligent and communicating civilisations in the Milky Way Galaxy - i.e. it tells you how many aliens are out there.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/drake/drake-equation.svg&#34; alt=&#34;The Drake Equation&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;trappist-1&#34;&gt;TRAPPIST-1&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/drake/trappist-system-1.jpg&#34; alt=&#34;trappist-system-1&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;This planetary system recently discovered has 7 Earth-sized planets orbiting a single star! Three of those planets are orbiting within the &lt;em&gt;habitable zone&lt;/em&gt; - the &amp;ldquo;goldilocks area&amp;rdquo;, where conditions are just-right to support life. Strangely enough, all these planets are orbiting closer to their star than Mercury is to our own sun. Trappist-1 is an ultra-cool dwarf star. Consequently the planets can be much closer to their star and still may contain liquid water, crucial for life as we know it.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/drake-and-trappist1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.nasa.gov/press-release/nasa-telescope-reveals-largest-batch-of-earth-size-habitable-zone-planets-around&#34;&gt;NASA&amp;rsquo;s latest announcement&lt;/a&gt; is important because of Drake.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/drake/drake-email-smile1.png&#34; alt=&#34;drake-email-smile1&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wait, not that Drake&amp;hellip; this one, &lt;a href=&#34;https://en.wikipedia.org/wiki/Drake_equation&#34;&gt;Dr Frank Drake&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/drake/Dr._Frank_Drake.jpg&#34; alt=&#34;Dr._Frank_Drake&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;He&amp;rsquo;s most famous for the Drake Equation, which provides a method for estimating the number of active, intelligent and communicating civilisations in the Milky Way Galaxy - i.e. it tells you how many aliens are out there.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/drake/drake-equation.svg&#34; alt=&#34;The Drake Equation&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;trappist-1&#34;&gt;TRAPPIST-1&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/drake/trappist-system-1.jpg&#34; alt=&#34;trappist-system-1&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;This planetary system recently discovered has 7 Earth-sized planets orbiting a single star! Three of those planets are orbiting within the &lt;em&gt;habitable zone&lt;/em&gt; - the &amp;ldquo;goldilocks area&amp;rdquo;, where conditions are just-right to support life. Strangely enough, all these planets are orbiting closer to their star than Mercury is to our own sun. Trappist-1 is an ultra-cool dwarf star. Consequently the planets can be much closer to their star and still may contain liquid water, crucial for life as we know it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Review - Our Broken Steps</title>
-      <link>https://xtellurian.github.io/posts/review-our-broken-steps/</link>
+      <link>http://localhost:1313/posts/review-our-broken-steps/</link>
       <pubDate>Wed, 11 Jan 2017 10:23:43 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/review-our-broken-steps/</guid>
+      <guid>http://localhost:1313/posts/review-our-broken-steps/</guid>
       <description>&lt;p&gt;&lt;em&gt;Our Broken Steps&lt;/em&gt; is a guide to responsible travel, written by my friend Tamshuk Saha. It&amp;rsquo;s words resonated with me, as it expressed many of my own thoughts and feelings. Tamshuk addresses both the socially and environmentally destructive practices prevalent in the tourism industry throughout Asia. In the following I present a synopsis of the book, followed by an attempt to express his principles in my own words.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-broken-steps-a-synopsis&#34;&gt;Our Broken Steps: A Synopsis&lt;/h2&gt;&#xA;&lt;p&gt;Tamshuk discusses three categories of unethical travel practices:  not-so-eco-friendly travel, humanitarian abuse, and clash of cultures. The book is written in the style of a travel-guide, describing many harmful activities, and providing simple solutions that any tourist could undertake. The book is not long, and I encourage you to read it before traveling in Asia or elsewhere. Its available on &lt;a href=&#34;https://www.amazon.com/OUR-BROKEN-STEPS-Insights-Responsible-ebook/dp/B01MZ51V5F&#34;&gt;Amazon&lt;/a&gt;, and you can follow Tamshuk at his &lt;a href=&#34;http://www.tamzexplores.com/&#34;&gt;blog&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Power of Stone</title>
-      <link>https://xtellurian.github.io/posts/the-power-of-stone/</link>
+      <link>http://localhost:1313/posts/the-power-of-stone/</link>
       <pubDate>Fri, 23 Dec 2016 20:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/the-power-of-stone/</guid>
+      <guid>http://localhost:1313/posts/the-power-of-stone/</guid>
       <description>&lt;p&gt;In Rajasthan, fortified towns are separated by stretches of arid land. Centuries of sand are piled against their walls. Tourist infantry swarm the ancient structure, as rickshaw cavalry pick off the weak or confused. These aged military structures, now abandoned to hawkers and rickshaws, stand as a reminder of a different time; when the foundations of power were driven deep into the ground.&lt;/p&gt;&#xA;&lt;p&gt;Trading caravans travelled from Persia, through the mountain passes, and crossing the Indus river marked their entrance into India. Where the river flows into the Arabian sea, ships arrive at port having travelled far from the gulf coast or the peninsula to the south. Just east of the delta, fertile river plains turn quickly into dry desert. Swapping their donkeys for camels, merchants drove across that dusty land, seeking the markets of Rajasthan: the land of kings. Across this land trade routes spread like cracks through glass.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Identity is the only form of politics</title>
-      <link>https://xtellurian.github.io/posts/identity-politics/</link>
+      <link>http://localhost:1313/posts/identity-politics/</link>
       <pubDate>Sat, 23 May 2015 10:23:43 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/identity-politics/</guid>
+      <guid>http://localhost:1313/posts/identity-politics/</guid>
       <description>&lt;p&gt;Identity is the way we transpose the subjective into the objective. It is the fixed point by which we pivot between our personal universe and the social world. Identity is the only way to politics, though &amp;ldquo;Identity Politics&amp;rdquo; has been denounced by many as too post-modern, or a cause of modern political apathy, or a conscious plan by the elite to divide the working class. The denial of identity as fundamental to political or human experience is drawn from the hubris of infallibility.&lt;/p&gt;</description>
     </item>
     <item>
       <title>On Free Will</title>
-      <link>https://xtellurian.github.io/posts/on-free-will/</link>
+      <link>http://localhost:1313/posts/on-free-will/</link>
       <pubDate>Thu, 23 Oct 2014 17:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/on-free-will/</guid>
+      <guid>http://localhost:1313/posts/on-free-will/</guid>
       <description>&lt;p&gt;Choice and free will are convenient conceptual shorthands to express some of the complexity of human existence. But what &lt;em&gt;is &lt;/em&gt;freedom? Are all choices free choices, and what are the hidden ideological and cognitive structures that give meaning to those questions? Ultimately, ideas of self are intimately entwined with conceptions of and belief in free will, and we must examine the conceptual, cultural and spiritual roots of self to come to terms with freedom, will and choice. First, I must describe orthodox free will and its origins in western enlightenment philosophy. Then, after critiquing this view, I will offer an alternative, not by directly answering the question, but by a different interpretation of self. My proposition is that to ask whether one has free will, one implicitly legitimises a European-derived conceptualisation of self, which can induce motivation and spiritual pain.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Battle for Eurasia</title>
-      <link>https://xtellurian.github.io/posts/the-battle-for-eurasia/</link>
+      <link>http://localhost:1313/posts/the-battle-for-eurasia/</link>
       <pubDate>Fri, 23 May 2014 20:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/the-battle-for-eurasia/</guid>
+      <guid>http://localhost:1313/posts/the-battle-for-eurasia/</guid>
       <description>&lt;p&gt;The pieces are moving; the battle for Eurasia has begun.&lt;/p&gt;&#xA;&lt;p&gt;The 20th century saw the the first global wars. Before the onset of the great war, European powers dominated the globe through superior technology, particularly in war. Two world wars later, and the balance of power had shifted dramatically.&lt;/p&gt;&#xA;&lt;p&gt;Orthodox interpretation of the post war period proposes a war of ideologies between capitalism and collectivism. But this was essentially a collective brainwashing by the two major powers of the era: the Soviet Union and the United States. In the west, the narrative goes something like: &lt;em&gt;capitalism and democracy are fundamentally connected, and are better than communism&lt;/em&gt;. However, this interpretation entirely fails to account for the role of China in the fall of the USSR.&#xA;In 1971 Kissinger traveled to China, initiating a secret strategic relationship between the emerging Chinese Communist-led state and the Americans. In Chinese terms, using the far away enemy against the near enemy. The Sino-Soviet split became a dagger to the heart of soviet communism. The Soviet Union, which became heavily militarised and surrounded by enemies, could not sustain both its economy and military in such a hostile environment. What followed was victory for the Americans and the Chinese. Once again, orthodox interpretation of the fall resembles Fukuyama. But events in the early 21st century throw new challenges to the end of history. History, rather than ending, provides new challenges.&lt;/p&gt;</description>
     </item>
   </channel>

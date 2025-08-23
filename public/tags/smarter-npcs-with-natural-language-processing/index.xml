@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Smarter-Npcs-With-Natural-Language-Processing on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/smarter-npcs-with-natural-language-processing/</link>
+    <link>http://localhost:1313/tags/smarter-npcs-with-natural-language-processing/</link>
     <description>Recent content in Smarter-Npcs-With-Natural-Language-Processing on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 23 May 2018 13:53:49 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/smarter-npcs-with-natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/smarter-npcs-with-natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Smarter NPCs with Natural Language Processing</title>
-      <link>https://xtellurian.github.io/posts/smarter-npcs-with-natural-language-processing/</link>
+      <link>http://localhost:1313/posts/smarter-npcs-with-natural-language-processing/</link>
       <pubDate>Wed, 23 May 2018 13:53:49 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/smarter-npcs-with-natural-language-processing/</guid>
-      <description>&lt;h2 id=&#34;what-happened-in-pokemon&#34;&gt;What happened in Pokemon?&lt;/h2&gt;&#xA;&lt;p&gt;I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning. Almost all my interactions with non-player chracters (NPC) involved multiple choice answers at best, and pre-canned conversations at worst.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/NLU/Pokemonconversationscreenshot.png&#34; alt=&#34;Screenshot of a simple Yes or No answer to a question in Pokemon for Gameboy&#34;&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/smarter-npcs-with-natural-language-processing/</guid>
+      <description>&lt;h2 id=&#34;what-happened-in-pokemon&#34;&gt;What happened in Pokemon?&lt;/h2&gt;&#xA;&lt;p&gt;I remember Pokemon on GameBoy. An excellent game with many characters. Like all games (till now - more on that soon) the conversations were somewhat forced. The most creative moment was choosing your name in the beginning. Almost all my interactions with non-player chracters (NPC) involved multiple choice answers at best, and pre-canned conversations at worst.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/NLU/Pokemonconversationscreenshot.png&#34; alt=&#34;Screenshot of a simple Yes or No answer to a question in Pokemon for Gameboy&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

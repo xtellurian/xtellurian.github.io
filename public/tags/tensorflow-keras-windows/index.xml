@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tensorflow-Keras-Windows on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/tensorflow-keras-windows/</link>
+    <link>http://localhost:1313/tags/tensorflow-keras-windows/</link>
     <description>Recent content in Tensorflow-Keras-Windows on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Jan 2018 12:00:00 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/tensorflow-keras-windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/tensorflow-keras-windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing Tensorflow and Keras on Windows</title>
-      <link>https://xtellurian.github.io/posts/tensorflow-keras-windows/</link>
+      <link>http://localhost:1313/posts/tensorflow-keras-windows/</link>
       <pubDate>Sun, 28 Jan 2018 12:00:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/tensorflow-keras-windows/</guid>
+      <guid>http://localhost:1313/posts/tensorflow-keras-windows/</guid>
       <description>&lt;p&gt;Installing Tensorflow was once challenging, bordering on impossible. Now&amp;hellip; not so much.&lt;/p&gt;&#xA;&lt;h2 id=&#34;install-anaconda&#34;&gt;Install Anaconda&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.continuum.io/what-is-anaconda&#34;&gt;Anaconda&lt;/a&gt; is a data science ecosystem, giving users access to all sorts of toolkits and frameworks. &lt;a href=&#34;https://www.continuum.io/downloads&#34;&gt;Download&lt;/a&gt; the Anaconda installer for Windows (it&amp;rsquo;s ~500MB) and install. See, that was easy!&lt;/p&gt;&#xA;&lt;h2 id=&#34;install-c-build-tools&#34;&gt;Install C++ Build Tools&lt;/h2&gt;&#xA;&lt;p&gt;If you don&amp;rsquo;t already have them installed, you&amp;rsquo;ll need to download and install the &lt;a href=&#34;http://landinghub.visualstudio.com/visual-cpp-build-tools&#34;&gt;Visual C++ Build Tools&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tf--keras&#34;&gt;TF &amp;amp; Keras&lt;/h2&gt;&#xA;&lt;p&gt;Anaconda provides a simple tool for installing TF in a virtual environment. Open up a terminal prompt and type &lt;code&gt;conda create -n tensorflow python=3.5&lt;/code&gt; . This will create a virtual environment for called tensorflow that you&amp;rsquo;ll use to encapsulate all your tensorflow libraries!&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Digital-Assistants-Azure-Eventgrid on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/digital-assistants-azure-eventgrid/</link>
+    <link>http://localhost:1313/tags/digital-assistants-azure-eventgrid/</link>
     <description>Recent content in Digital-Assistants-Azure-Eventgrid on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Mar 2018 16:13:00 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/digital-assistants-azure-eventgrid/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/digital-assistants-azure-eventgrid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Digital Assistants &amp; Azure Event Grid</title>
-      <link>https://xtellurian.github.io/posts/digital-assistants-azure-eventgrid/</link>
+      <link>http://localhost:1313/posts/digital-assistants-azure-eventgrid/</link>
       <pubDate>Sun, 04 Mar 2018 16:13:00 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/digital-assistants-azure-eventgrid/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://xtellurian.github.io/images/robot.jpg&#34; alt=&#34;Robot Assistant Cartoon&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-digital-world&#34;&gt;The Digital World&lt;/h2&gt;&#xA;&lt;p&gt;The digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds to events in the digital world, helping you that pervasive yet ephemeral environment.&lt;/p&gt;&#xA;&lt;p&gt;As the digital world becomes busier and noisier, we need cloud-scale technologies that allow us to respond to events in real time. Azure event grid proves exactly that type of medium, for events on the web and in the cloud. Using event grid and bot framework, we can build bots that observe events in the grid, let you know when important things are happening, and provide options for responding.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/digital-assistants-azure-eventgrid/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/robot.jpg&#34; alt=&#34;Robot Assistant Cartoon&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-digital-world&#34;&gt;The Digital World&lt;/h2&gt;&#xA;&lt;p&gt;The digital world exists at once everyone and nowhere. Things are happening there, at the speed of light. Those events effect our lives, but as physical beings it takes us time and effort to response. A digital assistant responds to events in the digital world, helping you that pervasive yet ephemeral environment.&lt;/p&gt;&#xA;&lt;p&gt;As the digital world becomes busier and noisier, we need cloud-scale technologies that allow us to respond to events in real time. Azure event grid proves exactly that type of medium, for events on the web and in the cloud. Using event grid and bot framework, we can build bots that observe events in the grid, let you know when important things are happening, and provide options for responding.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

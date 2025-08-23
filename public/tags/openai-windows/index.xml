@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Openai-Windows on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/openai-windows/</link>
+    <link>http://localhost:1313/tags/openai-windows/</link>
     <description>Recent content in Openai-Windows on Rian&#39;s Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Feb 2018 11:29:13 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/openai-windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/openai-windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAI Gym on Windows</title>
-      <link>https://xtellurian.github.io/posts/openai-windows/</link>
+      <link>http://localhost:1313/posts/openai-windows/</link>
       <pubDate>Wed, 07 Feb 2018 11:29:13 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/openai-windows/</guid>
+      <guid>http://localhost:1313/posts/openai-windows/</guid>
       <description>&lt;p&gt;OpenAI&amp;rsquo;s Gym is officially only supported on Linux and OSX. Follow these steps to get up and running on Windows using &lt;a href=&#34;https://msdn.microsoft.com/en-au/commandline/wsl/install_guide&#34;&gt;Windows Subsystem for Linux&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Update to the latest version of Windows (&amp;gt;version 1607, &amp;ldquo;Anniversary Update&amp;rdquo;)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Enable Windows Subsystem for Linux (WSL)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Open cmd, run &lt;code&gt;bash&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install python &amp;amp; gym (using sudo, and NOT PIP to install gym). So by now you should probably be able to run things and get really nasty graphics related errors. This is because WSL doesn&amp;rsquo;t support any displays, so we need to fake it.&lt;/p&gt;</description>
     </item>
   </channel>
