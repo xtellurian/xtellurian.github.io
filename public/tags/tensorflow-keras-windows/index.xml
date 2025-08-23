@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tensorflow-Keras-Windows on Blowfish</title>
-    <link>http://localhost:1313/tags/tensorflow-keras-windows/</link>
-    <description>Recent content in Tensorflow-Keras-Windows on Blowfish</description>
+    <title>Tensorflow-Keras-Windows on Rian&#39;s Website</title>
+    <link>https://xtellurian.github.io/tags/tensorflow-keras-windows/</link>
+    <description>Recent content in Tensorflow-Keras-Windows on Rian&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>rian.finnegan@orkestra.energy (Rian Finnegan)</managingEditor>
     <webMaster>rian.finnegan@orkestra.energy (Rian Finnegan)</webMaster>
     <copyright>© 2025 Rian Finnegan</copyright>
-    <lastBuildDate>Sun, 28 Jan 2018 12:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/tensorflow-keras-windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jan 2018 12:00:00 +0000</lastBuildDate><atom:link href="https://xtellurian.github.io/tags/tensorflow-keras-windows/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Installing Tensorflow and Keras on Windows</title>
-      <link>http://localhost:1313/posts/tensorflow-keras-windows/</link>
+      <link>https://xtellurian.github.io/posts/tensorflow-keras-windows/</link>
       <pubDate>Sun, 28 Jan 2018 12:00:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/tensorflow-keras-windows/</guid>
+      <guid>https://xtellurian.github.io/posts/tensorflow-keras-windows/</guid>
       <description></description>
       
     </item>

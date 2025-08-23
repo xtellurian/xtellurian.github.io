@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cherry on Blowfish</title>
-    <link>http://localhost:1313/tags/cherry/</link>
-    <description>Recent content in Cherry on Blowfish</description>
+    <title>Cherry on Rian&#39;s Website</title>
+    <link>https://xtellurian.github.io/tags/cherry/</link>
+    <description>Recent content in Cherry on Rian&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>rian.finnegan@orkestra.energy (Rian Finnegan)</managingEditor>
     <webMaster>rian.finnegan@orkestra.energy (Rian Finnegan)</webMaster>
     <copyright>© 2025 Rian Finnegan</copyright>
-    <lastBuildDate>Tue, 19 Jul 2022 12:01:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cherry/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jul 2022 12:01:00 +0000</lastBuildDate><atom:link href="https://xtellurian.github.io/tags/cherry/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Reflections on a startup</title>
-      <link>http://localhost:1313/posts/cherry_reflections/</link>
+      <link>https://xtellurian.github.io/posts/cherry_reflections/</link>
       <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/cherry_reflections/</guid>
+      <guid>https://xtellurian.github.io/posts/cherry_reflections/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>A secret to Event Processing</title>
-      <link>http://localhost:1313/posts/secret-to-event-processing/</link>
+      <link>https://xtellurian.github.io/posts/secret-to-event-processing/</link>
       <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/secret-to-event-processing/</guid>
+      <guid>https://xtellurian.github.io/posts/secret-to-event-processing/</guid>
       <description></description>
       
     </item>

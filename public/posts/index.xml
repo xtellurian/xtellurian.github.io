@@ -1,182 +1,182 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Blowfish</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Blowfish</description>
+    <title>Posts on Rian&#39;s Website</title>
+    <link>https://xtellurian.github.io/posts/</link>
+    <description>Recent content in Posts on Rian&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>rian.finnegan@orkestra.energy (Rian Finnegan)</managingEditor>
     <webMaster>rian.finnegan@orkestra.energy (Rian Finnegan)</webMaster>
     <copyright>© 2025 Rian Finnegan</copyright>
-    <lastBuildDate>Wed, 13 Dec 2023 11:11:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Dec 2023 11:11:00 +0000</lastBuildDate><atom:link href="https://xtellurian.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Blogging with Blazor and Cloudflare</title>
-      <link>http://localhost:1313/posts/blazor-blog/</link>
+      <link>https://xtellurian.github.io/posts/blazor-blog/</link>
       <pubDate>Wed, 13 Dec 2023 11:11:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/blazor-blog/</guid>
+      <guid>https://xtellurian.github.io/posts/blazor-blog/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Reflections on a startup</title>
-      <link>http://localhost:1313/posts/cherry_reflections/</link>
+      <link>https://xtellurian.github.io/posts/cherry_reflections/</link>
       <pubDate>Tue, 19 Jul 2022 12:01:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/cherry_reflections/</guid>
+      <guid>https://xtellurian.github.io/posts/cherry_reflections/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>A secret to Event Processing</title>
-      <link>http://localhost:1313/posts/secret-to-event-processing/</link>
+      <link>https://xtellurian.github.io/posts/secret-to-event-processing/</link>
       <pubDate>Fri, 20 May 2022 09:00:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/secret-to-event-processing/</guid>
+      <guid>https://xtellurian.github.io/posts/secret-to-event-processing/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Bots in Kubernetes</title>
-      <link>http://localhost:1313/posts/bots-in-kubernetes/</link>
+      <link>https://xtellurian.github.io/posts/bots-in-kubernetes/</link>
       <pubDate>Thu, 02 Aug 2018 11:11:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/bots-in-kubernetes/</guid>
+      <guid>https://xtellurian.github.io/posts/bots-in-kubernetes/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Smarter NPCs with Natural Language Processing</title>
-      <link>http://localhost:1313/posts/smarter-npcs-with-natural-language-processing/</link>
+      <link>https://xtellurian.github.io/posts/smarter-npcs-with-natural-language-processing/</link>
       <pubDate>Wed, 23 May 2018 13:53:49 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/smarter-npcs-with-natural-language-processing/</guid>
+      <guid>https://xtellurian.github.io/posts/smarter-npcs-with-natural-language-processing/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</title>
-      <link>http://localhost:1313/posts/xamarin-chatbots/</link>
+      <link>https://xtellurian.github.io/posts/xamarin-chatbots/</link>
       <pubDate>Sun, 11 Mar 2018 21:11:09 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/xamarin-chatbots/</guid>
+      <guid>https://xtellurian.github.io/posts/xamarin-chatbots/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Digital Assistants &amp; Azure Event Grid</title>
-      <link>http://localhost:1313/posts/digital-assistants-azure-eventgrid/</link>
+      <link>https://xtellurian.github.io/posts/digital-assistants-azure-eventgrid/</link>
       <pubDate>Sun, 04 Mar 2018 16:13:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/digital-assistants-azure-eventgrid/</guid>
+      <guid>https://xtellurian.github.io/posts/digital-assistants-azure-eventgrid/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>OpenAI Gym on Windows</title>
-      <link>http://localhost:1313/posts/openai-windows/</link>
+      <link>https://xtellurian.github.io/posts/openai-windows/</link>
       <pubDate>Wed, 07 Feb 2018 11:29:13 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/openai-windows/</guid>
+      <guid>https://xtellurian.github.io/posts/openai-windows/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Installing Tensorflow and Keras on Windows</title>
-      <link>http://localhost:1313/posts/tensorflow-keras-windows/</link>
+      <link>https://xtellurian.github.io/posts/tensorflow-keras-windows/</link>
       <pubDate>Sun, 28 Jan 2018 12:00:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/tensorflow-keras-windows/</guid>
+      <guid>https://xtellurian.github.io/posts/tensorflow-keras-windows/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>What happened to the decentralised internet?</title>
-      <link>http://localhost:1313/posts/what-happened-to-the-internet/</link>
+      <link>https://xtellurian.github.io/posts/what-happened-to-the-internet/</link>
       <pubDate>Thu, 23 Nov 2017 11:11:11 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/what-happened-to-the-internet/</guid>
+      <guid>https://xtellurian.github.io/posts/what-happened-to-the-internet/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Learning to Trade</title>
-      <link>http://localhost:1313/posts/learning-to-trade/</link>
+      <link>https://xtellurian.github.io/posts/learning-to-trade/</link>
       <pubDate>Sat, 11 Nov 2017 11:11:11 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/learning-to-trade/</guid>
+      <guid>https://xtellurian.github.io/posts/learning-to-trade/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Drake &amp; Trappist-1</title>
-      <link>http://localhost:1313/posts/drake-and-trappist1/</link>
+      <link>https://xtellurian.github.io/posts/drake-and-trappist1/</link>
       <pubDate>Mon, 21 Aug 2017 10:23:43 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/drake-and-trappist1/</guid>
+      <guid>https://xtellurian.github.io/posts/drake-and-trappist1/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Review - Our Broken Steps</title>
-      <link>http://localhost:1313/posts/review-our-broken-steps/</link>
+      <link>https://xtellurian.github.io/posts/review-our-broken-steps/</link>
       <pubDate>Wed, 11 Jan 2017 10:23:43 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/review-our-broken-steps/</guid>
+      <guid>https://xtellurian.github.io/posts/review-our-broken-steps/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>The Power of Stone</title>
-      <link>http://localhost:1313/posts/the-power-of-stone/</link>
+      <link>https://xtellurian.github.io/posts/the-power-of-stone/</link>
       <pubDate>Fri, 23 Dec 2016 20:00:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/the-power-of-stone/</guid>
+      <guid>https://xtellurian.github.io/posts/the-power-of-stone/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Identity is the only form of politics</title>
-      <link>http://localhost:1313/posts/identity-politics/</link>
+      <link>https://xtellurian.github.io/posts/identity-politics/</link>
       <pubDate>Sat, 23 May 2015 10:23:43 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/identity-politics/</guid>
+      <guid>https://xtellurian.github.io/posts/identity-politics/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>On Free Will</title>
-      <link>http://localhost:1313/posts/on-free-will/</link>
+      <link>https://xtellurian.github.io/posts/on-free-will/</link>
       <pubDate>Thu, 23 Oct 2014 17:00:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/on-free-will/</guid>
+      <guid>https://xtellurian.github.io/posts/on-free-will/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>The Battle for Eurasia</title>
-      <link>http://localhost:1313/posts/the-battle-for-eurasia/</link>
+      <link>https://xtellurian.github.io/posts/the-battle-for-eurasia/</link>
       <pubDate>Fri, 23 May 2014 20:00:00 +0000</pubDate>
       <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
-      <guid>http://localhost:1313/posts/the-battle-for-eurasia/</guid>
+      <guid>https://xtellurian.github.io/posts/the-battle-for-eurasia/</guid>
       <description></description>
       
     </item>

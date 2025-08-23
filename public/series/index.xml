@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on Blowfish</title>
-    <link>http://localhost:1313/series/</link>
-    <description>Recent content in Series on Blowfish</description>
+    <title>Series on Rian&#39;s Website</title>
+    <link>https://xtellurian.github.io/series/</link>
+    <description>Recent content in Series on Rian&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>rian.finnegan@orkestra.energy (Rian Finnegan)</managingEditor>
     <webMaster>rian.finnegan@orkestra.energy (Rian Finnegan)</webMaster>
     <copyright>© 2025 Rian Finnegan</copyright>
-    <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xtellurian.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

@@ -3,126 +3,126 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/posts/blazor-blog/</loc>
+    <loc>https://xtellurian.github.io/posts/blazor-blog/</loc>
     <lastmod>2023-12-13T11:11:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://xtellurian.github.io/posts/</loc>
     <lastmod>2023-12-13T11:11:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://xtellurian.github.io/</loc>
     <lastmod>2023-12-13T11:11:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/cherry_reflections/</loc>
+    <loc>https://xtellurian.github.io/posts/cherry_reflections/</loc>
     <lastmod>2022-07-19T12:01:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/secret-to-event-processing/</loc>
+    <loc>https://xtellurian.github.io/posts/secret-to-event-processing/</loc>
     <lastmod>2022-05-20T09:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/bots-in-kubernetes/</loc>
+    <loc>https://xtellurian.github.io/posts/bots-in-kubernetes/</loc>
     <lastmod>2018-08-02T11:11:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/smarter-npcs-with-natural-language-processing/</loc>
+    <loc>https://xtellurian.github.io/posts/smarter-npcs-with-natural-language-processing/</loc>
     <lastmod>2018-05-23T13:53:49+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/xamarin-chatbots/</loc>
+    <loc>https://xtellurian.github.io/posts/xamarin-chatbots/</loc>
     <lastmod>2018-03-11T21:11:09+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/digital-assistants-azure-eventgrid/</loc>
+    <loc>https://xtellurian.github.io/posts/digital-assistants-azure-eventgrid/</loc>
     <lastmod>2018-03-04T16:13:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/openai-windows/</loc>
+    <loc>https://xtellurian.github.io/posts/openai-windows/</loc>
     <lastmod>2018-02-07T11:29:13+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/tensorflow-keras-windows/</loc>
+    <loc>https://xtellurian.github.io/posts/tensorflow-keras-windows/</loc>
     <lastmod>2018-01-28T12:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/what-happened-to-the-internet/</loc>
+    <loc>https://xtellurian.github.io/posts/what-happened-to-the-internet/</loc>
     <lastmod>2017-11-23T11:11:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/learning-to-trade/</loc>
+    <loc>https://xtellurian.github.io/posts/learning-to-trade/</loc>
     <lastmod>2017-11-11T11:11:11+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/drake-and-trappist1/</loc>
+    <loc>https://xtellurian.github.io/posts/drake-and-trappist1/</loc>
     <lastmod>2017-08-21T10:23:43+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/review-our-broken-steps/</loc>
+    <loc>https://xtellurian.github.io/posts/review-our-broken-steps/</loc>
     <lastmod>2017-01-11T10:23:43+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/the-power-of-stone/</loc>
+    <loc>https://xtellurian.github.io/posts/the-power-of-stone/</loc>
     <lastmod>2016-12-23T20:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/identity-politics/</loc>
+    <loc>https://xtellurian.github.io/posts/identity-politics/</loc>
     <lastmod>2015-05-23T10:23:43+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/on-free-will/</loc>
+    <loc>https://xtellurian.github.io/posts/on-free-will/</loc>
     <lastmod>2014-10-23T17:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/the-battle-for-eurasia/</loc>
+    <loc>https://xtellurian.github.io/posts/the-battle-for-eurasia/</loc>
     <lastmod>2014-05-23T20:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://xtellurian.github.io/about/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>https://xtellurian.github.io/blog/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

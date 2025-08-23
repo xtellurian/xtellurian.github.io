@@ -18,11 +18,6 @@ replyByEmail = false
 # Site information
 description = "Personal website and blog"
 
-[author]
-name = "Rian Finnegan"
-email = "rian.finnegan@orkestra.energy"
-image = "avatars/Rian_lookingaway2020.png"
-
 # mainSections = ["section1", "section2"]
 # robots = ""
 
