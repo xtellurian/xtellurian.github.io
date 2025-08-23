@@ -1,15 +1,20 @@
 ---
-title: About
+title: "About"
+description: "Learn more about Rian Finnegan"
+showDate: false
+showAuthor: false
+showReadingTime: false
+showEdit: false
 ---
 
 # About Me
 
-Hello! I'm Rian Finnegan. This is a simple website built using Hugo.
+Hello! I'm Rian Finnegan. This is my personal website built using Hugo and the Blowfish theme.
 
 ## Skills
 
 - Web Development
-- Data Science
+- Data Science  
 - Cloud Architecture
 
 ## Contact

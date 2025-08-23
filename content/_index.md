@@ -1,7 +1,9 @@
 ---
-title: Home
+title: "Rian Finnegan"
+description: "Personal website and blog"
+draft: false
 ---
 
-# Welcome to My Website
+Welcome to my personal website! I'm a software developer and technology enthusiast. Here you'll find my thoughts on technology, programming, and various projects I'm working on.
 
-This is a simple website built with Hugo. Feel free to explore the blog posts and learn more about me on the About page.
+Feel free to explore my blog posts and learn more about me.

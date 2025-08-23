@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Xamarin-Chatbots on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/xamarin-chatbots/</link>
-    <description>Recent content in Xamarin-Chatbots on Rian&#39;s Website</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 11 Mar 2018 21:11:09 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/xamarin-chatbots/index.xml" rel="self" type="application/rss+xml" />
+    <title>Xamarin-Chatbots on Blowfish</title>
+    <link>http://localhost:1313/tags/xamarin-chatbots/</link>
+    <description>Recent content in Xamarin-Chatbots on Blowfish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>rian.finnegan@orkestra.energy (Rian Finnegan)</managingEditor>
+    <webMaster>rian.finnegan@orkestra.energy (Rian Finnegan)</webMaster>
+    <copyright>© 2025 Rian Finnegan</copyright>
+    <lastBuildDate>Sun, 11 Mar 2018 21:11:09 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/xamarin-chatbots/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API</title>
-      <link>https://xtellurian.github.io/posts/xamarin-chatbots/</link>
+      <link>http://localhost:1313/posts/xamarin-chatbots/</link>
       <pubDate>Sun, 11 Mar 2018 21:11:09 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/xamarin-chatbots/</guid>
-      <description>&lt;p&gt;One of the best things about building chat bots with Microsoft Bot Framework is being able to have a single code base for all the channels supported by the Bot Connector, like Slack, Skype, Facebook and even an embedded HTML interface. But what if you want to make your own client? Well, in that case you can use the &lt;a href=&#34;https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts&#34;&gt;Bot Framework DirectLine API&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://docs.microsoft.com/en-us/bot-framework/media/channels/connect-to-channels.png&#34; alt=&#34;Screenshot of the Bot Framework Dashboard&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;build-a-bot&#34;&gt;Build a Bot&lt;/h2&gt;&#xA;&lt;p&gt;There are lots of good tutorials on how to get started writing bots using the &lt;a href=&#34;https://github.com/Microsoft/BotBuilder&#34;&gt;Microsoft Bot Builder SDK&lt;/a&gt;. If you&amp;rsquo;re just getting started, try the excellent &lt;a href=&#34;https://github.com/MissionMarsFourthHorizon/operation-max&#34;&gt;Mission Mars Tutorials&lt;/a&gt;.&lt;/p&gt;</description>
+      <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
+      <guid>http://localhost:1313/posts/xamarin-chatbots/</guid>
+      <description></description>
+      
     </item>
+    
   </channel>
 </rss>

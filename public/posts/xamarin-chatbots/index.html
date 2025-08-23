@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Building Xamarin.Forms Chatbots with Bot Framework Direct Line API | Blowfish</title>
@@ -11,6 +11,14 @@
   <header>
     <nav>
       <ul>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/posts/">Blog</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/categories/">Categories</a></li>
         
       </ul>
     </nav>
@@ -179,27 +187,14 @@
   href="https://xamarinhelp.com/upgrade-pcl-net-standard-class-library/"
     target="_blank"
   >converting to .NET Standard</a>. We&rsquo;ll change our PCL project (not the Android, iOS, or UWP projects) by deleting <code>packages.config</code> then unloading the project and replacing the contents of the .csproj file with the following code:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">&#34;Microsoft.NET.Sdk&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;PropertyGroup&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;TargetFramework&gt;</span>netstandard1.3<span class="nt">&lt;/TargetFramework&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;PackageTargetFallback&gt;</span>$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8<span class="nt">&lt;/PackageTargetFallback&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/PropertyGroup&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/Project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>You&rsquo;ll have to re-add and install any NuGet Packages, but at this stage it should only be the Xamarin.Forms package.</p>
+</span></span></code></pre></div><p>You&rsquo;ll have to re-add and install any NuGet Packages, but at this stage it should only be the Xamarin.Forms package.</p>
 
 <h4 class="relative group">Import DirectLine Client 
     <div id="import-directline-client" class="anchor"></div>
@@ -241,22 +236,7 @@
     target="_blank"
   >Key Concepts in DirectLine API 3.0</a></p>
 <p>First, we create a microservice class for interacting with the bot. We inject the direct line secret (from the portal) into the constructor.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">DirectLineClient</span> <span class="n">_client</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">BotService</span><span class="p">(</span><span class="kt">string</span> <span class="n">directLineSecret</span><span class="p">)</span>
@@ -267,51 +247,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">_client</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DirectLineClient</span><span class="p">(</span><span class="n">directLineSecret</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>There are two important public methods: CreateConversation and SendMessage.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span></code></pre></div><p>There are two important public methods: CreateConversation and SendMessage.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">StartConversation</span><span class="p">(</span><span class="kt">bool</span> <span class="n">isDefault</span> <span class="p">=</span> <span class="kc">true</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">conversation</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_client</span><span class="p">.</span><span class="n">Conversations</span><span class="p">.</span><span class="n">StartConversationAsync</span><span class="p">();</span>
@@ -348,38 +285,8 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>​</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+</span></span></code></pre></div><p>​</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">ResourceResponse</span><span class="p">&gt;</span> <span class="n">SendMessage</span><span class="p">(</span> <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span> <span class="n">conversationId</span> <span class="p">=</span> <span class="kc">null</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">conversationId</span> <span class="p">==</span> <span class="kc">null</span><span class="p">)</span>
@@ -403,9 +310,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_client</span><span class="p">.</span><span class="n">Conversations</span><span class="p">.</span><span class="n">PostActivityAsync</span><span class="p">(</span><span class="n">conversationId</span><span class="p">,</span> <span class="n">SentActivity</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">response</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>​</p>
+</span></span></code></pre></div><p>​</p>
 
 <h4 class="relative group">Monitor the Conversation 
     <div id="monitor-the-conversation" class="anchor"></div>
@@ -421,19 +326,10 @@
     target="_blank"
   >BotService class</a> in order to track when things happen.</p>
 <p>​</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">event</span> <span class="n">EventHandler</span><span class="p">&lt;</span><span class="n">ActivityEventArgs</span><span class="p">&gt;</span> <span class="n">ActivitySent</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">event</span> <span class="n">EventHandler</span><span class="p">&lt;</span><span class="n">ActivityEventArgs</span><span class="p">&gt;</span> <span class="n">ActivityReceived</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>​</p>
+</span></span></code></pre></div><p>​</p>
 <p>These two events are going to let us update our UI any time we send or receive a message from the Bot. We add every activity we send/ receive to an observable collection that we bind to a ListView. Actually, we&rsquo;re going to use a custom UI element, described below, but it inherits from the standard Xamarin Forms ListView.</p>
 <p>The <a
   href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin/ViewModels/ConversationViewModel.cs"
@@ -442,25 +338,7 @@
 <p><code> public ObservableCollection&lt;Activity&gt; Messages { get; set; }</code></p>
 <p>​</p>
 <p>and in our XAML view, we create a listview that binds to that collection.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;ListView</span> <span class="na">x:Name=</span><span class="s">&#34;ChatListView&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="na">ItemsSource=</span><span class="s">&#34;{Binding Messages}&#34;</span>
@@ -474,9 +352,7 @@
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;/customViews:ChatListView.Effects&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/ListView&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>There are two interesting parts of this XAML:</p>
+</span></span></code></pre></div><p>There are two interesting parts of this XAML:</p>
 <p>​</p>
 <ul>
 <li>
@@ -497,40 +373,7 @@
     
 </h4>
 <p>We need to tell the difference between messages <em>to</em> and <em>from</em> the bot, and render those messages differently so the user can tell the difference. In order to do that, we use a Data Template Selector, which we referenced in the above XAML.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">ActivityDataTemplateSelector</span> <span class="p">:</span> <span class="n">DataTemplateSelector</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">DataTemplate</span> <span class="n">SenderTemplate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
@@ -559,38 +402,8 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">((</span><span class="n">Activity</span><span class="p">)</span><span class="n">item</span><span class="p">).</span><span class="n">From</span><span class="p">.</span><span class="n">Name</span> <span class="p">==</span> <span class="s">&#34;MyName&#34;</span> <span class="p">?</span> <span class="n">SenderTemplate</span> <span class="p">:</span> <span class="n">ReceiverTemplate</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Then, in XAML, we bind those three public properties to views which will be rendered at runtime depending on the type of activity. For example, our receiver activity template looks like this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span></code></pre></div><p>Then, in XAML, we bind those three public properties to views which will be rendered at runtime depending on the type of activity. For example, our receiver activity template looks like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;DataTemplate</span> <span class="na">x:Key=</span><span class="s">&#34;receiverActivityTemplate&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;ViewCell&gt;</span>
@@ -614,24 +427,12 @@
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/Grid&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/ViewCell&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/DataTemplate&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Which we bind to the selector as follows:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
+</span></span></code></pre></div><p>Which we bind to the selector as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;dataTemplates:ActivityDataTemplateSelector</span>
 </span></span><span class="line"><span class="cl">    <span class="na">x:Key=</span><span class="s">&#34;activityDataTemplateSelector&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">ReceiverTemplate=</span><span class="s">&#34;{StaticResource receiverActivityTemplate}&#34;</span> <span class="nt">/&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>​</p>
+</span></span></code></pre></div><p>​</p>
 
 <h4 class="relative group">Using Effects 
     <div id="using-effects" class="anchor"></div>
@@ -648,27 +449,7 @@
   >how to implement Effects in Xamarin Forms</a>.</p>
 <p>One effect you might find useful is listing messages from the bottom.</p>
 <p>In Android, we need to access the native listview control. With effects, it&rsquo;s easy!</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">DroidListViewStackFromBottomEffect</span> <span class="p">:</span> <span class="n">PlatformEffect</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">OnAttached</span><span class="p">()</span>
@@ -684,9 +465,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">override</span> <span class="k">void</span> <span class="n">OnDetached</span><span class="p">(){}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Check out the <a
+</span></span></code></pre></div><p>Check out the <a
   href="https://github.com/xtellurian/Botframework.Xamarin"
     target="_blank"
   >GitHub repo</a> to see all three effects we implemented: Stacking from bottom, auto scrolling, and a keyboard &lsquo;done&rsquo; button.</p>
@@ -839,19 +618,7 @@ HTML -&gt; <a
 <p>We implemented a custom renderer &amp; data template combination that allowed us to render adaptive cards directly in the ListView.</p>
 <p>There are three important parts to rendering the card.</p>
 <p>First we need to select the correct Data Template based on the incoming activity. These lines in ActivityDataTemplateSelector achieve just that</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">activity</span><span class="p">.</span><span class="n">Attachments</span> <span class="p">!=</span> <span class="kc">null</span> <span class="p">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">activity</span><span class="p">.</span><span class="n">Attachments</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="n">m</span> <span class="p">=&gt;</span> <span class="n">m</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">==</span>
 </span></span><span class="line"><span class="cl">    <span class="s">&#34;application/vnd.microsoft.card.adaptive&#34;</span><span class="p">))</span>
@@ -859,25 +626,8 @@ HTML -&gt; <a
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">AdaptiveCardsTemplate</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Second, we create a custom view inheriting from StackLayout</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AdaptiveCardLayout</span> <span class="p">:</span> <span class="n">StackLayout</span>
+</span></span></code></pre></div><p>Second, we create a custom view inheriting from StackLayout</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">AdaptiveCardLayout</span> <span class="p">:</span> <span class="n">StackLayout</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">OnAction</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">InvokeOnAction</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ActionEventArgs</span> <span class="n">args</span><span class="p">)</span>
@@ -888,25 +638,8 @@ HTML -&gt; <a
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>This custom view is bound, via a data template definition in XAML.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;DataTemplate</span> <span class="na">x:Key=</span><span class="s">&#34;adaptiveCardsTemplate&#34;</span><span class="nt">&gt;</span>
+</span></span></code></pre></div><p>This custom view is bound, via a data template definition in XAML.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;DataTemplate</span> <span class="na">x:Key=</span><span class="s">&#34;adaptiveCardsTemplate&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;ViewCell&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;customViews:AdaptiveCardLayout</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/ViewCell&gt;</span>
@@ -917,34 +650,9 @@ HTML -&gt; <a
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;dataTemplates:ActivityDataTemplateSelector</span> <span class="na">x:Key=</span><span class="s">&#34;activityDataTemplateSelector&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="na">AdaptiveCardsTemplate=</span><span class="s">&#34;{StaticResource adaptiveCardsTemplate}&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>​</p>
+</span></span></code></pre></div><p>​</p>
 <p>Thirdly, we use the adaptive cards renderer to actually render the card.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// this code is shortened for brevity, and should not be used.</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">DroidAdaptiveCardLayoutRenderer</span> <span class="p">:</span> <span class="n">ViewRenderer</span><span class="p">&lt;</span><span class="n">AdaptiveCardLayout</span><span class="p">,</span> <span class="n">Android</span><span class="p">.</span><span class="n">Views</span><span class="p">.</span><span class="n">View</span><span class="p">&gt;</span>
@@ -963,9 +671,7 @@ HTML -&gt; <a
 </span></span><span class="line"><span class="cl">        <span class="n">e</span><span class="p">.</span><span class="n">NewElement</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">xaml</span><span class="p">.</span><span class="n">View</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>You can see our droid <a
+</span></span></code></pre></div><p>You can see our droid <a
   href="https://github.com/xtellurian/Botframework.Xamarin/blob/master/Microsoft.Botframework.Xamarin/Microsoft.Botframework.Xamarin.Android/Renderers/DroidAdaptiveCardLayoutRenderer.cs"
     target="_blank"
   >renderer on GitHub</a>.</p>
@@ -1090,7 +796,7 @@ HTML -&gt; <a
   </main>
   
   <footer>
-    <p>&copy; 2025 Rian Finnegan. All rights reserved.</p>
+    <p>&copy; 2025 map[disableimageoptimization:false disableimageoptimizationmd:false disabletextinheader:false email:rian.finnegan@orkestra.energy fingerprintalgorithm:sha512 forgejodefaultserver:https://v11.next.forgejo.org giteadefaultserver:https://git.fsfe.org image:avatars/Rian_lookingaway2020.png name:Rian Finnegan]. All rights reserved.</p>
   </footer>
 </body>
 </html>

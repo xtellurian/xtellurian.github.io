@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>What-Happened-to-the-Internet on Rian&#39;s Website</title>
-    <link>https://xtellurian.github.io/tags/what-happened-to-the-internet/</link>
-    <description>Recent content in What-Happened-to-the-Internet on Rian&#39;s Website</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 23 Nov 2017 11:11:11 +0000</lastBuildDate>
-    <atom:link href="https://xtellurian.github.io/tags/what-happened-to-the-internet/index.xml" rel="self" type="application/rss+xml" />
+    <title>What-Happened-to-the-Internet on Blowfish</title>
+    <link>http://localhost:1313/tags/what-happened-to-the-internet/</link>
+    <description>Recent content in What-Happened-to-the-Internet on Blowfish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>rian.finnegan@orkestra.energy (Rian Finnegan)</managingEditor>
+    <webMaster>rian.finnegan@orkestra.energy (Rian Finnegan)</webMaster>
+    <copyright>© 2025 Rian Finnegan</copyright>
+    <lastBuildDate>Thu, 23 Nov 2017 11:11:11 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/what-happened-to-the-internet/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>What happened to the decentralised internet?</title>
-      <link>https://xtellurian.github.io/posts/what-happened-to-the-internet/</link>
+      <link>http://localhost:1313/posts/what-happened-to-the-internet/</link>
       <pubDate>Thu, 23 Nov 2017 11:11:11 +0000</pubDate>
-      <guid>https://xtellurian.github.io/posts/what-happened-to-the-internet/</guid>
-      <description>&lt;p&gt;In the late 20th century, the pioneers of the internet and a new generation of online radicals envisioned a future where free communication, access to information, and equality of access made people increasingly fair minded, intelligent, and empathetic. In 2016, that optimism seems like naïveté. So what happened?&lt;/p&gt;&#xA;&lt;p&gt;In the early days, internet technology remained in the hands of large organisations, governments and militaries. Computers were large and expensive, and commonly used for transferring scientific or research data across multiple sites. During this phase, a key design goal was to build a non-centralised network; basically to build a robust communication system that could survive major catastrophes (aka nuclear war). Almost nobody at this time was thinking of the social impact of the technology. The whole point was to build networks that didn&amp;rsquo;t have a centre.&lt;/p&gt;</description>
+      <author>rian.finnegan@orkestra.energy (Rian Finnegan)</author>
+      <guid>http://localhost:1313/posts/what-happened-to-the-internet/</guid>
+      <description></description>
+      
     </item>
+    
   </channel>
 </rss>

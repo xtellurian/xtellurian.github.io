@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bots in Kubernetes | Blowfish</title>
@@ -11,6 +11,14 @@
   <header>
     <nav>
       <ul>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/posts/">Blog</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/categories/">Categories</a></li>
         
       </ul>
     </nav>
@@ -73,30 +81,7 @@
   href="https://docs.docker.com/develop/develop-images/multistage-build/"
     target="_blank"
   >builder pattern</a> to reduce the size of the output image.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># this file builds a bot built in Typescript.</span><span class="err">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># this file builds a bot built in Typescript.</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> ubuntu:16.04 as builder</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-get install -y curl <span class="o">&amp;&amp;</span> <span class="se">\
@@ -115,21 +100,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app/</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /build .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span> <span class="s2">&#34;node&#34;</span><span class="p">,</span> <span class="s2">&#34;js/app.js&#34;</span> <span class="p">]</span><span class="err">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>Running the container locally and connecting with the <a
+</span></span></span></code></pre></div><p>Running the container locally and connecting with the <a
   href="https://github.com/Microsoft/BotFramework-Emulator"
     target="_blank"
   >Bot Framework Emulator</a>, you might see this error</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">BotFrameworkAdapter.processActivity(): 500 ERROR - FetchError: request to http://localhost:60321/v3/conversations/1dk6m0la5ji6/activities/bcmfna2mfjmf failed, reason: connect ECONNREFUSED 127.0.0.1:60321
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>That&rsquo;s because the Emulator opens a localhost port to listen for messages from the bot, but that address is not actually accessible from inside the container, hence the connection refused. You need to disable &lsquo;Bypass ngrok for local addresses&rsquo;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">BotFrameworkAdapter.processActivity(): 500 ERROR - FetchError: request to http://localhost:60321/v3/conversations/1dk6m0la5ji6/activities/bcmfna2mfjmf failed, reason: connect ECONNREFUSED 127.0.0.1:60321
+</span></span></code></pre></div><p>That&rsquo;s because the Emulator opens a localhost port to listen for messages from the bot, but that address is not actually accessible from inside the container, hence the connection refused. You need to disable &lsquo;Bypass ngrok for local addresses&rsquo;.</p>
 <p>
 
 
@@ -185,57 +161,7 @@
     
 </h3>
 <p>Your bot will need three kubernetes objects: a <code>deployment</code>, a <code>service</code>, and a <code>secret</code>.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot-deployment</span><span class="w">
@@ -281,24 +207,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>Create the secret:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /your/secrets/directory
+</span></span></span></code></pre></div><p>Create the secret:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /your/secrets/directory
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s1">&#39;your-id&#39;</span> &gt; ./app-id
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s1">&#39;your-password&#39;</span> &gt; ./app-password
 </span></span><span class="line"><span class="cl">kubectl create secret generic microsoft-bot-app --from-file<span class="o">=</span>./app-password --from-file<span class="o">=</span>./app-id
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span></code></pre></div>
 <h2 class="relative group">Enable Cluster HTTPS Ingress 
     <div id="enable-cluster-https-ingress" class="anchor"></div>
     
@@ -316,32 +230,7 @@
 <p>Note: Be sure to use <code>letsencrypt-prod</code> - the Bot Emulator and Azure Bot Service will not work unless the bot is hosted under a trusted certificate.</p></blockquote>
 <p>If you&rsquo;re following the anove walkthrough, you&rsquo;ll need to customise your http ingress routes.</p>
 <p>Modify the K8s Ingress object to look something like this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">extensions/v1beta1</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">extensions/v1beta1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot-ingress</span><span class="w">
@@ -362,9 +251,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">backend</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="l">my-bot-service</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">servicePort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>That&rsquo;s it, you&rsquo;re done. You should be able to connect to your bot at <code>https://my-dns-name.australiaeast.cloudapp.azure.com/bot/api/messages</code></p>
+</span></span></span></code></pre></div><p>That&rsquo;s it, you&rsquo;re done. You should be able to connect to your bot at <code>https://my-dns-name.australiaeast.cloudapp.azure.com/bot/api/messages</code></p>
 
 <h2 class="relative group">Sample 
     <div id="sample" class="anchor"></div>
@@ -425,23 +312,12 @@
     
 </h3>
 <p>You can get the logs from your container with the following command</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl logs --selector<span class="o">=</span><span class="nv">app</span><span class="o">=</span>my-bot
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl logs --selector<span class="o">=</span><span class="nv">app</span><span class="o">=</span>my-bot
 </span></span><span class="line"><span class="cl">restify listening to http://<span class="o">[</span>::<span class="o">]</span>:80
 </span></span><span class="line"><span class="cl">Yes, this service is alive
 </span></span><span class="line"><span class="cl">recieved a message
 </span></span><span class="line"><span class="cl">Replying: <span class="o">[</span>conversationUpdate event detected<span class="o">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span></code></pre></div>
   
   
   <div class="tags">
@@ -466,7 +342,7 @@
   </main>
   
   <footer>
-    <p>&copy; 2025 Rian Finnegan. All rights reserved.</p>
+    <p>&copy; 2025 map[disableimageoptimization:false disableimageoptimizationmd:false disabletextinheader:false email:rian.finnegan@orkestra.energy fingerprintalgorithm:sha512 forgejodefaultserver:https://v11.next.forgejo.org giteadefaultserver:https://git.fsfe.org image:avatars/Rian_lookingaway2020.png name:Rian Finnegan]. All rights reserved.</p>
   </footer>
 </body>
 </html>
