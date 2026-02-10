@@ -67,3 +67,10 @@ enableEmoji = true
       name = 'fragmentrefs'
       type = 'fragments'
       weight = 10
+
+# AI Chatbot Configuration
+[params.chatbot]
+enabled = true
+baseUrl = "https://ai-chatbot.flanagan89.workers.dev"
+title = "AI Assistant"
+greeting = "🤖 Ready for some chaotic tech talk?"
