@@ -1,7 +1,8 @@
 ---
 title: "Drake & Trappist-1"
 date: 2017-08-21T10:23:43Z
-tags: ["drake-and-trappist1"]
+tags: ["space", "science", "astronomy", "drake-equation"]
+categories: ["science"]
 ---
 
 [NASA's latest announcement](https://www.nasa.gov/press-release/nasa-telescope-reveals-largest-batch-of-earth-size-habitable-zone-planets-around) is important because of Drake.

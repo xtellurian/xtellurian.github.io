@@ -1,7 +1,8 @@
 ---
 title: "Digital Assistants & Azure Event Grid"
 date: 2018-03-04T16:13:00Z
-tags: ["digital-assistants-azure-eventgrid"]
+tags: ["azure", "event-grid", "bots", "cloud"]
+categories: ["technical"]
 ---
 
 ![Robot Assistant Cartoon](/images/robot.jpg)

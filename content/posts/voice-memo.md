@@ -2,6 +2,7 @@
 title: "Speaking My Way to Writing: An Experiment in Voice-First Content Creation"
 date: 2025-08-24T20:00:00Z
 tags: ["writing", "productivity", "voice-to-text", "content-creation", "llm"]
+categories: ["productivity"]
 ---
 
 I'm experimenting with a new method of creating written content. It's not revolutionary, but it's new to me: walking, talking to myself, and then using technology to transform those spoken thoughts into polished prose. Credit where it's due - Michael Jurasovic suggested this approach ages ago, but I only recently gave it a proper try.

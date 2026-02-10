@@ -1,7 +1,8 @@
 ---
 title: "Smarter NPCs with Natural Language Processing"
 date: 2018-05-23T13:53:49Z
-tags: ["smarter-npcs-with-natural-language-processing"]
+tags: ["gaming", "nlp", "ai", "npcs"]
+categories: ["technical"]
 ---
 
 ## What happened in Pokemon?

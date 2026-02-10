@@ -1,7 +1,8 @@
 ---
 title: "The Battle for Eurasia"
 date: 2014-05-23T20:00:00Z
-tags: ["the-battle-for-eurasia"]
+tags: ["geopolitics", "analysis", "international-relations"]
+categories: ["politics"]
 ---
 
 The pieces are moving; the battle for Eurasia has begun.

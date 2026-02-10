@@ -2,6 +2,7 @@
 title: "The Future of AI-Enabled Products"
 date: 2025-05-11T11:11:00Z
 tags: ["ai", "llm", "product-design", "user-experience", "technology"]
+categories: ["technology"]
 ---
 
 ChatGPT has [400 million weekly active users](https://www.cnbc.com/2025/02/20/openai-tops-400-million-users-despite-deepseeks-emergence.html), up from [100 million in November 2023](https://www.theverge.com/2023/11/6/23948386/chatgpt-active-user-count-openai-developer-conference). This isn't just growth—it's a fundamental shift in how people expect to interact with software. We're witnessing the rise of the chat interface as the primary way users communicate with computers, and it's reshaping product development entirely.

@@ -2,6 +2,7 @@
 title: "Reflections on a startup"
 date: 2022-07-19T12:01:00Z
 tags: ["startups", "entrepreneurship", "cherry", "reflection"]
+categories: ["startups"]
 ---
 
 For the last 18 months I've been building a startup, but we've decided to close it down. It was a tough decision, but the right one. Even though it failed, I have only minor regrets. The company failed to grow, but I experienced personal growth that would be unachievable in a regular job. Would I do it again? Yes.

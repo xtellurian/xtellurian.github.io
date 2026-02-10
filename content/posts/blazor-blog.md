@@ -2,6 +2,7 @@
 title: "Blogging with Blazor and Cloudflare"
 date: 2023-12-13T11:11:00Z
 tags: ["blazor", "cloudflare", "web-development", "dotnet"]
+categories: ["technical"]
 ---
 
 [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) is a dotnet/ C# based web app framework. It promises that you'll be able to **"build full stack web apps without writing a line of JavaScript."** At time of writing, this post is hosted on a Blazor frontend application. While building the blogging engine, I discovered that Blazor is cool, it runs on [Cloudflare Pages](https://pages.cloudflare.com), it's a good dev experience, but it's no substitute for JavaScript (yet).

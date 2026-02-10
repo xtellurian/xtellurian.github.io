@@ -1,7 +1,8 @@
 ---
 title: "Identity is the only form of politics"
 date: 2015-05-23T10:23:43Z
-tags: ["identity-politics"]
+tags: ["politics", "identity", "philosophy", "society"]
+categories: ["politics"]
 ---
 
 Identity is the way we transpose the subjective into the objective. It is the fixed point by which we pivot between our personal universe and the social world. Identity is the only way to politics, though "Identity Politics" has been denounced by many as too post-modern, or a cause of modern political apathy, or a conscious plan by the elite to divide the working class. The denial of identity as fundamental to political or human experience is drawn from the hubris of infallibility.

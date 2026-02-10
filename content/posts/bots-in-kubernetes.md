@@ -1,7 +1,8 @@
 ---
 title: "Bots in Kubernetes"
 date: 2018-08-02T11:11:00Z
-tags: ["bots-in-kubernetes"]
+tags: ["kubernetes", "bots", "devops", "containers"]
+categories: ["technical"]
 ---
 
 # Bots in Kube
