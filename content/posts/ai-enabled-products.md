@@ -1,6 +1,6 @@
 ---
 title: "The Future of AI-Enabled Products"
-date: 2025-105-11T11:11:00Z
+date: 2025-05-11T11:11:00Z
 tags: ["ai", "llm", "product-design", "user-experience", "technology"]
 ---
 

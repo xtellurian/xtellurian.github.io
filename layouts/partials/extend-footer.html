@@ -1,0 +1,11 @@
+{{/* AI Chatbot Widget Integration */}}
+{{ if .Site.Params.chatbot.enabled }}
+<script>
+  window.CHATBOT_CONFIG = {
+    baseUrl: '{{ .Site.Params.chatbot.baseUrl }}',
+    title: '{{ .Site.Params.chatbot.title }}',
+    greeting: '{{ .Site.Params.chatbot.greeting }}'
+  };
+</script>
+<script src="{{ .Site.Params.chatbot.baseUrl }}/widget.js" async></script>
+{{ end }}
