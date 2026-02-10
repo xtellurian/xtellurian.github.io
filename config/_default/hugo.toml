@@ -72,5 +72,5 @@ enableEmoji = true
 [params.chatbot]
 enabled = true
 baseUrl = "https://ai-chatbot.flanagan89.workers.dev"
-title = "AI Assistant"
-greeting = "🤖 Ready for some chaotic tech talk?"
+title = "Ribot"
+greeting = "👋 What's on your mind?"
