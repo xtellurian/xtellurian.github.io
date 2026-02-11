@@ -1,7 +1,7 @@
 node_modules/
 _site/
 .wrangler/
-public/
+/public/
 
 # Combined posts file for LLM context
 all-posts-combined.md
